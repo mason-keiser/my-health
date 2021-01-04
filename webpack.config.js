@@ -39,4 +39,4 @@ module.exports = {
     stats: 'minimal',
     watchContentBase: true
   }
-};ß
+};
