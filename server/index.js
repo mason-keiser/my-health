@@ -36,7 +36,7 @@ app.post('/api/signUp/', (req, res, next) => {
   VALUES                  ($1, $2, $3)
   RETURNING *;
   `;
-  const params = [req.body.firstname, req.body.lastname, req.body.email, req.body.password];
+  const params = [req.body.username, req.body.email, req.body.password];
   db.query(sql, params)
     .then(result => {
       const row = result.rows[0];

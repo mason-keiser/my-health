@@ -100,6 +100,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 
 COPY public.users (user_id, username, email, password) FROM stdin;
 1	Mason	masonksr5@gmail.com	1234
+2	Jimmy	yungjim@aol.com	imjim
+3	Kyle	kyle@aol.com	imkyle
 \.
 
 
@@ -107,7 +109,7 @@ COPY public.users (user_id, username, email, password) FROM stdin;
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_user_id_seq', 1, true);
+SELECT pg_catalog.setval('public.users_user_id_seq', 3, true);
 
 
 --
