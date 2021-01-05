@@ -22,21 +22,18 @@ app.get('/api/health-check', (req, res, next) => {
 //  SIGN UP API POST REQUEST THAT ADDS USER INFO TO DB
 
 app.post('/api/signUp/', (req, res, next) => {
-  if (!req.body.firstname) {
-    return next(new ClientError('Missing required firstname field', 400));
-  }
-  if (!req.body.lastname) {
-    return next(new ClientError('Missing required lastname field', 400));
+  if (!req.body.username) {
+    return next(new ClientError('Missing required username field', 400));
   }
   if (!req.body.email) {
-    return next(new ClientError('Missing required user_email field', 400));
+    return next(new ClientError('Missing required email field', 400));
   }
   if (!req.body.password) {
-    return next(new ClientError('Missing required user_password field', 400));
+    return next(new ClientError('Missing required password field', 400));
   }
   const sql = `
-  INSERT INTO "users" ("firstname", "lastname", "email", "password")
-  VALUES                  ($1, $2, $3, $4)
+  INSERT INTO "users" ("username", "email", "password")
+  VALUES                  ($1, $2, $3)
   RETURNING *;
   `;
   const params = [req.body.firstname, req.body.lastname, req.body.email, req.body.password];
