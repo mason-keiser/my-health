@@ -57,9 +57,46 @@ form {
     padding: 10px;
     height: 6vh;
     font-size: larger;
+    font-family:'DM Serif Text', serif;
 }
 
-.loginButton {
+.loginButton > button {
     text-align: center;
     margin-top: 5rem;
+    height: 6vh;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #F36B6B;
+    color: white;
+    border: 1px solid white;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+}
+
+.needacc{
+    width: 70%;
+    text-align: center;
+    padding-top: 50px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.needacc:hover {
+    border-bottom: 1px solid black;
+}
+
+@media screen and (min-width: 400px) {
+    .needacc {
+        width: 30%;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 450px) {
+    .loginButton > button {
+        height: 10vh
+    }
+
+    .form-group > input {
+        height: 10vh;
+    }
 }
