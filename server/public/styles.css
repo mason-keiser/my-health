@@ -33,5 +33,33 @@ body {
 
 .title2 {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 70px;
+}
+
+form {
+   display: block;
+   text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form-group >input {
+    padding:10px;
+    border-radius:5px;
+    width: 80%;
+    margin: 1rem;
+    padding: 10px;
+    height: 6vh;
+    font-size: larger;
+}
+
+.loginButton {
+    text-align: center;
+    margin-top: 5rem;
 }

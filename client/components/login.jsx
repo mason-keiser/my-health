@@ -37,12 +37,12 @@ export default class Login extends React.Component {
                 <h2 className='title2'> Login </h2>
                 <form onSubmit={() => this.handleSubmit(this.props.login)}>
                     <div className='form-group'>
-                        <input type="text" name='email' className="" id='email' onChange={this.handleChange}/>
+                        <input type="text" placeholder='Email' name='email' className="" id='email' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group'>
-                        <input type="text" name='password' className="" id='password' onChange={this.handleChange}/>
+                        <input type="text" placeholder='Password' name='password' className="" id='password' onChange={this.handleChange}/>
                     </div>
-                    <div className='form-group'>
+                    <div className='loginButton'>
                          <button type='submit' className='btn mt-2'>Login</button>
                     </div>
                 </form>
