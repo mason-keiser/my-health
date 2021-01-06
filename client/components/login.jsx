@@ -31,6 +31,10 @@ export default class Login extends React.Component {
         return(
             <div>
                 <h1 className="title">My Health ♡</h1>
+                <h2 className='title2'> Login </h2>
+                <form>
+
+                </form>
             </div>
         )
     }
