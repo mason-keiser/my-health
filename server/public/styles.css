@@ -71,6 +71,13 @@ form {
     border: 1px solid white;
     font-size: larger;
     font-family:'DM Serif Text', serif;
+    cursor: pointer;
+}
+
+.loginButton > button:hover {
+    background-color: white;
+    color: #F36B6B;
+    border: 1px solid #F36B6B
 }
 
 .needacc{
