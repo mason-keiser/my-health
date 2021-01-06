@@ -50,6 +50,7 @@ export default class App extends React.Component {
         if (response.status === 400 || response.status === 404) {
           console.log('incorrect user_email / user_password combo');
         } else {
+          console.log(response)
           return response.json();
         }
       })
@@ -93,7 +94,7 @@ export default class App extends React.Component {
     const s = (this.state.view.name === 'init')
       ? <Initial setView={this.setView}/>
       : (this.state.view.name === 'login')
-        ? <Login/>
+        ? <Login setView = {this.setView} login={this.login}/>
         : null
 
     return (

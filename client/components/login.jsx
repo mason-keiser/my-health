@@ -7,6 +7,8 @@ export default class Login extends React.Component {
             email: '',
             password: ''
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(callback) {
@@ -15,6 +17,7 @@ export default class Login extends React.Component {
           email: this.state.email.toLowerCase(),
           password: this.state.password
         };
+        console.log('works')
         callback(obj)
       }
     
@@ -32,8 +35,16 @@ export default class Login extends React.Component {
             <div>
                 <h1 className="title">My Health ♡</h1>
                 <h2 className='title2'> Login </h2>
-                <form>
-
+                <form onSubmit={() => this.handleSubmit(this.props.login)}>
+                    <div className='form-group'>
+                        <input type="text" name='email' className="" id='email' onChange={this.handleChange}/>
+                    </div>
+                    <div className='form-group'>
+                        <input type="text" name='password' className="" id='password' onChange={this.handleChange}/>
+                    </div>
+                    <div className='form-group'>
+                         <button type='submit' className='btn mt-2'>Login</button>
+                    </div>
                 </form>
             </div>
         )
