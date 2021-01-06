@@ -1,0 +1,18 @@
+body {
+    margin: 0 0 0 0;
+    font-family: 'DM Serif Text', serif;;
+}
+  
+* {
+    box-sizing: border-box;
+    animation: fade-in 1s;
+}
+
+.initContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: larger;
+}
