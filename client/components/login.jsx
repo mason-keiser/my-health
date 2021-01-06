@@ -29,7 +29,9 @@ export default class Login extends React.Component {
 
     render() {
         return(
-            null
+            <div>
+                <h1 className="title">My Health ♡</h1>
+            </div>
         )
     }
 } 

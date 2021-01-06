@@ -16,3 +16,17 @@ body {
     height: 100vh;
     font-size: larger;
 }
+
+.initContainer > h5 {
+    cursor: pointer;
+}
+
+.initContainer > h5:hover {
+    border-bottom: 1px solid black;
+}
+
+
+.title {
+    text-align: center;
+    vertical-align: top;
+}
