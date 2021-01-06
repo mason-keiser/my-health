@@ -60,9 +60,29 @@ form {
     font-family:'DM Serif Text', serif;
 }
 
+.form-group > input:hover {
+    width: 85%;
+    transition: ease;
+}
+
 .loginButton > button {
     text-align: center;
     margin-top: 5rem;
+    height: 6vh;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #F36B6B;
+    color: white;
+    border: 1px solid white;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    cursor: pointer;
+}
+
+
+.signupButton > button {
+    text-align: center;
+    margin-top: 2rem;
     height: 6vh;
     width: 50%;
     border-radius: 5px;
@@ -80,6 +100,12 @@ form {
     border: 1px solid #F36B6B
 }
 
+.signupButton > button:hover {
+    background-color: white;
+    color: #F36B6B;
+    border: 1px solid #F36B6B
+}
+
 .needacc{
     width: 70%;
     text-align: center;
@@ -92,6 +118,13 @@ form {
     border-bottom: 1px solid black;
 }
 
+.statement {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
 @media screen and (min-width: 400px) {
     .needacc {
         width: 30%;
@@ -100,6 +133,10 @@ form {
 
 @media screen and (orientation: landscape) and (max-height: 450px) {
     .loginButton > button {
+        height: 10vh
+    }
+
+    .signupButton > button {
         height: 10vh
     }
 
