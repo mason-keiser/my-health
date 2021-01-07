@@ -1,14 +1,34 @@
 import React from 'react';
 
+const colorObj = {
+    1: '#08DB37', 2: '#98F877', 3: '#DBFF00', 4: '#F8FD00',
+    5: '#FFAD0F', 6: '#EE731A', 7: '#EC3E07', 8: '#FF0000',
+    9: '#08DB37', 10: '#98F877', 11: '#DBFF00', 12: '#F8FD00',
+    13: '#FFAD0F', 14: '#EE731A', 15: '#EC3E07', 16: '#FF0000'
+}
+
 export default class Pain_Note extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            pain_level: this.props.view.params.pain_level,
+            mood_level: this.props.view.params.mood_level
+        }
 
     }
 
+    componentDidMount() {
+        if (this.state.pain_level !== null) {
+            let pai = this.state.pain_level + 'cat';
+            let moo = this.state.mood_level + 'cat';
+            let pain_btn = document.getElementById(pai)
+            let mood_btn = document.getElementById(moo)
+                pain_btn.style.backgroundColor = colorObj[this.state.pain_level]
+                mood_btn.style.backgroundColor = colorObj[this.state.mood_level]
+        }
+    }
+
     render() {
-        const pain_btn = document.getElementById(this.props.view.params.pain_level)
-        console.log(pain_btn)
         return(
             <div>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
@@ -19,25 +39,25 @@ export default class Pain_Note extends React.Component {
                 <h2 className="date2 m-4">{this.props.view.params.date_id}</h2>
                 <h2 className='title22 mt-2'>Pain:</h2>
                 <div className='painButtons'>
-                    <button type='radio' id='1' className='btnNotInUse' onClick={this.handleChange}></button>
-                    <button type='radio' id='2' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='3' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='4' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='5' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='6' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='7' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='8' className='btnNotInUse' onClick={this.handleChange}></button>    
+                    <button type='radio' id='1cat' className='btnNotInUse' onClick={this.handleChange}></button>
+                    <button type='radio' id='2cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='3cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='4cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='5cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='6cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='7cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='8cat' className='btnNotInUse' onClick={this.handleChange}></button>    
                 </div>
                 <h2 className='title22'>Mood:</h2>
                 <div className='painButtons mb-5'>
-                    <button type='radio' id='9' className='btnNotInUse' onClick={this.handleChange}></button>
-                    <button type='radio' id='10' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='11' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='12' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='13' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='14' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='15' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='16' className='btnNotInUse' onClick={this.handleChange}></button>    
+                    <button type='radio' id='9cat' className='btnNotInUse' onClick={this.handleChange}></button>
+                    <button type='radio' id='10cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='11cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='12cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='13cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='14cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='15cat' className='btnNotInUse' onClick={this.handleChange}></button>  
+                    <button type='radio' id='16cat' className='btnNotInUse' onClick={this.handleChange}></button>    
                 </div>
                 <div className='painNote'>
                     <h4 className='title5'>My Note:</h4>
