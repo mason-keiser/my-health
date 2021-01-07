@@ -17,7 +17,6 @@ export default class Login extends React.Component {
           email: this.state.email.toLowerCase(),
           password: this.state.password
         };
-        console.log('works')
         callback(obj)
       }
     

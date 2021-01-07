@@ -31,13 +31,12 @@ export default class Pain extends React.Component {
 
     handleSubmit(callback) {
         const obj = {
-            userId: this.state.userid,
-            date: this.state.date,
-            painLevel: this.state.painLevel,
-            moodLevel: this.state.moodLevel,
-            painNote: this.state.painNote
+            user_id: this.state.userid,
+            date_id: this.state.date,
+            pain_level: this.state.painLevel,
+            mood_level: this.state.moodLevel,
+            pain_note: this.state.painNote
         }
-        console.log(this.state)
         callback(obj)
     }
 
@@ -96,7 +95,7 @@ export default class Pain extends React.Component {
                     <h4 className='title5'>Add Note:</h4>
                     <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleNote}/>
                     <div className='painButton'>
-                        <button type='submit' className='btn' onClick={this.handleSubmit}>Submit</button>
+                        <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postPain)}>Submit</button>
                     </div>
                 </div>
             </div>

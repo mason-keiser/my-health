@@ -18,12 +18,15 @@ export default class App extends React.Component {
       },
       user: {
         firstname: '',
-        userId: null
+        user_id: null
       },
+      pain_notes: null
   }
   this.setView = this.setView.bind(this);
   this.login = this.login.bind(this);
   this.signUp = this.signUp.bind(this);
+  this.postPain = this.postPain.bind(this);
+  this.getPainNotes = this.getPainNotes.bind(this);
 }
 
   componentDidMount() {
@@ -32,6 +35,12 @@ export default class App extends React.Component {
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
+  }
+  
+  componentDidUpdate() {
+    if (this.state.user.userId !== null) {
+      this.getPainNotes()
+    }
   }
 
   setView(names, params) {
@@ -54,14 +63,13 @@ export default class App extends React.Component {
         if (response.status === 400 || response.status === 404) {
           console.log('incorrect user_email / user_password combo');
         } else {
-          console.log(response)
           return response.json();
         }
       })
       .then(result => {
         this.setState({ user: {
           firstname: result[0].username,
-          userId: result[0].user_id
+          user_id: result[0].user_id
         }})
       })
       this.setView('main', {})
@@ -90,10 +98,47 @@ export default class App extends React.Component {
       .then(result => {
         this.setState({ user: {
           firstname: result.username,
-          userId: result.user_id
+          user_id: result.user_id
         }})
       })
     this.setView('welcome', {})
+  }
+
+  postPain(noteInfo) {
+    fetch('/api/postpain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(noteInfo)
+    })
+    .then(response => {
+      if (response.status === 400 || response.status === 404) {
+        console.log('failed post');
+      } else {
+        return response.json();
+      }
+    })
+  }
+
+  getPainNotes(){
+    const id = Number(this.state.user.user_id)
+    if (this.state.user.user_id !== null) {
+      fetch(`/api/painnotes/${id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'}
+      })
+        .then(response => {
+          if (response.status === 400 || response.status === 404) {
+          console.log("couldn't fetch notes");
+          } else {
+            return response.json();
+          }
+        })
+      .then(result => {
+        this.setState({
+          pain_notes: result
+        })
+      })
+    }
   }
 
   render() {
@@ -108,7 +153,7 @@ export default class App extends React.Component {
             : (this.state.view.name === 'main')
               ? <Main setView={this.setView} user={this.state.user}/>
               : (this.state.view.name === 'pain')
-                ? <Pain setView={this.setView} user={this.state.user}/>
+                ? <Pain setView={this.setView} user={this.state.user} postPain={this.postPain}/>
                 : null
 
     return (
