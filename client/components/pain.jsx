@@ -27,8 +27,6 @@ export default class Pain extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // this handle submit function has no cb fx attached && no table in db
-
     handleSubmit(callback) {
         const obj = {
             user_id: this.state.userid,

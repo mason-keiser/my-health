@@ -20,7 +20,7 @@ export default class App extends React.Component {
         firstname: '',
         user_id: null
       },
-      pain_notes: null
+      pain_notes: 0
   }
   this.setView = this.setView.bind(this);
   this.login = this.login.bind(this);
@@ -38,7 +38,7 @@ export default class App extends React.Component {
   }
   
   componentDidUpdate() {
-    if (this.state.user.userId !== null) {
+    if (this.state.pain_notes !== undefined) {
       this.getPainNotes()
     }
   }
@@ -61,7 +61,9 @@ export default class App extends React.Component {
     })
       .then(response => {
         if (response.status === 400 || response.status === 404) {
-          console.log('incorrect user_email / user_password combo');
+          this.setState({
+            pain_notes: null
+          })
         } else {
           return response.json();
         }
@@ -129,6 +131,7 @@ export default class App extends React.Component {
         .then(response => {
           if (response.status === 400 || response.status === 404) {
           console.log("couldn't fetch notes");
+            return
           } else {
             return response.json();
           }
@@ -151,7 +154,7 @@ export default class App extends React.Component {
           : (this.state.view.name === 'welcome')
             ? <Welcome setView = {this.setView}/>
             : (this.state.view.name === 'main')
-              ? <Main setView={this.setView} user={this.state.user}/>
+              ? <Main setView={this.setView} user={this.state.user} getPainNotes ={this.getPainNotes}/>
               : (this.state.view.name === 'pain')
                 ? <Pain setView={this.setView} user={this.state.user} postPain={this.postPain}/>
                 : null
