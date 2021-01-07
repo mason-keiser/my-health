@@ -17,7 +17,7 @@ export default class Main extends React.Component {
         return (
             <div>
                 <h1 className="title" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
-                <h2 className="date">{dateBuilder(new Date())}</h2>
+                <h2 className="date m-5">{dateBuilder(new Date())}</h2>
                 <h2 className="welcomb">Welcome back, {this.props.user.firstname}</h2>
                 <div className="mainB">
                     <button onClick={() => this.props.setView('pain',{})} type='submit' className='btn'>Pain Level</button>

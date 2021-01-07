@@ -60,12 +60,12 @@ export default class Pain extends React.Component {
         return (
             <div>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
-                <div className="backbuttons">
+                <div className="backbuttons m-3">
                     <h4 onClick={() => this.props.setView('main',{})}>Home</h4>
                     <h4 onClick={() => this.props.setView('pain_history',{})}>History</h4>
                 </div>
-                <h2 className="date2">{dateBuilder(new Date())}</h2>
-                <h2 className='title22'>Pain Today:</h2>
+                <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
+                <h2 className='title22 mt-2'>Pain Today:</h2>
                 <div className='painButtons'>
                     <button type='radio' id='1' className='btn1' onClick={this.handleChange}></button>
                     <button type='radio' id='2' className='btn2' onClick={this.handleChange}></button>  
@@ -77,7 +77,7 @@ export default class Pain extends React.Component {
                     <button type='radio' id='8' className='btn8' onClick={this.handleChange}></button>    
                 </div>
                 <h2 className='title22'>Mood Today:</h2>
-                <div className='painButtons'>
+                <div className='painButtons mb-5'>
                     <button type='radio' id='9' className='btn9' onClick={this.handleChange}></button>
                     <button type='radio' id='10' className='btn10' onClick={this.handleChange}></button>  
                     <button type='radio' id='11' className='btn11' onClick={this.handleChange}></button>  

@@ -1,6 +1,6 @@
 body {
     margin: 0 0 0 0;
-    font-family: 'DM Serif Text', serif;;
+    font-family: 'DM Serif Text', serif;
 }
   
 * {
@@ -15,6 +15,7 @@ body {
     align-items: center;
     height: 100vh;
     font-size: larger;
+    font-family: 'DM Serif Text', serif;
 }
 
 .initContainer > h5 {
@@ -31,6 +32,7 @@ body {
     font-size: 48px;
     cursor: pointer;
     margin-bottom: 0;
+    font-family: 'DM Serif Text', serif;
 }
 
 .title {
@@ -38,26 +40,30 @@ body {
     vertical-align: top;
     font-size: 48px;
     cursor: pointer;
+    font-family: 'DM Serif Text', serif;
 }
 
 .title2 {
     text-align: center;
     padding-top: 70px;
+    font-family: 'DM Serif Text', serif;
 }
 
 .title22 {
     text-align: center;
     padding-top: 10px;
+    font-family: 'DM Serif Text', serif;
 }
 
 .title3 {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
+    font-family: 'DM Serif Text', serif;
 }
 
 .title4 {
-   
+    font-family: 'DM Serif Text', serif;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -67,6 +73,7 @@ body {
     text-align: left;
     padding-left: 40px;
     padding-right: 20px;
+    font-family: 'DM Serif Text', serif;
 }
 
 .date {
@@ -74,6 +81,7 @@ body {
     vertical-align: top;
     padding-top: 20px;
     font-size: 36px;
+    font-family: 'DM Serif Text', serif;
 }
 
 .date2 {
@@ -81,6 +89,7 @@ body {
     vertical-align: top;
     margin: 0;
     font-size: 36px;
+    font-family: 'DM Serif Text', serif;
 }
 
 .welcomb {
@@ -91,7 +100,8 @@ body {
 }
 
 .wel {
-    display:inline-block
+    display:inline-block;
+    font-family: 'DM Serif Text', serif;
 }
 
 .mainB {
@@ -137,6 +147,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-family: 'DM Serif Text', serif;
 }
 
 .painButton {
@@ -229,6 +240,7 @@ form {
     align-items: center;
     justify-content: space-evenly;
     margin: 0;
+    font-family: 'DM Serif Text', serif;
 }
 
 .backbuttons > h4 {
@@ -296,6 +308,7 @@ form {
     padding-top: 50px;
     cursor: pointer;
     margin: auto;
+    font-family: 'DM Serif Text', serif;
 }
 
 .needacc:hover {
@@ -307,6 +320,7 @@ form {
     padding-right: 20px;
     text-align: center;
     margin-top: 50px;
+    font-family: 'DM Serif Text', serif;
 }
 
 @media screen and (min-width: 430px) {
