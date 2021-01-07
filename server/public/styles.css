@@ -357,11 +357,11 @@ form {
 
 @media screen and (orientation: landscape) and (max-height: 450px) {
     .loginButton > button {
-        height: 10vh
+        height: 15vh
     }
 
     .signupButton > button {
-        height: 10vh
+        height: 15vh
     }
 
     .form-group > input {
@@ -372,13 +372,16 @@ form {
     }
 
     .painButton > button {
-        height: 10vh;
+        height: 15vh;
     }
 
     .title5 {
         margin-left: 3rem;
     }
     .startButton > button {
+        height: 15vh;
+    }
+    .mainB > button {
         height: 15vh;
     }
 }
