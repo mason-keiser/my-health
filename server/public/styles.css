@@ -136,7 +136,7 @@ body {
 .painButtons > button {
     margin-left: 5px;
     margin-right: 5px;
-    background-color: red;
+   
     border-radius: 50%;
     height: 30px;
     width: 30px;
@@ -269,6 +269,10 @@ form {
     border: 1px solid #F36B6B
 }
 
+.painButtons > button:hover {
+    cursor: pointer;
+}
+
 .signupButton > button:hover {
     background-color: white;
     color: #F36B6B;
@@ -315,4 +319,29 @@ form {
     .painNote > input {
         height: 20vh;
     }
+}
+
+.btn1{
+    background-color: #08DB37;
+}
+.btn2{
+    background-color: #98F877;
+}
+.btn3{
+    background-color: #DBFF00;
+}
+.btn4{
+    background-color: #F8FD00;
+}
+.btn5{
+    background-color: #FFAD0F;
+}
+.btn6{
+    background-color: #EE731A;
+}
+.btn7{
+    background-color: #EC3E07;
+}
+.btn8{
+    background-color: #FF0000;
 }
