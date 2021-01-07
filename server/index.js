@@ -74,7 +74,7 @@ app.get('/api/login/:email/:password', (req, res, next) => {
 app.get('/api/painnotes/:user_id', (req, res, next) => {
   const user_id = req.params.user_id;
   const sql = `
-  SELECT * FROM "painnotes"
+  SELECT * FROM "pain_notes"
   WHERE "user_id" = $1
   `
   const params = [req.params.user_id]
@@ -90,6 +90,12 @@ app.get('/api/painnotes/:user_id', (req, res, next) => {
       console.error(err);
       res.status(500).json({ error: 'An unexpected error occurred.' });
     });
+})
+
+// POST INTO NOTES DB 
+
+app.post('/api/postpain', (req, res, next) => {
+
 })
 
 app.use('/api', (req, res, next) => {
