@@ -20,7 +20,8 @@ export default class Main extends React.Component {
                 <h2 className="date m-5">{dateBuilder(new Date())}</h2>
                 <h2 className="welcomb">Welcome back, {this.props.user.firstname}</h2>
                 <div className="mainB">
-                    <button onClick={() => this.props.setView('pain',{})} type='submit' className='btn'>Pain Level</button>
+                    <button onClick={() => this.props.setView('pain',{})} type='submit' className='btn'>Pain Today</button>
+                    <button onClick={() => this.props.setView('pain_history',{})} type='submit' className='btn'>Pain History</button>
                     <button type='submit' className='btn'>Journal</button>  
                 </div>  
             </div>
