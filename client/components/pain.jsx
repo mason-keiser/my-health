@@ -22,7 +22,8 @@ export default class Pain extends React.Component {
             moodLevel: null,
             painNote: ''
         }
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.handleNote = this.handleNote.bind(this);
     }
 
     handleChange(event) {
@@ -36,8 +37,13 @@ export default class Pain extends React.Component {
                 painLevel: event.target.id
             })
         }
-       
-        console.log(id)
+    
+    }
+
+    handleNote(event) {
+        if (event.target.value !== '') {
+            this.setState({ painNote: event.target.value });
+        } 
     }
 
     render() {
@@ -49,7 +55,7 @@ export default class Pain extends React.Component {
                     <h4>History</h4>
                 </div>
                 <h2 className="date2">{dateBuilder(new Date())}</h2>
-                <h2 className='title22'>Pain Today</h2>
+                <h2 className='title22'>Pain Today:</h2>
                 <div className='painButtons'>
                     <button type='radio' id='1' className='btn1' onClick={this.handleChange}></button>
                     <button type='radio' id='2' className='btn2' onClick={this.handleChange}></button>  
@@ -60,22 +66,22 @@ export default class Pain extends React.Component {
                     <button type='radio' id='7' className='btn7' onClick={this.handleChange}></button>  
                     <button type='radio' id='8' className='btn8' onClick={this.handleChange}></button>    
                 </div>
-                <h2 className='title22'>Mood Today</h2>
+                <h2 className='title22'>Mood Today:</h2>
                 <div className='painButtons'>
-                    <button type='radio' id='9' className='btn' onClick={this.handleChange}></button>
-                    <button type='radio' id='10' className='btn' onClick={this.handleChange}></button>  
-                    <button type='radio' id='11' className='btn' onClick={this.handleChange}></button>  
-                    <button type='radio' id='12' className='btn' onClick={this.handleChange}></button>  
-                    <button type='radio' id='13' className='btn' onClick={this.handleChange}></button>  
-                    <button type='radio' id='14' className='btn' onClick={this.handleChange}></button>  
-                    <button type='radio' id='15' className='btn' onClick={this.handleChange}></button>  
-                    <button type='radio' id='16' className='btn' onClick={this.handleChange}></button>    
+                    <button type='radio' id='9' className='btn9' onClick={this.handleChange}></button>
+                    <button type='radio' id='10' className='btn10' onClick={this.handleChange}></button>  
+                    <button type='radio' id='11' className='btn11' onClick={this.handleChange}></button>  
+                    <button type='radio' id='12' className='btn12' onClick={this.handleChange}></button>  
+                    <button type='radio' id='13' className='btn13' onClick={this.handleChange}></button>  
+                    <button type='radio' id='14' className='btn14' onClick={this.handleChange}></button>  
+                    <button type='radio' id='15' className='btn15' onClick={this.handleChange}></button>  
+                    <button type='radio' id='16' className='btn16' onClick={this.handleChange}></button>    
                 </div>
                 <div className='painNote'>
-                    <h4 className='title4'>Add Note:</h4>
-                    <textarea placeholder='Type Here' type="text"/>
+                    <h4 className='title5'>Add Note:</h4>
+                    <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleNote}/>
                     <div className='painButton'>
-                        <button type='submit' className='btn'>Start</button>
+                        <button type='submit' className='btn'>Submit</button>
                     </div>
                 </div>
             </div>
