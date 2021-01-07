@@ -24,6 +24,21 @@ export default class Pain extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleNote = this.handleNote.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    // this handle submit function has no cb fx attached && no table in db
+
+    handleSubmit(callback) {
+        const obj = {
+            userId: this.state.userid,
+            date: this.state.date,
+            painLevel: this.state.painLevel,
+            moodLevel: this.state.moodLevel,
+            painNote: this.state.painNote
+        }
+        console.log(this.state)
+        callback(obj)
     }
 
     handleChange(event) {
@@ -37,7 +52,7 @@ export default class Pain extends React.Component {
                 painLevel: event.target.id
             })
         }
-    
+        
     }
 
     handleNote(event) {
@@ -81,7 +96,7 @@ export default class Pain extends React.Component {
                     <h4 className='title5'>Add Note:</h4>
                     <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleNote}/>
                     <div className='painButton'>
-                        <button type='submit' className='btn'>Submit</button>
+                        <button type='submit' className='btn' onClick={this.handleSubmit}>Submit</button>
                     </div>
                 </div>
             </div>
