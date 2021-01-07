@@ -13,7 +13,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'pain',
+        name: 'init',
         params: {}
       },
       user: {

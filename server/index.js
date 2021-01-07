@@ -69,6 +69,29 @@ app.get('/api/login/:email/:password', (req, res, next) => {
     });
 });
 
+// SEARCH DATABASE FOR ALL PAIN NOTES BY USERID
+
+app.get('/api/painnotes/:user_id', (req, res, next) => {
+  const user_id = req.params.user_id;
+  const sql = `
+  SELECT * FROM "painnotes"
+  WHERE "user_id" = $1
+  `
+  const params = [req.params.user_id]
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        return res.status(400).json({ message: `No user notes are attached to acct # : ${user_id}` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
