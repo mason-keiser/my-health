@@ -16,14 +16,14 @@ export default class Pain_Card extends React.Component {
     render() {
         return(
         <div>
-            <div className="card">
+            <div className="card mt-4 mb-4 border-0">
                 <div className="card-body">
-                    <h2 className="card-title">{this.props.notes.date_id}</h2>
-                    <div className="painButtons">
+                    <h1 className="card-title">{this.props.notes.date_id}</h1>
+                    <div className="painhisButtons mb-5 ">
                         <button type='radio' style={{backgroundColor: `${colorObj[this.props.notes.pain_level]}`}} className={this.props.notes.pain_level} id='painB'></button>
                         <button type='radio' style={{backgroundColor: `${colorObj[this.props.notes.mood_level]}`}} className={this.props.notes.mood_level} id='moodB'></button>  
                     </div>
-                    <h3>{this.props.notes.pain_note}</h3>
+                    <h3 className='ml-3 pl-3'>{this.props.notes.pain_note}</h3>
                 </div>
             </div>
         </div>
