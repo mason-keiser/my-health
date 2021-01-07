@@ -3,6 +3,7 @@ import Initial from './initial';
 import Login from './login';
 import Signup from './signup';
 import Welcome from './welcome';
+import Main from './main';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,11 @@ export default class App extends React.Component {
       view: {
         name: 'init',
         params: {}
-      }
+      },
+      user: {
+        firstname: '',
+        userId: null
+      },
   }
   this.setView = this.setView.bind(this);
   this.login = this.login.bind(this);
@@ -33,10 +38,6 @@ export default class App extends React.Component {
       view: {
         name: names,
         params: params
-      },
-      user: {
-        firstname: '',
-        userId: null
       },
     });
   }
@@ -62,6 +63,7 @@ export default class App extends React.Component {
           userId: result[0].user_id
         }})
       })
+      this.setView('main', {})
   }
 
   signUp(signupInfo) {
@@ -102,7 +104,9 @@ export default class App extends React.Component {
           ? <Signup setView={this.setView} signUp={this.signUp}/>
           : (this.state.view.name === 'welcome')
             ? <Welcome setView = {this.setView}/>
-            : null
+            : (this.state.view.name === 'main')
+              ? <Main setView={this.setView} user={this.state.user}/>
+              : null
 
     return (
       <div>

@@ -29,6 +29,7 @@ body {
 .title {
     text-align: center;
     vertical-align: top;
+    font-size: 48px;
 }
 
 .title2 {
@@ -54,9 +55,48 @@ body {
   
 }
 
-.wel {
-    display: block;
+.date {
     text-align: center;
+    vertical-align: top;
+    padding-top: 20px;
+    font-size: 36px;
+}
+
+.welcomb {
+    font-size: 36px;
+    font-family:'DM Serif Text', serif;
+    padding: 10px;
+    text-align: center;
+}
+
+.wel {
+    display:inline-block
+}
+
+.mainB {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainB > button {
+    margin-top: 5rem;
+    height: 6vh;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #F36B6B;
+    color: white;
+    border: 1px solid white;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    cursor: pointer;
+}
+
+.mainB > button:hover {
+    background-color: white;
+    color: #F36B6B;
+    border: 1px solid #F36B6B
 }
 
 .startButton > button {
