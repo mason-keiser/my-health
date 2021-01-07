@@ -95,7 +95,46 @@ app.get('/api/painnotes/:user_id', (req, res, next) => {
 // POST INTO NOTES DB 
 
 app.post('/api/postpain', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const date_id = req.body.date_id;
+  const pain_level = req.body.pain_level;
+  const mood_level = req.body.mood_level;
+  const pain_note = req.body.pain_note
 
+  if (!user_id) {
+    return res.status(400).json({ error: 'all notes must have user_id' });
+  }
+  if (!date_id) {
+    return res.status(400).json({ error: 'all notes must have date_id' });
+  }
+  if (!pain_level) {
+    return res.status(400).json({ error: 'all notes must have pain_level' });
+  }
+  if (!mood_level) {
+    return res.status(400).json({ error: 'all notes must have mood_level' });
+  }
+  if (!pain_note) {
+    return res.status(400).json({ error: 'all notes must have pain_note' });
+  }
+
+  const sql = `
+  INSERT INTO "pain_notes" ("user_id", "date_id", "pain_level", "mood_level", "pain_note")
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING *
+  `
+  const params = [user_id, date_id, pain_level, mood_level, pain_note];
+  db.query(sql, params)
+    .then(result => {
+      if (!result) {
+        return res.status(400).json({ message: `There has been an error trying to post the note` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
 })
 
 app.use('/api', (req, res, next) => {
