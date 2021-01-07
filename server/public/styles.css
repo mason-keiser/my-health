@@ -154,7 +154,7 @@ body {
 .painButtons {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     font-family: 'DM Serif Text', serif;
 }
 
@@ -196,7 +196,7 @@ body {
 }
 
 .card:hover{
-    box-shadow: 10px 5px 5px grey;
+    box-shadow: 10px 5px 5px lightgray;
 
 }
 
