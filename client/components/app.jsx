@@ -36,10 +36,13 @@ export default class App extends React.Component {
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
+      this.getPainNotes()
   }
   
   componentDidUpdate() {
-    if (this.state.pain_notes !== undefined) {
+    if (this.state.pain_notes === undefined) {
+      null
+    } else {
       this.getPainNotes()
     }
   }
@@ -124,7 +127,7 @@ export default class App extends React.Component {
 
   getPainNotes(){
     const id = Number(this.state.user.user_id)
-    if (this.state.user.user_id !== null) {
+    if (this.state.view.name === 'main' && this.state.user.user_id !== null) {
       fetch(`/api/painnotes/${id}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json'}
