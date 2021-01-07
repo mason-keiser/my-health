@@ -56,8 +56,8 @@ export default class Pain extends React.Component {
                 </div>
                 <div className='painNote'>
                     <h4 className='title4'>Add Note:</h4>
-                    <textarea maxlength="40" placeholder='Type Here' type="text"/>
-                    <div className='loginButton'>
+                    <textarea placeholder='Type Here' type="text"/>
+                    <div className='painButton'>
                         <button type='submit' className='btn'>Start</button>
                     </div>
                 </div>

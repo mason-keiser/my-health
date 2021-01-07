@@ -221,6 +221,14 @@ form {
     margin: 0;
 }
 
+.backbuttons > h4 {
+    cursor: pointer;
+}
+
+.backbuttons > h4:hover {
+    color: #F36B6B;
+}
+
 .signupButton > button {
     text-align: center;
     margin-top: 2rem;
@@ -236,6 +244,26 @@ form {
 }
 
 .loginButton > button:hover {
+    background-color: white;
+    color: #F36B6B;
+    border: 1px solid #F36B6B
+}
+
+.painButton > button {
+    text-align: center;
+    margin-top: 2rem;
+    height: 6vh;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #F36B6B;
+    color: white;
+    border: 1px solid white;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    cursor: pointer;
+}
+
+.painButton > button:hover {
     background-color: white;
     color: #F36B6B;
     border: 1px solid #F36B6B
