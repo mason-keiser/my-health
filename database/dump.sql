@@ -144,6 +144,11 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 
 COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_note) FROM stdin;
 2	1	January 6, 2021	2	11	today was not the greatest day i had a headache for most of the day
+3	1	January 5, 2021	6	13	this was an alright day i guess
+6	1	January 6, 2021	1	9	not too bad today
+7	1	January 7, 2021	8	16	feelin poopy
+8	1	January 7, 2021	8	16	crazy pain in my neck today\n
+9	1	January 7, 2021	4	15	okay pain today but poopy mood
 \.
 
 
@@ -155,6 +160,7 @@ COPY public.users (user_id, username, email, password) FROM stdin;
 1	Mason	masonksr5@gmail.com	1234
 2	Jimmy	yungjim@aol.com	imjim
 3	Kyle	kyle@aol.com	imkyle
+4	New Mas	keisermason@gmail.com	mk
 \.
 
 
@@ -162,14 +168,14 @@ COPY public.users (user_id, username, email, password) FROM stdin;
 -- Name: pain_notes_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 2, true);
+SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 9, true);
 
 
 --
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_user_id_seq', 3, true);
+SELECT pg_catalog.setval('public.users_user_id_seq', 4, true);
 
 
 --
