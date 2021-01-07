@@ -13,7 +13,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'init',
+        name: 'pain',
         params: {}
       },
       user: {
@@ -108,7 +108,7 @@ export default class App extends React.Component {
             : (this.state.view.name === 'main')
               ? <Main setView={this.setView} user={this.state.user}/>
               : (this.state.view.name === 'pain')
-                ? <Pain setView={this.setView}/>
+                ? <Pain setView={this.setView} user={this.state.user}/>
                 : null
 
     return (

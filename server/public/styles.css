@@ -143,6 +143,32 @@ body {
     border: none;
 }
 
+.painNote {
+    display: block;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.painNote > textarea {
+    padding: 10px;
+    border-radius:5px;
+    width: 80%;
+    margin: 1rem;
+    height: 15vh;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: none;
+}
+
+.painNote > input:hover {
+    width: 85%;
+    transition: ease;
+}
+
 form {
    display: block;
    text-align: center;
@@ -257,5 +283,8 @@ form {
 
     .form-group > input {
         height: 10vh;
+    }
+    .painNote > input {
+        height: 20vh;
     }
 }
