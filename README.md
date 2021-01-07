@@ -13,6 +13,8 @@ A full stack application for medical patients to keep track of their pain, sympt
 * Bootstrap 4
 * AWS EC2
 # Features
+* Input daily pain level and mood level  
+* Keep a medical journal for everything you need to keep track of 
 
 # Development
 ## System Requirements
