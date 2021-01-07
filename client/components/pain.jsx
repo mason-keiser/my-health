@@ -10,9 +10,16 @@ function dateBuilder(d) {
     return `${month} ${date}, ${year}`
 }
 
+const date = dateBuilder(new Date())
+
 export default class Pain extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            date: `${date}`,
+            painLevel: null,
+            painNote: ''
+        }
     }
 
     render() {
@@ -25,6 +32,16 @@ export default class Pain extends React.Component {
                 </div>
                 <h2 className="date2">{dateBuilder(new Date())}</h2>
                 <h2 className='title22'>Pain Today</h2>
+                <div className='painButtons'>
+                    <button type='radio' id='healthy' className='btn'></button>
+                    <button type='radio' id='' className='btn'></button>  
+                    <button type='radio' id='' className='btn'></button>  
+                    <button type='radio' id='' className='btn'></button>  
+                    <button type='radio' id='' className='btn'></button>  
+                    <button type='radio' id='' className='btn'></button>  
+                    <button type='radio' id='' className='btn'></button>  
+                    <button type='radio' id='severe' className='btn'></button>    
+                </div>
             </div>
         )
     }
