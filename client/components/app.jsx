@@ -124,6 +124,7 @@ export default class App extends React.Component {
         return response.json();
       }
     })
+   this.setView('pain_history')
   }
 
   getPainNotes(){
@@ -165,7 +166,7 @@ export default class App extends React.Component {
                 : (this.state.view.name === 'pain_history')
                   ? <Pain_History setView={this.setView} pain_notes={this.state.pain_notes} user={this.state.user}/>
                   : (this.state.view.name === 'pain_note')
-                    ? <Pain_Note setView={this.setView} notes={this.state.pain_notes}/>
+                    ? <Pain_Note setView={this.setView} view={this.state.view}/>
                     : null
 
     return (

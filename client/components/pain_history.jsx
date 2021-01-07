@@ -39,7 +39,6 @@ export default class Pain_History extends React.Component {
     render() {
        const list = (this.state.pain_notes !== null) 
         ?  (this.state.pain_notes.map((note, index) => {
-                console.log(note)
                 return(
                 <Pain_Card
                 notes ={note}

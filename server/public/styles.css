@@ -474,3 +474,7 @@ form {
 .btn8, .btn16{
     background-color: #FF0000;
 }
+
+.btnNotInUse {
+    background-color: lightgray;
+}

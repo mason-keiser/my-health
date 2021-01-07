@@ -14,7 +14,7 @@ export default class Pain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userid: this.props.user.userId,
+            userid: this.props.user.user_id,
             date: `${date}`,
             painLevel: null,
             moodLevel: null,

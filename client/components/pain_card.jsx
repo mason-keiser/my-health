@@ -23,7 +23,8 @@ export default class Pain_Card extends React.Component {
                 user_id: this.props.notes.user_id,
                 mood_level: this.props.notes.mood_level,
                 pain_level: this.props.notes.pain_level,
-                pain_note: this.props.notes.pain_note
+                pain_note: this.props.notes.pain_note,
+                date_id: this.props.notes.date_id
                 })}>
                 <div className="card-body">
                     <h1 className="card-title">{this.props.notes.date_id}</h1>
