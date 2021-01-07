@@ -13,10 +13,18 @@ export default class Pain_Card extends React.Component {
 
     }
 
+
     render() {
         return(
         <div>
-            <div className="card mt-2 mb-2 border-0">
+            <div className="card mt-2 mb-2 border-0" 
+                onClick={() => this.props.setView('pain_note',{
+                note_id: this.props.notes.note_id,
+                user_id: this.props.notes.user_id,
+                mood_level: this.props.notes.mood_level,
+                pain_level: this.props.notes.pain_level,
+                pain_note: this.props.notes.pain_note
+                })}>
                 <div className="card-body">
                     <h1 className="card-title">{this.props.notes.date_id}</h1>
                     <div className="painhisButtons  ">

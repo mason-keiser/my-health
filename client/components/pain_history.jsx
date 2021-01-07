@@ -43,7 +43,8 @@ export default class Pain_History extends React.Component {
                 return(
                 <Pain_Card
                 notes ={note}
-                key={note.note_id}/>
+                key={note.note_id}
+                setView={this.props.setView}/>
                 );
             })
         )
