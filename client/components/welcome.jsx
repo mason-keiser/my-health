@@ -8,7 +8,7 @@ export default function Welcome (props) {
             <h3 className='title3'> •  Input daily pain level and mood level </h3>
             <h3 className='title4'> •  Keep a medical journal for everything you need to keep track of  </h3>
             <div className='startButton'>
-                <button type='submit' className='btn'>Start</button>
+                <button onClick={() => props.setView('main', {})} type='submit' className='btn'>Start</button>
             </div>
         </div>
     )

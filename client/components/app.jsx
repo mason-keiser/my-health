@@ -11,7 +11,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'welcome',
+        name: 'init',
         params: {}
       }
   }
@@ -90,6 +90,7 @@ export default class App extends React.Component {
           userId: result.user_id
         }})
       })
+    this.setView('welcome', {})
   }
 
   render() {
