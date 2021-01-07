@@ -41,6 +41,37 @@ body {
     padding-top: 10px;
 }
 
+.title3 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.title4 {
+   
+    padding-left: 20px;
+    padding-right: 20px;
+  
+}
+
+.wel {
+    display: block;
+    text-align: center;
+}
+
+.startButton > button {
+    margin-top: 5rem;
+    height: 6vh;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #F36B6B;
+    color: white;
+    border: 1px solid white;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    cursor: pointer;
+}
+
 form {
    display: block;
    text-align: center;

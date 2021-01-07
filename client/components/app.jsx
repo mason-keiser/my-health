@@ -2,6 +2,7 @@ import React from 'react';
 import Initial from './initial';
 import Login from './login';
 import Signup from './signup';
+import Welcome from './welcome';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'init',
+        name: 'welcome',
         params: {}
       }
   }
@@ -98,7 +99,9 @@ export default class App extends React.Component {
         ? <Login setView = {this.setView} login={this.login}/>
         : (this.state.view.name === 'signup')
           ? <Signup setView={this.setView} signUp={this.signUp}/>
-          : null
+          : (this.state.view.name === 'welcome')
+            ? <Welcome setView = {this.setView}/>
+            : null
 
     return (
       <div>
