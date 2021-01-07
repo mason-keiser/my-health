@@ -188,6 +188,7 @@ body {
     width: 100%;
     border: none;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card-body {
@@ -195,8 +196,8 @@ body {
 }
 
 .card:hover{
-    border: 1px solid black;
-    cursor: pointer;
+    box-shadow: 10px 5px 5px grey;
+
 }
 
 .card-body >h3 {
