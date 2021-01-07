@@ -10,9 +10,11 @@ export default class Pain_History extends React.Component {
 
 
     render() {
-        const mapped = this.props.pain_notes.map((note, index) => {
-            console.log(note)
-        })
+        if (this.props.pain_notes !== undefined) {
+            const mapped = this.props.pain_notes.map((note, index) => {
+                console.log(note)
+            })
+        }
         return(
             <div>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
