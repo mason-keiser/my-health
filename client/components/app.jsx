@@ -5,6 +5,7 @@ import Signup from './signup';
 import Welcome from './welcome';
 import Main from './main';
 import Pain from './pain'
+import Pain_History from './pain_history';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -157,7 +158,9 @@ export default class App extends React.Component {
               ? <Main setView={this.setView} user={this.state.user} getPainNotes ={this.getPainNotes}/>
               : (this.state.view.name === 'pain')
                 ? <Pain setView={this.setView} user={this.state.user} postPain={this.postPain}/>
-                : null
+                : (this.state.view.name === 'pain_history')
+                  ? <Pain_History setView={this.setView} pain_notes={this.state.pain_notes}/>
+                  : null
 
     return (
       <div>
