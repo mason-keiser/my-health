@@ -40,7 +40,7 @@ export default class Login extends React.Component {
                         <input type="text" placeholder='Email' name='email' className="" id='email' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group'>
-                        <input type="text" placeholder='Password' name='password' className="" id='password' onChange={this.handleChange}/>
+                        <input type="password" placeholder='Password' name='password' className="" id='password' onChange={this.handleChange}/>
                     </div>
                     <div className='loginButton'>
                          <button type='submit' className='btn mt-2'>Login</button>

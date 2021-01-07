@@ -36,6 +36,11 @@ body {
     padding-top: 70px;
 }
 
+.title22 {
+    text-align: center;
+    padding-top: 10px;
+}
+
 form {
    display: block;
    text-align: center;

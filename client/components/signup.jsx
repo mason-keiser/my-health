@@ -6,8 +6,11 @@ export default class Signup extends React.Component {
         this.state = {
             username: '',
             email: '',
-            password: ''
+            password: '',
+            password2: ''
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     
@@ -28,11 +31,11 @@ handleChange(event) {
     if (event.target.id === 'email') {
       this.setState({ email: event.target.value})
     }
-    if (event.target.id === 'first_password') {
-      this.setState({ first_password: event.target.value });
+    if (event.target.id === 'password') {
+      this.setState({ password: event.target.value });
     }
-    if (event.target.id === 'second_password') {
-      this.setState({ second_password: event.target.value });
+    if (event.target.id === 'password2') {
+      this.setState({ password2: event.target.value });
     }
 }
 
@@ -40,8 +43,8 @@ handleChange(event) {
         return(
             <div>
                 <h1 className="title">My Health ♡</h1>
-                <h2 className='title2'> Sign Up</h2>
-                <form onSubmit={() => this.handleSubmit(this.props.login)}>
+                <h2 className='title22'> Sign Up</h2>
+                <form onSubmit={() => this.handleSubmit(this.props.signUp)}>
                     <div className='form-group'>
                         <input type="text" placeholder='Username' name='username' className="" id='username' onChange={this.handleChange}/>
                     </div>
@@ -52,7 +55,7 @@ handleChange(event) {
                         <input type="password" placeholder='Password' name='password' className="" id='password' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group'>
-                        <input type="password" placeholder='Re enter password' name='password' className="" id='repassword' onChange={this.handleChange}/>
+                        <input type="password" placeholder='Re enter password' name='password' className="" id='password2' onChange={this.handleChange}/>
                     </div>
                     <div className='signupButton'>
                          <button type='submit' className='btn'>Sign Up</button>
