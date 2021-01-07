@@ -4,6 +4,7 @@ import Login from './login';
 import Signup from './signup';
 import Welcome from './welcome';
 import Main from './main';
+import Pain from './pain'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'init',
+        name: 'pain',
         params: {}
       },
       user: {
@@ -106,7 +107,9 @@ export default class App extends React.Component {
             ? <Welcome setView = {this.setView}/>
             : (this.state.view.name === 'main')
               ? <Main setView={this.setView} user={this.state.user}/>
-              : null
+              : (this.state.view.name === 'pain')
+                ? <Pain setView={this.setView}/>
+                : null
 
     return (
       <div>

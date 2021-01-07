@@ -42,7 +42,7 @@ handleChange(event) {
     render() {
         return(
             <div>
-                <h1 className="title">My Health ♡</h1>
+                <h1 className="title" onClick={() => this.props.setView('init',{})}>My Health ♡</h1>
                 <h2 className='title22'> Sign Up</h2>
                 <form onSubmit={() => this.handleSubmit(this.props.signUp)}>
                     <div className='form-group'>

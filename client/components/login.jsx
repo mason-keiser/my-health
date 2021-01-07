@@ -33,7 +33,7 @@ export default class Login extends React.Component {
     render() {
         return(
             <div>
-                <h1 className="title">My Health ♡</h1>
+                <h1 className="title" onClick={() => this.props.setView('init',{})}>My Health ♡</h1>
                 <h2 className='title2'> Login </h2>
                 <form onSubmit={() => this.handleSubmit(this.props.login)}>
                     <div className='form-group'>

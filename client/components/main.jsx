@@ -18,11 +18,11 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <h1 className="title">My Health ♡</h1>
+                <h1 className="title" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <h2 className="date">{dateBuilder(new Date())}</h2>
                 <h2 className="welcomb">Welcome back, {this.props.user.firstname}</h2>
                 <div className="mainB">
-                    <button type='submit' className='btn'>Pain Level</button>
+                    <button onClick={() => this.props.setView('pain',{})} type='submit' className='btn'>Pain Level</button>
                     <button type='submit' className='btn'>Journal</button>  
                 </div>  
             </div>
