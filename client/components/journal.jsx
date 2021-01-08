@@ -8,13 +8,34 @@ function dateBuilder(d) {
     return `${month} ${date}, ${year}`
 }
 
+const date = dateBuilder(new Date());
+
 export default class Journal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            date_id: '',
+            date_id: `${date}`,
             journal: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleJournal = this.handleJournal.bind(this);
+    }
+
+    handleSubmit(callback) {
+        const obj = {
+            user_id: this.state.userid,
+            date_id: this.state.date,
+            pain_level: this.state.painLevel,
+            mood_level: this.state.moodLevel,
+            pain_note: this.state.painNote
+        }
+        callback(obj)
+    }
+
+    handleJournal(event) {
+        if (event.target.value !== '') {
+            this.setState({ journal: event.target.value });
+        } 
     }
 
     render() {
@@ -28,7 +49,7 @@ export default class Journal extends React.Component {
                 <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
                 <div className='journalNote mt-5'>
                     <h4 className='title5'>Add Journal:</h4>
-                    <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleNote}/>
+                    <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleJournal}/>
                     <div className='painButton'>
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postPain)}>Submit</button>
                     </div>

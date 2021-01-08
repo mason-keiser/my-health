@@ -47,7 +47,6 @@ export default class Pain extends React.Component {
                 painLevel: event.target.id
             })
         }
-        
     }
 
     handleNote(event) {
