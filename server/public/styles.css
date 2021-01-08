@@ -237,6 +237,36 @@ body {
     resize: none;
 }
 
+.painNote > textarea:hover {
+    width: 85%;
+}
+
+.journalNote {
+    display: block;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.journalNote > textarea {
+    padding: 10px;
+    border-radius:5px;
+    width: 80%;
+    margin: 1rem;
+    height: 30vh;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: none;
+}
+
+
+.journalNote > textarea:hover {
+   width: 85%;
+}
+
 .painNote > input:hover {
     width: 85%;
     transition: ease;
@@ -441,6 +471,10 @@ form {
 
     .card-body >h3 {
         max-height: 70%;
+    }
+
+    .journalNote > textarea {
+        height: 40vh;
     }
 }
 

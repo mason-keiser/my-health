@@ -13,7 +13,6 @@ export default class Pain_Card extends React.Component {
 
     }
 
-
     render() {
         return(
         <div>
