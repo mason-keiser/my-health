@@ -160,6 +160,43 @@ app.get('/api/journal/:user_id', (req, res, next) => {
     });
 })
 
+// POST JOURNAL ENTRY TO DB
+
+app.post('/api/postjournal', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const date_id = req.body.date_id;
+  const journal = req.body.journal;
+
+  if (!user_id) {
+    return res.status(400).json({ error: 'all notes must have user_id' });
+  }
+  if (!date_id) {
+    return res.status(400).json({ error: 'all notes must have date_id' });
+  }
+  if (!journal) {
+    return res.status(400).json({ error: 'all notes must have journal entry' });
+  }
+
+  const sql = `
+  INSERT INTO "journals" ("user_id", "date_id", "journal")
+  VALUES ($1, $2, $3)
+  RETURNING *
+  `
+  const params = [user_id, date_id, journal];
+  db.query(sql, params)
+    .then(result => {
+      if (!result) {
+        return res.status(400).json({ message: `There has been an error trying to post the journal entry` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
