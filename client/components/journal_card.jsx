@@ -4,7 +4,7 @@ export default function Pain_Card(props) {
     return (
         <div>
             <div className="card border-0" 
-                onClick={() => props.setView('journal_note',{
+                onClick={() => props.setView('journal_entry',{
                 journal_id: props.journal.journal_id,
                 user_id: props.journal.user_id,
                 journal: props.journal.journal,

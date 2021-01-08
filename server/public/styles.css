@@ -262,8 +262,31 @@ body {
     resize: none;
 }
 
-
 .journalNote > textarea:hover {
+   width: 85%;
+}
+
+.journalNote2 {
+    display: block;
+    text-align: center;
+}
+
+.journalNote2 > textarea {
+    padding: 10px;
+    border-radius:5px;
+    width: 80%;
+    margin: 1rem;
+    height: 50vh;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: none;
+}
+
+
+.journalNote2 > textarea:hover {
    width: 85%;
 }
 
