@@ -21,7 +21,31 @@ handleSubmit(callback) {
       email: this.state.email.toLowerCase(),
       password: this.state.password,
     };
-    callback(obj)
+    const req = document.getElementById('required')
+    if (obj.username === '') {
+        document.getElementById('username').style.borderColor = 'red'
+        //  req.textContent = '* red fields are required for checkout'
+        //  req.style.color = 'red'
+    } if (obj.email === '') {
+        document.getElementById('email').style.borderColor = 'red'
+        //  req.textContent = '* red fields are required for checkout'
+        //  req.style.color = 'red'
+    } if (obj.passsword === '') {
+        document.getElementById('password').style.borderColor = 'red'
+        //  req.textContent = '* red fields are required for checkout'
+        //  req.style.color = 'red'
+    } if (obj.password === '') {
+        document.getElementById('password2').style.borderColor = 'red'
+        //  req.textContent = '* red fields are required for checkout'
+        //  req.style.color = 'red'
+    } if (obj.password !== this.state.password2) {
+        document.getElementById('password').style.borderColor = 'red'
+        document.getElementById('password2').style.borderColor = 'red'
+        //  req.textContent = '* red fields are required for checkout'
+        //  req.style.color = 'red'
+    }else {
+      callback(obj);
+    }
 }
 
 handleChange(event) {

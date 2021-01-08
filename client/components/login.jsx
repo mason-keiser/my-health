@@ -14,10 +14,21 @@ export default class Login extends React.Component {
     handleSubmit(callback) {
         event.preventDefault();
         const obj = {
-          email: this.state.email.toLowerCase(),
-          password: this.state.password
-        };
-        callback(obj)
+            email: this.state.email.toLowerCase(),
+            password: this.state.password
+          };
+        const req = document.getElementById('required')
+        if (obj.email === '') {
+            document.getElementById('email').style.borderColor = 'red'
+           //  req.textContent = '* red fields are required for login'
+           //  req.style.color = 'red'
+        } if (obj.password === '') {
+            document.getElementById('password').style.borderColor = 'red'
+           //  req.textContent = '* red fields are required for login'
+           //  req.style.color = 'red'
+        } else{
+          callback(obj);
+        }
       }
     
     handleChange(event) {
