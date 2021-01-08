@@ -17,7 +17,7 @@ export default class Pain_Card extends React.Component {
     render() {
         return(
         <div>
-            <div className="card mt-2 mb-2 border-0" 
+            <div className="card border-0" 
                 onClick={() => this.props.setView('pain_note',{
                 note_id: this.props.notes.note_id,
                 user_id: this.props.notes.user_id,
