@@ -20,10 +20,13 @@ ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_username
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_pkey;
 ALTER TABLE IF EXISTS public.users ALTER COLUMN user_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.pain_notes ALTER COLUMN note_id DROP DEFAULT;
+ALTER TABLE IF EXISTS public.journals ALTER COLUMN journal_id DROP DEFAULT;
 DROP SEQUENCE IF EXISTS public.users_user_id_seq;
 DROP TABLE IF EXISTS public.users;
 DROP SEQUENCE IF EXISTS public.pain_notes_note_id_seq;
 DROP TABLE IF EXISTS public.pain_notes;
+DROP SEQUENCE IF EXISTS public.journals_journal_id_seq;
+DROP TABLE IF EXISTS public.journals;
 DROP EXTENSION IF EXISTS plpgsql;
 DROP SCHEMA IF EXISTS public;
 --
@@ -57,6 +60,38 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET default_tablespace = '';
 
 SET default_with_oids = false;
+
+--
+-- Name: journals; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.journals (
+    journal_id integer NOT NULL,
+    user_id integer,
+    date_id character varying(500) NOT NULL,
+    journal character varying(10000) NOT NULL
+);
+
+
+--
+-- Name: journals_journal_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.journals_journal_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: journals_journal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.journals_journal_id_seq OWNED BY public.journals.journal_id;
+
 
 --
 -- Name: pain_notes; Type: TABLE; Schema: public; Owner: -
@@ -125,6 +160,13 @@ ALTER SEQUENCE public.users_user_id_seq OWNED BY public.users.user_id;
 
 
 --
+-- Name: journals journal_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.journals ALTER COLUMN journal_id SET DEFAULT nextval('public.journals_journal_id_seq'::regclass);
+
+
+--
 -- Name: pain_notes note_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -136,6 +178,17 @@ ALTER TABLE ONLY public.pain_notes ALTER COLUMN note_id SET DEFAULT nextval('pub
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.users_user_id_seq'::regclass);
+
+
+--
+-- Data for Name: journals; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
+1	1	January 7, 2021	Today was an alright day overall for me i felt like i saw some improvement in my qol today.
+2	1	January 5, 2021	today was a pretty good day i managed to get a lot accomplished
+3	1	January 8, 2021	post new journal entry
+\.
 
 
 --
@@ -162,6 +215,13 @@ COPY public.users (user_id, username, email, password) FROM stdin;
 3	Kyle	kyle@aol.com	imkyle
 4	New Mas	keisermason@gmail.com	mk
 \.
+
+
+--
+-- Name: journals_journal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.journals_journal_id_seq', 3, true);
 
 
 --
