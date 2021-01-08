@@ -466,12 +466,21 @@ form {
         max-height: 70%;
         overflow: hidden;
     }
+
+    .painhisButtons {
+        display: inline-block;
+        float: none;
+    }
 }
 
 @media screen and (orientation: portrait) and (min-height: 1000px) and (max-height: 1150px){
     .title5 {
         margin-left: 5rem;
         padding-left: 20px;
+    }
+
+    .painhisButtons {
+        display: inline;
     }
 }
 
@@ -517,7 +526,7 @@ form {
     }
 
     .card-body >h3 {
-        max-height: 70%;
+        max-height: 75%;
     }
 
     .journalNote > textarea {
