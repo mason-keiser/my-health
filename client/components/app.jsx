@@ -30,6 +30,7 @@ export default class App extends React.Component {
   this.signUp = this.signUp.bind(this);
   this.postPain = this.postPain.bind(this);
   this.getPainNotes = this.getPainNotes.bind(this);
+  this.postJournal = this.postJournal.bind(this);
 }
 
   componentDidMount() {
@@ -151,6 +152,22 @@ export default class App extends React.Component {
     }
   }
 
+  postJournal(journalInfo) {
+    fetch('/api/postjournal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(journalInfo)
+    })
+    .then(response => {
+      if (response.status === 400 || response.status === 404) {
+        console.log('failed post');
+      } else {
+        return response.json();
+      }
+    })
+   this.setView('journal_history')
+  }
+
   render() {
     const s = (this.state.view.name === 'init')
       ? <Initial setView={this.setView}/>
@@ -169,7 +186,7 @@ export default class App extends React.Component {
                   : (this.state.view.name === 'pain_note')
                     ? <Pain_Note setView={this.setView} view={this.state.view}/>
                     : (this.state.view.name === 'journal')
-                      ? <Journal setView={this.setView} />
+                      ? <Journal setView={this.setView} postJournal={this.postJournal} user={this.state.user} />
                       : null
 
     return (

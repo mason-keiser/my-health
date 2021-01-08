@@ -14,6 +14,7 @@ export default class Journal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            user_id: this.props.user.user_id,
             date_id: `${date}`,
             journal: ''
         }
@@ -23,11 +24,9 @@ export default class Journal extends React.Component {
 
     handleSubmit(callback) {
         const obj = {
-            user_id: this.state.userid,
-            date_id: this.state.date,
-            pain_level: this.state.painLevel,
-            mood_level: this.state.moodLevel,
-            pain_note: this.state.painNote
+            user_id: this.state.user_id,
+            date_id: this.state.date_id,
+            journal: this.state.journal
         }
         callback(obj)
     }
@@ -51,7 +50,7 @@ export default class Journal extends React.Component {
                     <h4 className='title5'>Add Journal:</h4>
                     <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleJournal}/>
                     <div className='painButton'>
-                        <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postPain)}>Submit</button>
+                        <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postJournal)}>Submit</button>
                     </div>
                 </div>
             </div>
