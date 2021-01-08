@@ -523,6 +523,10 @@ form {
     .journalNote > textarea {
         height: 40vh;
     }
+
+    .journalButton > button{
+        height: 15vh;
+    }
 }
 
 @media screen and (max-height: 340px) {

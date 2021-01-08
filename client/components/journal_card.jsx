@@ -12,7 +12,7 @@ export default function Pain_Card(props) {
                 })}>
                 <div className="card-body">
                     <h1 className="card-title">{props.journal.date_id}</h1>
-                    <h3 className='ml-3 pl-3'>{props.journal.journal}</h3>
+                    <h3 className=''>{props.journal.journal}</h3>
                 </div>
             </div>
         </div>
