@@ -200,6 +200,13 @@ body {
 
 }
 
+.required {
+    font-family: 'DM Serif Text', serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
 .card-body >h3 {
     text-align: left;
     max-height: 60%;

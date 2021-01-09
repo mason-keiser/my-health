@@ -20,12 +20,12 @@ export default class Login extends React.Component {
         const req = document.getElementById('required')
         if (obj.email === '') {
             document.getElementById('email').style.borderColor = 'red'
-           //  req.textContent = '* red fields are required for login'
-           //  req.style.color = 'red'
+            req.textContent = '* red fields are required for login'
+            req.style.color = 'red'
         } if (obj.password === '') {
             document.getElementById('password').style.borderColor = 'red'
-           //  req.textContent = '* red fields are required for login'
-           //  req.style.color = 'red'
+            req.textContent = '* red fields are required for login'
+            req.style.color = 'red'
         } else{
           callback(obj);
         }
@@ -52,6 +52,7 @@ export default class Login extends React.Component {
                     <div className='form-group'>
                         <input type="password" placeholder='Password' name='password' className="" id='password' onChange={this.handleChange}/>
                     </div>
+                    <div id="required" className="required"></div>
                     <div className='loginButton'>
                          <button type='submit' className='btn mt-2'>Login</button>
                     </div>

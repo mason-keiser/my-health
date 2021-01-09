@@ -24,25 +24,25 @@ handleSubmit(callback) {
     const req = document.getElementById('required')
     if (obj.username === '') {
         document.getElementById('username').style.borderColor = 'red'
-        //  req.textContent = '* red fields are required for checkout'
-        //  req.style.color = 'red'
+        req.textContent = '* red fields are required for checkout'
+        req.style.color = 'red'
     } if (obj.email === '') {
         document.getElementById('email').style.borderColor = 'red'
-        //  req.textContent = '* red fields are required for checkout'
-        //  req.style.color = 'red'
+        req.textContent = '* red fields are required for checkout'
+        req.style.color = 'red'
     } if (obj.passsword === '') {
         document.getElementById('password').style.borderColor = 'red'
-        //  req.textContent = '* red fields are required for checkout'
-        //  req.style.color = 'red'
+        req.textContent = '* red fields are required for checkout'
+        req.style.color = 'red'
     } if (obj.password === '') {
         document.getElementById('password2').style.borderColor = 'red'
-        //  req.textContent = '* red fields are required for checkout'
-        //  req.style.color = 'red'
+        req.textContent = '* red fields are required for checkout'
+        req.style.color = 'red'
     } if (obj.password !== this.state.password2) {
         document.getElementById('password').style.borderColor = 'red'
         document.getElementById('password2').style.borderColor = 'red'
-        //  req.textContent = '* red fields are required for checkout'
-        //  req.style.color = 'red'
+        req.textContent = '* passwords entered do not match, please make sure they match to continue'
+        req.style.color = 'red'
     }else {
       callback(obj);
     }
@@ -81,6 +81,7 @@ handleChange(event) {
                     <div className='form-group'>
                         <input type="password" placeholder='Re enter password' name='password' className="" id='password2' onChange={this.handleChange}/>
                     </div>
+                    <div id="required" className="required"></div>
                     <div className='signupButton'>
                          <button type='submit' className='btn'>Sign Up</button>
                     </div>

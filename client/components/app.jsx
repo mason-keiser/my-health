@@ -78,12 +78,15 @@ export default class App extends React.Component {
         }
       })
       .then(result => {
+        if (!result) {
+          null
+        } else {
         this.setState({ user: {
           firstname: result[0].username,
           user_id: result[0].user_id
         }})
-      })
       this.setView('main', {})
+    }})
   }
 
   signUp(signupInfo) {
@@ -107,12 +110,16 @@ export default class App extends React.Component {
         }
       })
       .then(result => {
-        this.setState({ user: {
-          firstname: result.username,
-          user_id: result.user_id
+        if (!result) {
+          null 
+        } else {
+          this.setState({ 
+            user: {
+              firstname: result.username,
+              user_id: result.user_id
         }})
-      })
     this.setView('welcome', {})
+      }})
   }
 
   postPain(noteInfo) {
