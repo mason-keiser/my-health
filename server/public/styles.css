@@ -199,6 +199,13 @@ body {
     height: inherit;
 }
 
+.or {
+    display: block;
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+    cursor: initial;
+}
+
 .guest {
     display: block;
     margin: auto;

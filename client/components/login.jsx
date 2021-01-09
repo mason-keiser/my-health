@@ -57,7 +57,8 @@ export default class Login extends React.Component {
                          <button type='submit' className='btn mt-2'>Login</button>
                     </div>
                 </form>
-                <h3 className='needacc' onClick={() => this.props.setView('signup', {})}>Need an account? Click here..</h3>
+                <h4 className='needacc' onClick={() => this.props.setView('signup', {})}>Need an account? Click here..</h4>
+                <h5 className='or mt-3'>or</h5>
                 <h4 className='guest mt-4' onClick={() => this.props.setView('main', {}, this.props.loginAsGuest())}>Enter as Guest</h4>
             </div>
         )
