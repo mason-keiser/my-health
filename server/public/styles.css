@@ -18,6 +18,10 @@ body {
     font-family: 'DM Serif Text', serif;
 }
 
+.initContainer> h1 {
+    font-size: 40px;
+}
+
 .initContainer > h5 {
     cursor: pointer;
 }
@@ -490,6 +494,10 @@ form {
     .painhisButtons {
         display: inline-block;
         float: none;
+    }
+
+    .initContainer> h1 {
+        font-size: 100px;
     }
 }
 
