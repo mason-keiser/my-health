@@ -23,7 +23,12 @@ export default class Pain extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleNote = this.handleNote.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.removeBorder = this.removeBorder.bind(this);
     }
+
+    componentDidUpdate() {
+        // this.removeBorder()
+    } 
 
     handleSubmit(callback) {
         const obj = {
@@ -58,7 +63,8 @@ export default class Pain extends React.Component {
     }
 
     removeBorder() {
-        
+        // if btn is not equal to this.state.moodLevel or this.state.painLevel
+        // remove 3px solid black border to make it look not selected
     }
 
     render() {
