@@ -47,14 +47,17 @@ export default class Pain_History extends React.Component {
                 );
             })
         )
-        : <div>No Pain History available. Please add new pain note to view history</div>
+        : <h2 className="empty mt-5">No Pain History available. Please add new pain note to view history</h2>
 
         return(
             <div>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-4">
                     <h4 onClick={() => this.props.setView('main',{})}>Home</h4>
-                    <h4 onClick={() => this.props.setView('pain',{})}>Pain Today</h4>
+                    <h4 style={{color: 'white'}}onClick={() => this.props.setView('pain',{})}>Pain Today</h4>
+                </div>
+                <div className='journalButton mb-3'>
+                    <button type='submit' className='btn' onClick={() => this.props.setView('pain', {})}>Add to History</button>
                 </div>
                 <div>
                     {list}

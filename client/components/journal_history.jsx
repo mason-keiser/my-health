@@ -47,7 +47,7 @@ export default class Journal_History extends React.Component {
                 );
             })
         )
-        : <div>No Journal Entries available. Please add new journal entry to view history</div>
+        : <h2 className="empty mt-5">No Journal Entries available. Please add new journal entry to view history</h2>
 
         return (
             <div>

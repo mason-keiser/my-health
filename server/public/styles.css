@@ -209,6 +209,13 @@ body {
     width: fit-content;
 }
 
+.empty{
+    display: block;
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+    padding: 10px;
+}
+
 .guest:hover{
     border-bottom: 1px solid black;
 }
