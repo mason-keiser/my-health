@@ -195,6 +195,20 @@ body {
     height: inherit;
 }
 
+.guest {
+    display: block;
+    margin: auto;
+  
+    font-family: 'DM Serif Text', serif;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.guest:hover{
+    border-bottom: 1px solid black;
+}
+
 .card:hover{
     box-shadow: 10px 5px 5px lightgray;
 

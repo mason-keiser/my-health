@@ -33,6 +33,7 @@ export default class App extends React.Component {
   this.postPain = this.postPain.bind(this);
   this.getPainNotes = this.getPainNotes.bind(this);
   this.postJournal = this.postJournal.bind(this);
+  this.loginAsGuest = this.loginAsGuest.bind(this);
 }
 
   componentDidMount() {
@@ -177,11 +178,20 @@ export default class App extends React.Component {
    this.setView('journal_history')
   }
 
+  loginAsGuest() {
+    this.setState({
+      user: {
+        firstname: 'Guest',
+        user_id: 5
+      }
+    })
+  }
+
   render() {
     const s = (this.state.view.name === 'init')
       ? <Initial setView={this.setView}/>
       : (this.state.view.name === 'login')
-        ? <Login setView = {this.setView} login={this.login}/>
+        ? <Login setView = {this.setView} loginAsGuest={this.loginAsGuest} login={this.login}/>
         : (this.state.view.name === 'signup')
           ? <Signup setView={this.setView} signUp={this.signUp}/>
           : (this.state.view.name === 'welcome')

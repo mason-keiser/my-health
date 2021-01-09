@@ -58,6 +58,7 @@ export default class Login extends React.Component {
                     </div>
                 </form>
                 <h3 className='needacc' onClick={() => this.props.setView('signup', {})}>Need an account? Click here..</h3>
+                <h4 className='guest mt-4' onClick={() => this.props.setView('main', {}, this.props.loginAsGuest())}>Enter as Guest</h4>
             </div>
         )
     }
