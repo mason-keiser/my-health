@@ -452,7 +452,7 @@ form {
 
 .painButtons > button:hover {
     cursor: pointer;
-    border: black 2px solid;
+    border: black 3px solid;
 }
 
 .signupButton > button:hover {

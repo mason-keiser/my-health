@@ -37,7 +37,9 @@ export default class Pain extends React.Component {
     }
 
     handleChange(event) {
-        const id = Number(event.target.id)
+        const id = Number(event.target.id);
+        let ob = document.getElementById(id);
+            ob.style.border = '3px solid black';
         if (id >= 9) {
             this.setState({
                 moodLevel: event.target.id
@@ -53,6 +55,10 @@ export default class Pain extends React.Component {
         if (event.target.value !== '') {
             this.setState({ painNote: event.target.value });
         } 
+    }
+
+    removeBorder() {
+        
     }
 
     render() {

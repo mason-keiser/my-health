@@ -47,7 +47,7 @@ export default class Pain_History extends React.Component {
                 );
             })
         )
-        : <h2 className="empty mt-5">No Pain History available. Please add new pain note to view history</h2>
+        : <h2 className="empty mt-5">No Pain History available, please add new pain note to view history</h2>
 
         return(
             <div>
