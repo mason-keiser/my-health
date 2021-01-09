@@ -47,7 +47,7 @@ export default class Journal_History extends React.Component {
                 );
             })
         )
-        : <div>did not load</div>
+        : <div>No Journal Entries available. Please add new journal entry to view history</div>
 
         return (
             <div>

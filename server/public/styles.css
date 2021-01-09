@@ -215,7 +215,6 @@ body {
 
 .card:hover{
     box-shadow: 10px 5px 5px lightgray;
-
 }
 
 .required {
@@ -569,6 +568,12 @@ form {
 @media screen and (max-height: 340px) {
     .title5 {
         margin-left: 2rem;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .initContainer> h1 {
+        font-size: 35px;
     }
 }
 

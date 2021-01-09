@@ -47,7 +47,7 @@ export default class Pain_History extends React.Component {
                 );
             })
         )
-        : <div>did not load</div>
+        : <div>No Pain History available. Please add new pain note to view history</div>
 
         return(
             <div>
