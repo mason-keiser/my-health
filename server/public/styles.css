@@ -509,6 +509,25 @@ form {
     .initContainer> h1 {
         font-size: 100px;
     }
+
+    .journalButton > button {
+        width: 35%;
+    }   
+
+    .loginButton > button {
+        width: 35%;
+    }
+
+    .signupButton > button {
+        width: 35%;
+    }
+    .mainB > button {
+        width: 35%
+    }
+
+    .painButton > button {
+        width: 35%;
+    }
 }
 
 @media screen and (orientation: portrait) and (min-height: 1000px) and (max-height: 1150px){
