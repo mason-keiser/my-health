@@ -37,7 +37,7 @@ export default class Pain_History extends React.Component {
     }
 
     render() {
-       const list = (this.state.pain_notes !== null) 
+       const list = (this.state.pain_notes !== undefined) 
         ?  (this.state.pain_notes.map((note, index) => {
                 return(
                 <Pain_Card
@@ -47,7 +47,7 @@ export default class Pain_History extends React.Component {
                 );
             })
         )
-        : null
+        : <div>did not load</div>
 
         return(
             <div>

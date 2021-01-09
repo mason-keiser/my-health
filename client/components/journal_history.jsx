@@ -37,7 +37,7 @@ export default class Journal_History extends React.Component {
     }
 
     render() {
-        const list = (this.state.journal_entries !== null) 
+        const list = (this.state.journal_entries !== undefined) 
         ?  (this.state.journal_entries.map((journal, index) => {
                 return(
                 <Journal_Card
@@ -47,7 +47,7 @@ export default class Journal_History extends React.Component {
                 );
             })
         )
-        : null
+        : <div>did not load</div>
 
         return (
             <div>
