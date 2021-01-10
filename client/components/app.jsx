@@ -31,7 +31,6 @@ export default class App extends React.Component {
   this.login = this.login.bind(this);
   this.signUp = this.signUp.bind(this);
   this.postPain = this.postPain.bind(this);
-  this.getPainNotes = this.getPainNotes.bind(this);
   this.postJournal = this.postJournal.bind(this);
   this.loginAsGuest = this.loginAsGuest.bind(this);
 }
@@ -42,15 +41,6 @@ export default class App extends React.Component {
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
-      this.getPainNotes()
-  }
-  
-  componentDidUpdate() {
-    if (this.state.pain_notes === undefined) {
-      null
-    } else {
-      this.getPainNotes()
-    }
   }
 
   setView(names, params) {
@@ -98,14 +88,7 @@ export default class App extends React.Component {
     })
       .then(response => {
         if (response.status === 400 || response.status === 404) {
-          const e = document.getElementById('user_email');
-          e.style.borderColor = 'red';
-          const p = document.getElementById('user_password');
-          p.style.borderColor = 'red';
-          const u = document.getElementById('user_first');
-          u.style.borderColor = 'red';
-          const f = document.getElementById('user_last');
-          f.style.borderColor = 'red';
+          null
         } else {
           return response.json();
         }
@@ -137,29 +120,6 @@ export default class App extends React.Component {
       }
     })
    this.setView('pain_history')
-  }
-
-  getPainNotes(){
-    const id = Number(this.state.user.user_id)
-    if (this.state.view.name === 'main' && this.state.user.user_id !== null) {
-      fetch(`/api/painnotes/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json'}
-      })
-        .then(response => {
-          if (response.status === 400 || response.status === 404) {
-          console.log("couldn't fetch notes");
-            return
-          } else {
-            return response.json();
-          }
-        })
-      .then(result => {
-        this.setState({
-          pain_notes: result
-        })
-      })
-    }
   }
 
   postJournal(journalInfo) {
