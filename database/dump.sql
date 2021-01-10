@@ -19,10 +19,13 @@ SET row_security = off;
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_username_key;
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_pkey;
 ALTER TABLE IF EXISTS public.users ALTER COLUMN user_id DROP DEFAULT;
+ALTER TABLE IF EXISTS public.treatments ALTER COLUMN tx_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.pain_notes ALTER COLUMN note_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.journals ALTER COLUMN journal_id DROP DEFAULT;
 DROP SEQUENCE IF EXISTS public.users_user_id_seq;
 DROP TABLE IF EXISTS public.users;
+DROP SEQUENCE IF EXISTS public.treatments_tx_id_seq;
+DROP TABLE IF EXISTS public.treatments;
 DROP SEQUENCE IF EXISTS public.pain_notes_note_id_seq;
 DROP TABLE IF EXISTS public.pain_notes;
 DROP SEQUENCE IF EXISTS public.journals_journal_id_seq;
@@ -128,6 +131,41 @@ ALTER SEQUENCE public.pain_notes_note_id_seq OWNED BY public.pain_notes.note_id;
 
 
 --
+-- Name: treatments; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.treatments (
+    tx_id integer NOT NULL,
+    date_id character varying(500) NOT NULL,
+    user_id character varying(500) NOT NULL,
+    meds character varying(1000),
+    mb_therapy character varying(1000),
+    p_therapy character varying(1000),
+    ch_therapy character varying(1000)
+);
+
+
+--
+-- Name: treatments_tx_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.treatments_tx_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: treatments_tx_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.treatments_tx_id_seq OWNED BY public.treatments.tx_id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -174,6 +212,13 @@ ALTER TABLE ONLY public.pain_notes ALTER COLUMN note_id SET DEFAULT nextval('pub
 
 
 --
+-- Name: treatments tx_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.treatments ALTER COLUMN tx_id SET DEFAULT nextval('public.treatments_tx_id_seq'::regclass);
+
+
+--
 -- Name: users user_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -204,6 +249,15 @@ COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_
 
 
 --
+-- Data for Name: treatments; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.treatments (tx_id, date_id, user_id, meds, mb_therapy, p_therapy, ch_therapy) FROM stdin;
+1	January 6,2021	1	symbalta 5mg taken	meditated for 5 min	exercised for about 50min	iced my shoulders for 30 min
+\.
+
+
+--
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -228,6 +282,13 @@ SELECT pg_catalog.setval('public.journals_journal_id_seq', 3, true);
 --
 
 SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 10, true);
+
+
+--
+-- Name: treatments_tx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.treatments_tx_id_seq', 1, true);
 
 
 --
