@@ -197,6 +197,45 @@ app.post('/api/postjournal', (req, res, next) => {
     });
 })
 
+// POST TX ENTRY INTO DB
+
+app.post('/api/posttx', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const date_id = req.body.date_id;
+  const mb_therapy = req.body.mb_therapy;
+  const ch_therapy = req.body.ch_therapy;
+  const meds = req.body.meds;
+  const p_therapy = req.body.p_therapy
+
+  if (!user_id) {
+    return res.status(400).json({ error: 'all daily tx must have user_id' });
+  }
+  if (!date_id) {
+    return res.status(400).json({ error: 'all daily tx must have date_id' });
+  }
+
+  const sql = `
+  INSERT INTO "treatments" ("user_id", "date_id", "mb_therapy", "p_therapy", "ch_therapy", "meds")
+  VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *
+  `
+  const params = [user_id, date_id, mb_therapy, p_therapy, ch_therapy, meds];
+  db.query(sql, params)
+    .then(result => {
+      if (!result) {
+        return res.status(400).json({ message: `There has been an error trying to post the tx entry` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
+// SEARCH DB FOR ALL TX
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
