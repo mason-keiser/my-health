@@ -59,7 +59,7 @@ export default class Treatment_History extends React.Component {
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => this.props.setView('treatment', {})}>Add to History</button>
                 </div>
-                <div>{items}</div>
+                <div className='mb-2'>{items}</div>
             </div>    
         )
     }
