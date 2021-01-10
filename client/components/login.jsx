@@ -38,7 +38,7 @@ export default class Login extends React.Component {
         if (event.target.id === 'password') {
           this.setState({ password: event.target.value });
         }
-      }
+    }
 
     render() {
         return(

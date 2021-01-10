@@ -172,7 +172,7 @@ export default class App extends React.Component {
                         : (this.state.view.name === 'journal_entry')
                           ? <Journal_Entry view={this.state.view} setView={this.setView}/>
                           : (this.state.view.name === 'treatment')
-                            ? <Treatment setView={this.setView}/>
+                            ? <Treatment setView={this.setView} user={this.state.user}/>
                             : null
 
     return (
