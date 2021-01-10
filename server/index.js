@@ -236,6 +236,27 @@ app.post('/api/posttx', (req, res, next) => {
 
 // SEARCH DB FOR ALL TX
 
+app.get('/api/tx/:user_id', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const sql = `
+  SELECT * FROM "treatments"
+  WHERE "user_id" = $1
+  `
+  const params = [req.params.user_id]
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        return res.status(400).json({ message: `No user treatments are attached to acct # : ${user_id}` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
