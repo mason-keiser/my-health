@@ -22,8 +22,9 @@ export default class Main extends React.Component {
                 <div className="mainB">
                     <button onClick={() => this.props.setView('pain',{})} type='submit' className='btn'>Pain Today</button>
                     <button onClick={() => this.props.setView('pain_history',{})} type='submit' className='btn'>Pain History</button>
+                    <button onClick={() => this.props.setView('treatment',{})} type='submit' className='btn'>My Treatment</button>  
                     <button onClick={() => this.props.setView('journal_history',{})} type='submit' className='btn'>Journal</button>  
-                </div>  
+                </div>
             </div>
         )
     }

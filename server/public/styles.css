@@ -338,6 +338,26 @@ form {
     justify-content: space-evenly;
 }
 
+.form-group2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.form-group2 >input {
+    padding:10px;
+    border-radius:5px;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 10px;
+    height: 6vh;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+}
+
 .form-group >input {
     padding:10px;
     border-radius:5px;
@@ -349,9 +369,24 @@ form {
     font-family:'DM Serif Text', serif;
 }
 
+.form-group2 > input:hover {
+    width: 85%;
+    transition: ease;
+}
+
 .form-group > input:hover {
     width: 85%;
     transition: ease;
+}
+
+.form-group2 > h5 {
+    padding:10px;
+    border-radius:5px;
+    width: 80%;
+    text-align: left;
+    padding: 10px;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
 }
 
 .loginButton > button {
@@ -558,6 +593,10 @@ form {
     }
 
     .form-group > input {
+        height: 10vh;
+    }
+
+    .form-group2 > input {
         height: 10vh;
     }
     .painNote > input {
