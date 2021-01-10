@@ -11,6 +11,7 @@ import Journal from './journal';
 import Journal_History from './journal_history';
 import Journal_Entry from './journal_entry';
 import Treatment from './treatment';
+import Treatment_History from './treatment_history';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -173,8 +174,9 @@ export default class App extends React.Component {
                           ? <Journal_Entry view={this.state.view} setView={this.setView}/>
                           : (this.state.view.name === 'treatment')
                             ? <Treatment setView={this.setView} user={this.state.user}/>
-                            : null
-
+                            : (this.state.view.name === 'treatment_history')
+                              ? <Treatment_History user={this.state.user} setView={this.setView}/>
+                              : null
     return (
       <div>
         {s}

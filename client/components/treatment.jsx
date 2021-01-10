@@ -59,7 +59,7 @@ export default class Treatment extends React.Component {
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-4">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
-                    <h4 style={{color: 'white'}}onClick={() => this.props.setView('pain',{})}>Pain Today</h4>
+                    <h4 onClick={() => this.props.setView('treatment_history',{})}>Tx History</h4>
                 </div>
                 <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
                 <form>
