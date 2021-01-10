@@ -72,11 +72,14 @@ export default class Pain extends React.Component {
         // loop through buttons parent element and check each child element if its id matches this.state moodlevel or painlevel
         const moodLvl = this.state.moodLevel;
         const painLvl = this.state.painLevel;
-        const painBtns = document.getElementById('painButtons');
-        const moodBtns = document.getElementById('painButtons2');
-        painBtns.forEach(btn => {
-            console.log(btn)
-        })
+        const painBtns = document.getElementById('painButtons').getElementsByTagName('button');
+        const moodBtns = document.getElementById('painButtons2').getElementsByTagName('button');
+        for (let i = 0; i < painBtns.length; i++) {
+            console.log(painBtns[i].id)
+        }
+        for (let i = 0; i < moodBtns.length; i++) {
+            console.log(moodBtns[i].id)
+        }
         
     }
 
