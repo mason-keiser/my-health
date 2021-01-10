@@ -62,7 +62,7 @@ export default class Treatment extends React.Component {
                     <h4 onClick={() => this.props.setView('treatment_history',{})}>Tx History</h4>
                 </div>
                 <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
-                <form>
+                <form onSubmit={() => this.handleSubmit(this.props.postTx)}>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Medication Taken: </h5>
                         <input type="text" placeholder='Type Here' name='meds' className="" id='meds' onChange={this.handleChange}/>

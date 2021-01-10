@@ -15,7 +15,15 @@ export default function Treatment_Card(props) {
         : null
     return (
         <div>
-            <div className="card border-0">
+            <div className="card border-0" onClick={() => props.setView('treatment_entry',{
+                tx_id: props.tx.tx_id,
+                user_id: props.tx.user_id,
+                meds: props.tx.meds,
+                date_id: props.tx.date_id,
+                p_therapy: props.tx.p_therapy,
+                mb_therapy: props.tx.mb_therapy,
+                ch_therapy: props.tx.ch_therapy
+                })}>
                 <div className="card-body">
                     <h1 className="card-title">{props.tx.date_id}</h1>
                     {mb}

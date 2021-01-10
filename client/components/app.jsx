@@ -12,6 +12,7 @@ import Journal_History from './journal_history';
 import Journal_Entry from './journal_entry';
 import Treatment from './treatment';
 import Treatment_History from './treatment_history';
+import Treatment_Entry from './treatment_entry';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ export default class App extends React.Component {
   this.postPain = this.postPain.bind(this);
   this.postJournal = this.postJournal.bind(this);
   this.loginAsGuest = this.loginAsGuest.bind(this);
+  this.postTx = this.postTx.bind(this);
 }
 
   componentDidMount() {
@@ -149,6 +151,22 @@ export default class App extends React.Component {
     })
   }
 
+  postTx(txInfo) {
+    fetch('/api/posttx', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(txInfo)
+    })
+    .then(response => {
+      if (response.status === 400 || response.status === 404) {
+        console.log('failed post');
+      } else {
+        return response.json();
+      }
+    })
+   this.setView('treatment_history')
+  }
+
   render() {
     const s = (this.state.view.name === 'init')
       ? <Initial setView={this.setView}/>
@@ -173,10 +191,12 @@ export default class App extends React.Component {
                         : (this.state.view.name === 'journal_entry')
                           ? <Journal_Entry view={this.state.view} setView={this.setView}/>
                           : (this.state.view.name === 'treatment')
-                            ? <Treatment setView={this.setView} user={this.state.user}/>
+                            ? <Treatment postTx={this.postTx} setView={this.setView} user={this.state.user}/>
                             : (this.state.view.name === 'treatment_history')
                               ? <Treatment_History user={this.state.user} setView={this.setView}/>
-                              : null
+                              : (this.state.view.name === 'treatment_entry')
+                                ? <Treatment_Entry setView={this.setView} view={this.state.view}/>
+                                : null
     return (
       <div>
         {s}

@@ -47,7 +47,7 @@ export default class Treatment_History extends React.Component {
                 );
             })
         )
-        : <h2 className="empty mt-5">No Treatment history available, please add new pain note to view history</h2>
+        : <h2 className="empty mt-5">No Treatment history available, please add new treatment note to view history</h2>
 
         return (
             <div>

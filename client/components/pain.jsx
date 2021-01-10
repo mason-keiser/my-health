@@ -87,7 +87,7 @@ export default class Pain extends React.Component {
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-3">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
-                    <h4 onClick={() => this.props.setView('pain_history',{})}>History</h4>
+                    <h4 onClick={() => this.props.setView('pain_history',{})}>Pain History</h4>
                 </div>
                 <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
                 <h2 className='title22 mt-2'>Pain Today:</h2>
