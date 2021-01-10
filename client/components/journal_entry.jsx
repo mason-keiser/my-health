@@ -14,7 +14,7 @@ export default class Journal_Entry extends React.Component {
             <div>
                 <h1 className="title" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-4">
-                    <h4 onClick={() => this.props.setView('main',{})}>Home</h4>
+                    <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
                     <h4 onClick={() => this.props.setView('journal_history',{})}>History</h4>
                 </div>
                 <h2 className="date2 m-4">{this.state.date_id}</h2>
