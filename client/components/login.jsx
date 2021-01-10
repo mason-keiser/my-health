@@ -47,10 +47,10 @@ export default class Login extends React.Component {
                 <h2 className='title2'> Login </h2>
                 <form onSubmit={() => this.handleSubmit(this.props.login)}>
                     <div className='form-group'>
-                        <input type="text" placeholder='Email' name='email' className="" id='email' onChange={this.handleChange}/>
+                        <input type="text" autoComplete='current-username' placeholder='Email' name='email' className="" id='email' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group'>
-                        <input type="password" placeholder='Password' name='password' className="" id='password' onChange={this.handleChange}/>
+                        <input type="password" placeholder='Password' autoComplete='current-password' name='password' className="" id='password' onChange={this.handleChange}/>
                     </div>
                     <div id="required" className="required"></div>
                     <div className='loginButton'>
