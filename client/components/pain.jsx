@@ -26,10 +26,6 @@ export default class Pain extends React.Component {
         this.removeBorder = this.removeBorder.bind(this);
     }
 
-    componentDidMount() {
-        null
-    }
-
     componentDidUpdate() {
         this.removeBorder()
     } 
@@ -67,20 +63,22 @@ export default class Pain extends React.Component {
     }
 
     removeBorder(){
-        // remove 3px solid black border to make it look not selected
-        // if btn is not equal to this.state.moodLevel or this.state.painLevel
-        // loop through buttons parent element and check each child element if its id matches this.state moodlevel or painlevel
         const moodLvl = this.state.moodLevel;
         const painLvl = this.state.painLevel;
         const painBtns = document.getElementById('painButtons').getElementsByTagName('button');
         const moodBtns = document.getElementById('painButtons2').getElementsByTagName('button');
         for (let i = 0; i < painBtns.length; i++) {
-            console.log(painBtns[i].id)
+            let painId = painBtns[i].id
+            if (painId !== painLvl) {
+                painBtns[i].style.border = 'none'
+            }
         }
         for (let i = 0; i < moodBtns.length; i++) {
-            console.log(moodBtns[i].id)
+            let moodId = moodBtns[i].id
+            if (moodId !== moodLvl) {
+                moodBtns[i].style.border = 'none'
+            }
         }
-        
     }
 
     render() {
