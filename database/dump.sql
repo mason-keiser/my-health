@@ -254,6 +254,9 @@ COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_
 
 COPY public.treatments (tx_id, date_id, user_id, meds, mb_therapy, p_therapy, ch_therapy) FROM stdin;
 1	January 6,2021	1	symbalta 5mg taken	meditated for 5 min	exercised for about 50min	iced my shoulders for 30 min
+2	January 7,2021	1	smoked a lil gangja	practiced meditation	worked on exercising neck	iced shoulder
+3	January 8,2021	1	\N	practiced meditation	worked on exercising neck	\N
+4	January 10, 2021	1	took 5mg, ibruprofen	meditated throughout the day, and practiced minfulness	did an hour of stretching followed by 30 minutes of strength training	used the heatpad after my workouts
 \.
 
 
@@ -288,7 +291,7 @@ SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 10, true);
 -- Name: treatments_tx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.treatments_tx_id_seq', 1, true);
+SELECT pg_catalog.setval('public.treatments_tx_id_seq', 4, true);
 
 
 --
