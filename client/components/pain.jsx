@@ -26,8 +26,12 @@ export default class Pain extends React.Component {
         this.removeBorder = this.removeBorder.bind(this);
     }
 
+    componentDidMount() {
+        null
+    }
+
     componentDidUpdate() {
-        // this.removeBorder()
+        this.removeBorder()
     } 
 
     handleSubmit(callback) {
@@ -62,9 +66,18 @@ export default class Pain extends React.Component {
         } 
     }
 
-    removeBorder() {
-        // if btn is not equal to this.state.moodLevel or this.state.painLevel
+    removeBorder(){
         // remove 3px solid black border to make it look not selected
+        // if btn is not equal to this.state.moodLevel or this.state.painLevel
+        // loop through buttons parent element and check each child element if its id matches this.state moodlevel or painlevel
+        const moodLvl = this.state.moodLevel;
+        const painLvl = this.state.painLevel;
+        const painBtns = document.getElementById('painButtons');
+        const moodBtns = document.getElementById('painButtons2');
+        painBtns.forEach(btn => {
+            console.log(btn)
+        })
+        
     }
 
     render() {
@@ -77,7 +90,7 @@ export default class Pain extends React.Component {
                 </div>
                 <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
                 <h2 className='title22 mt-2'>Pain Today:</h2>
-                <div className='painButtons'>
+                <div className='painButtons' id="painButtons">
                     <button type='radio' id='1' className='btn1' onClick={this.handleChange}></button>
                     <button type='radio' id='2' className='btn2' onClick={this.handleChange}></button>  
                     <button type='radio' id='3' className='btn3' onClick={this.handleChange}></button>  
@@ -88,7 +101,7 @@ export default class Pain extends React.Component {
                     <button type='radio' id='8' className='btn8' onClick={this.handleChange}></button>    
                 </div>
                 <h2 className='title22'>Mood Today:</h2>
-                <div className='painButtons mb-5'>
+                <div className='painButtons mb-5' id='painButtons2'>
                     <button type='radio' id='9' className='btn9' onClick={this.handleChange}></button>
                     <button type='radio' id='10' className='btn10' onClick={this.handleChange}></button>  
                     <button type='radio' id='11' className='btn11' onClick={this.handleChange}></button>  
