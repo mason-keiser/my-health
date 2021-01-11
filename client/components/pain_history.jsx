@@ -41,6 +41,7 @@ export default class Pain_History extends React.Component {
         ?  (this.state.pain_notes.map((note, index) => {
                 return(
                 <Pain_Card
+                deleteId ={this.deleteId}
                 notes ={note}
                 key={note.note_id}
                 setView={this.props.setView}/>

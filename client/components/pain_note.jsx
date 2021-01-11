@@ -14,7 +14,7 @@ export default class Pain_Note extends React.Component {
             pain_level: this.props.view.params.pain_level,
             mood_level: this.props.view.params.mood_level
         }
-
+        this.deleteId = this.deleteId.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +28,21 @@ export default class Pain_Note extends React.Component {
         }
     }
 
+    deleteId(id) {
+        fetch('/api/deletePainNote', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            note_id: id
+          })
+        })
+        .then(response => {
+          return response.json();
+        }).then(result => {
+            this.props.setView('pain_history',{})
+        })
+      }
+
     render() {
         return(
             <div>
@@ -36,7 +51,7 @@ export default class Pain_Note extends React.Component {
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
                     <h4 onClick={() => this.props.setView('pain_history',{})}>Pain History</h4>
                 </div>
-                <h2 className="date2 m-4">{this.props.view.params.date_id}</h2>
+                <h2 className="date2 m-4">{this.props.view.params.date_id}</h2> 
                 <h2 className='title22 mt-2'>Pain:</h2>
                 <div className='painButtons'>
                     <button type='radio' id='1cat' className='btnNotInUse' onClick={this.handleChange}></button>
@@ -63,6 +78,7 @@ export default class Pain_Note extends React.Component {
                     <h4 className='title5'>My Note:</h4>
                     <textarea value= {this.props.view.params.pain_note} readOnly id='note'type="text"/>
                 </div>
+                <div className='guest2' onClick={() => this.deleteId(this.props.view.params.note_id)}>Click here to delete pain note</div>
             </div>
         )
     }

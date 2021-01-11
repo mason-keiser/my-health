@@ -187,9 +187,10 @@ body {
     font-family: 'DM Serif Text', serif;
     height: 25vh;
     width: 100%;
-    border: none;
+    border: 0px;
     overflow: hidden;
     cursor: pointer;
+    border: none;
 }
 
 .card-body {
@@ -213,6 +214,19 @@ body {
     width: fit-content;
 }
 
+.guest2 {
+    display: block;
+    margin: auto;
+    font-family: 'DM Serif Text', serif;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.guest2:hover{
+    color: #F36B6B;
+}
+
 .empty{
     display: block;
     text-align: center;
@@ -225,7 +239,13 @@ body {
 }
 
 .card:hover{
-    box-shadow: 10px 5px 5px lightgray;
+    color: #F36B6B;
+}
+
+.guest2:hover {
+    border: #F36B6B 1px solid;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .required {
@@ -596,7 +616,7 @@ form {
         height: 10vh;
     }
 
-    .form-group > input {
+    .form-group2 > input {
         height: 10vh;
     }
     .painNote > input {

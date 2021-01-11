@@ -7,6 +7,22 @@ export default class Journal_Entry extends React.Component {
             date_id: this.props.view.params.date_id,
             journal: this.props.view.params.journal            
         }
+        this.deleteId = this.deleteId.bind(this);
+    }
+
+    deleteId(id) {
+        fetch('/api/deleteJournal', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            journal_id: id
+          })
+        })
+        .then(response => {
+          return response.json();
+        }).then(result => {
+            this.props.setView('journal_history',{})
+        })
     }
 
     render(){
@@ -22,6 +38,7 @@ export default class Journal_Entry extends React.Component {
                     <h4 className='title5'>Add Journal:</h4>
                     <textarea value={this.state.journal} readOnly id='note'type="text"/>
                 </div>
+                <div className='guest2' onClick={() => this.deleteId(this.props.view.params.journal_id)}>Click here to delete journal note</div>
             </div>
         )
     }
