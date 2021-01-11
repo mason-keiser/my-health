@@ -54,25 +54,25 @@ export default class Pain_Note extends React.Component {
                 <h2 className="date2 m-4">{this.props.view.params.date_id}</h2> 
                 <h2 className='title22 mt-2'>Pain:</h2>
                 <div className='painButtons'>
-                    <button type='radio' id='1cat' className='btnNotInUse' onClick={this.handleChange}></button>
-                    <button type='radio' id='2cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='3cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='4cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='5cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='6cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='7cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='8cat' className='btnNotInUse' onClick={this.handleChange}></button>    
+                    <button type='radio' id='1cat' className='btnNotInUse' onClick={this.handleChange}>1</button>
+                    <button type='radio' id='2cat' className='btnNotInUse' onClick={this.handleChange}>2</button>  
+                    <button type='radio' id='3cat' className='btnNotInUse' onClick={this.handleChange}>3</button>  
+                    <button type='radio' id='4cat' className='btnNotInUse' onClick={this.handleChange}>4</button>  
+                    <button type='radio' id='5cat' className='btnNotInUse' onClick={this.handleChange}>5</button>  
+                    <button type='radio' id='6cat' className='btnNotInUse' onClick={this.handleChange}>6</button>  
+                    <button type='radio' id='7cat' className='btnNotInUse' onClick={this.handleChange}>7</button>  
+                    <button type='radio' id='8cat' className='btnNotInUse' onClick={this.handleChange}>8</button>    
                 </div>
                 <h2 className='title22'>Mood:</h2>
                 <div className='painButtons mb-5'>
-                    <button type='radio' id='9cat' className='btnNotInUse' onClick={this.handleChange}></button>
-                    <button type='radio' id='10cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='11cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='12cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='13cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='14cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='15cat' className='btnNotInUse' onClick={this.handleChange}></button>  
-                    <button type='radio' id='16cat' className='btnNotInUse' onClick={this.handleChange}></button>    
+                    <button type='radio' id='9cat' className='btnNotInUse' onClick={this.handleChange}>1</button>
+                    <button type='radio' id='10cat' className='btnNotInUse' onClick={this.handleChange}>2</button>  
+                    <button type='radio' id='11cat' className='btnNotInUse' onClick={this.handleChange}>3</button>  
+                    <button type='radio' id='12cat' className='btnNotInUse' onClick={this.handleChange}>4</button>  
+                    <button type='radio' id='13cat' className='btnNotInUse' onClick={this.handleChange}>5</button>  
+                    <button type='radio' id='14cat' className='btnNotInUse' onClick={this.handleChange}>6</button>  
+                    <button type='radio' id='15cat' className='btnNotInUse' onClick={this.handleChange}>7</button>  
+                    <button type='radio' id='16cat' className='btnNotInUse' onClick={this.handleChange}>8</button>    
                 </div>
                 <div className='painNote'>
                     <h4 className='title5'>My Note:</h4>

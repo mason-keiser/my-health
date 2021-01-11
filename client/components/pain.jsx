@@ -92,25 +92,25 @@ export default class Pain extends React.Component {
                 <h2 className="date2 m-4">{dateBuilder(new Date())}</h2>
                 <h2 className='title22 mt-2'>Pain Today:</h2>
                 <div className='painButtons' id="painButtons">
-                    <button type='radio' id='1' className='btn1' onClick={this.handleChange}></button>
-                    <button type='radio' id='2' className='btn2' onClick={this.handleChange}></button>  
-                    <button type='radio' id='3' className='btn3' onClick={this.handleChange}></button>  
-                    <button type='radio' id='4' className='btn4' onClick={this.handleChange}></button>  
-                    <button type='radio' id='5' className='btn5' onClick={this.handleChange}></button>  
-                    <button type='radio' id='6' className='btn6' onClick={this.handleChange}></button>  
-                    <button type='radio' id='7' className='btn7' onClick={this.handleChange}></button>  
-                    <button type='radio' id='8' className='btn8' onClick={this.handleChange}></button>    
+                    <button type='radio' id='1' className='btn1' onClick={this.handleChange}>1</button>
+                    <button type='radio' id='2' className='btn2' onClick={this.handleChange}>2</button>  
+                    <button type='radio' id='3' className='btn3' onClick={this.handleChange}>3</button>  
+                    <button type='radio' id='4' className='btn4' onClick={this.handleChange}>4</button>  
+                    <button type='radio' id='5' className='btn5' onClick={this.handleChange}>5</button>  
+                    <button type='radio' id='6' className='btn6' onClick={this.handleChange}>6</button>  
+                    <button type='radio' id='7' className='btn7' onClick={this.handleChange}>7</button>  
+                    <button type='radio' id='8' className='btn8' onClick={this.handleChange}>8</button>    
                 </div>
                 <h2 className='title22'>Mood Today:</h2>
                 <div className='painButtons mb-5' id='painButtons2'>
-                    <button type='radio' id='9' className='btn9' onClick={this.handleChange}></button>
-                    <button type='radio' id='10' className='btn10' onClick={this.handleChange}></button>  
-                    <button type='radio' id='11' className='btn11' onClick={this.handleChange}></button>  
-                    <button type='radio' id='12' className='btn12' onClick={this.handleChange}></button>  
-                    <button type='radio' id='13' className='btn13' onClick={this.handleChange}></button>  
-                    <button type='radio' id='14' className='btn14' onClick={this.handleChange}></button>  
-                    <button type='radio' id='15' className='btn15' onClick={this.handleChange}></button>  
-                    <button type='radio' id='16' className='btn16' onClick={this.handleChange}></button>    
+                    <button type='radio' id='9' className='btn9' onClick={this.handleChange}>1</button>
+                    <button type='radio' id='10' className='btn10' onClick={this.handleChange}>2</button>  
+                    <button type='radio' id='11' className='btn11' onClick={this.handleChange}>3</button>  
+                    <button type='radio' id='12' className='btn12' onClick={this.handleChange}>4</button>  
+                    <button type='radio' id='13' className='btn13' onClick={this.handleChange}>5</button>  
+                    <button type='radio' id='14' className='btn14' onClick={this.handleChange}>6</button>  
+                    <button type='radio' id='15' className='btn15' onClick={this.handleChange}>7</button>  
+                    <button type='radio' id='16' className='btn16' onClick={this.handleChange}>8</button>    
                 </div>
                 <div className='painNote'>
                     <h4 className='title5'>Add Note:</h4>
