@@ -231,8 +231,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 
 COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 1	1	January 7, 2021	Today was an alright day overall for me i felt like i saw some improvement in my qol today.
-2	1	January 5, 2021	today was a pretty good day i managed to get a lot accomplished
-3	1	January 8, 2021	post new journal entry
 \.
 
 
@@ -241,9 +239,6 @@ COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 --
 
 COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_note) FROM stdin;
-2	1	January 6, 2021	2	11	today was not the greatest day i had a headache for most of the day
-3	1	January 5, 2021	6	13	this was an alright day i guess
-6	1	January 6, 2021	1	9	not too bad today
 8	1	January 7, 2021	8	16	crazy pain in my neck today\n
 \.
 
@@ -254,8 +249,6 @@ COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_
 
 COPY public.treatments (tx_id, date_id, user_id, meds, mb_therapy, p_therapy, ch_therapy) FROM stdin;
 1	January 6,2021	1	symbalta 5mg taken	meditated for 5 min	exercised for about 50min	iced my shoulders for 30 min
-2	January 7,2021	1	smoked a lil gangja	practiced meditation	worked on exercising neck	iced shoulder
-3	January 8,2021	1	\N	practiced meditation	worked on exercising neck	\N
 4	January 10, 2021	1	took 5mg, ibruprofen	meditated throughout the day, and practiced minfulness	did an hour of stretching followed by 30 minutes of strength training	used the heatpad after my workouts
 \.
 
@@ -284,7 +277,7 @@ SELECT pg_catalog.setval('public.journals_journal_id_seq', 3, true);
 -- Name: pain_notes_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 10, true);
+SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 11, true);
 
 
 --
