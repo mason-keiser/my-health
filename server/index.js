@@ -257,6 +257,72 @@ app.get('/api/tx/:user_id', (req, res, next) => {
     });
 })
 
+// DELETE FROM JOURNALS TABLE API
+
+app.delete('/api/deleteJournal', (req, res ,next) => {
+  const journal_id = req.body.journal_id;
+  const sqlQuery = `
+          DELETE FROM journals
+                WHERE journal_id = $1
+                RETURNING *
+        `;
+  const params = [journal_id];
+
+  db.query(sqlQuery, params)
+    .then(result => {
+      res.status(202).json({
+        message: 'Journal entry deleted successfully',
+        checklistitemid: result.rows[0].journal_id 
+      })
+      return result
+    })
+    .catch(err => next(err));
+})
+
+// DELETE FROM PAIN_NOTES TABLE API
+
+app.delete('/api/deletePainNote', (req, res ,next) => {
+  const note_id = req.body.note_id;
+  const sqlQuery = `
+          DELETE FROM pain_notes
+                WHERE note_id = $1
+                RETURNING *
+        `;
+  const params = [note_id];
+
+  db.query(sqlQuery, params)
+    .then(result => {
+      res.status(202).json({
+        message: 'Journal entry deleted successfully',
+        checklistitemid: result.rows[0].note_id 
+      })
+      return result
+    })
+    .catch(err => next(err));
+})
+
+// DELETE FROM TREATMENTS TABLE API
+
+app.delete('/api/deleteTx', (req, res ,next) => {
+  const tx_id = req.body.tx_id;
+  const sqlQuery = `
+          DELETE FROM treatments
+                WHERE tx_id = $1
+                RETURNING *
+        `;
+  const params = [tx_id];
+
+  db.query(sqlQuery, params)
+    .then(result => {
+      res.status(202).json({
+        message: 'Journal entry deleted successfully',
+        checklistitemid: result.rows[0].tx_id 
+      })
+      return result
+    })
+    .catch(err => next(err));
+})
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
