@@ -221,6 +221,7 @@ body {
     text-align: center;
     cursor: pointer;
     width: fit-content;
+    padding: 10px;
 }
 
 .guest2:hover{
