@@ -101,7 +101,7 @@ export default class Main_Page_Header extends React.Component {
                         duration={1000}
                         className="pointer px-0 nav-link"
                         onClick={this.handleToggle, this.alert}>
-                        Activites
+                        Activities
                       </Link>
                     </NavItem>
                     <NavItem className="ml-md-5">
