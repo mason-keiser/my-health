@@ -506,9 +506,13 @@ form {
     border: 1px solid #F36B6B
 }
 
+#navbar {
+    font-family: 'DM Serif Text', serif;
+}
+
 .painButtons > button:hover {
     cursor: pointer;
-    border: black 3px solid;
+    border: black 1px solid;
 }
 
 .signupButton > button:hover {
@@ -584,6 +588,11 @@ form {
     .painButton > button {
         width: 35%;
     }
+    .painButtons > button:hover {
+        cursor: pointer;
+        border: black 1px solid;
+    }
+    
 }
 
 @media screen and (orientation: portrait) and (min-height: 1000px) and (max-height: 1150px){
