@@ -53,7 +53,7 @@ export default class Pain_History extends React.Component {
 
         return(
             <div>
-                <Main_Page_Header/>
+                <Main_Page_Header setView={this.props.setView}/>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-4">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>

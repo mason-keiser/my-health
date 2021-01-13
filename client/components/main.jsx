@@ -31,7 +31,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Main_Page_Header/>
+                <Main_Page_Header setView={this.props.setView}/>
                 <h1 className="maintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <h2 className="date m-5">{dateBuilder(new Date())}</h2>
                 <h2 className="welcomb">Welcome back, {this.props.user.firstname}</h2>

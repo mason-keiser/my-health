@@ -51,10 +51,8 @@ export default class Main_Page_Header extends React.Component {
                   expand="md"
                   className="row py-0 nav">
                     <NavbarBrand onClick={() => {
-                    scroll.scrollToTop();
-                    if (this.state.isOpen) {
-                      this.handleToggle();
-                    }
+                    this.props.setView('main', {})
+                    
                   }}
                     className="pointer decoration-none">
                   <h1 className='header-logo img-fluid'> M H ♡</h1>
