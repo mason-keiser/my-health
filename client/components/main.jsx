@@ -42,9 +42,7 @@ export default class Main extends React.Component {
         if (window.innerWidth < 768) {
           offset = -286;
         }
-        const logo = (window.screen.width < 700)
-        ?  <h1 className='header-logo img-fluid'> M H ♡</h1>
-        :  <h1 className='header-logo img-fluid'>  My Health ♡</h1>
+        
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
           var currentScrollPos = window.pageYOffset;
@@ -68,7 +66,7 @@ export default class Main extends React.Component {
                 }
               }}
                 className="pointer decoration-none">
-              {logo}
+              <h1 className='header-logo img-fluid'> M H ♡</h1>
               </NavbarBrand>
               <NavbarToggler onClick={this.handleToggle} navbar="true" />
             <Collapse isOpen={this.state.isOpen} navbar>
