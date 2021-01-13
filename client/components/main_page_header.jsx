@@ -62,7 +62,7 @@ export default class Main_Page_Header extends React.Component {
                     className="pointer decoration-none">
                   <h1 className='header-logo img-fluid'> M H ♡</h1>
                   </NavbarBrand>
-                  <NavbarToggler onClick={this.handleToggle} navbar="true" />
+                  <NavbarToggler onClick={this.handleToggle} navbar="true" className='border-0'/>
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto " navbar>
                     <NavItem>

@@ -157,6 +157,10 @@ body {
     text-align: center;
 }
 
+.navbar-toggler {
+    border: none;
+}
+
 .startButton > button {
     margin-top: 5rem;
     height: 6vh;
