@@ -12,6 +12,7 @@ import {
     Link,
     animateScroll as scroll
   } from 'react-scroll';
+import Main_Page_Header from './main_page_header';
 
 function dateBuilder(d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -55,78 +56,7 @@ export default class Main extends React.Component {
         }
         return (
             <div>
-            <Container fluid={true} className="py-3 shadow-md bg-white sticky-top" id="navbar">
-            <Navbar color="faded" light
-              expand="md"
-              className="row py-0 nav">
-                <NavbarBrand onClick={() => {
-                scroll.scrollToTop();
-                if (this.state.isOpen) {
-                  this.handleToggle();
-                }
-              }}
-                className="pointer decoration-none">
-              <h1 className='header-logo img-fluid'> M H ♡</h1>
-              </NavbarBrand>
-              <NavbarToggler onClick={this.handleToggle} navbar="true" />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto " navbar>
-                <NavItem>
-                  <Link activeClass="active"
-                    id='item'
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                    offset={offset}
-                    duration={1000}
-                    className="pointer px-0 nav-link"
-                    onClick={this.handleToggle}>
-                      Medications
-                  </Link>
-                </NavItem>
-                <NavItem className="ml-md-5">
-                  <Link activeClass="active"
-                    id='item'
-                    to="skills"
-                    spy={true}
-                    smooth={true}
-                    offset={offset}
-                    duration={1000}
-                    className="pointer px-0 nav-link"
-                    onClick={this.handleToggle}>
-                    Doctor Info
-                  </Link>
-                </NavItem>
-                <NavItem className="ml-md-5">
-                  <Link activeClass="active"
-                    id='item'
-                    to="tools"
-                    spy={true}
-                    smooth={true}
-                    offset={offset}
-                    duration={1000}
-                    className="pointer px-0 nav-link"
-                    onClick={this.handleToggle}>
-                    Activites
-                  </Link>
-                </NavItem>
-                <NavItem className="ml-md-5">
-                  <Link activeClass="active"
-                    id='item'
-                    to="applications"
-                    spy={true}
-                    smooth={true}
-                    offset={offset}
-                    duration={1000}
-                    className="pointer px-0 nav-link"
-                    onClick={this.handleToggle}>
-                    Health Reccomendations
-                  </Link>
-                </NavItem> 
-              </Nav>
-            </Collapse>
-          </Navbar>
-        </Container>
+                <Main_Page_Header/>
                 <h1 className="title" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <h2 className="date m-5">{dateBuilder(new Date())}</h2>
                 <h2 className="welcomb">Welcome back, {this.props.user.firstname}</h2>
