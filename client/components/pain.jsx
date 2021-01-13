@@ -1,4 +1,5 @@
 import React from 'react';
+import Main_Page_Header from './main_page_header'
 
 function dateBuilder(d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -84,6 +85,7 @@ export default class Pain extends React.Component {
     render() {
         return (
             <div>
+                 <Main_Page_Header/>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-3">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>

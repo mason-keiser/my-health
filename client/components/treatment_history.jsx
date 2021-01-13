@@ -1,5 +1,6 @@
 import React from 'react';
 import Treatment_Card from './treatment_card';
+import Main_Page_Header from './main_page_header';
 
 export default class Treatment_History extends React.Component {
     constructor(props) {
@@ -51,6 +52,7 @@ export default class Treatment_History extends React.Component {
 
         return (
             <div>
+                 <Main_Page_Header/>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-4">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Main_Page_Header from './main_page_header'
 
 const colorObj = {
     1: '#08DB37', 2: '#98F877', 3: '#DBFF00', 4: '#F8FD00',
@@ -46,6 +47,7 @@ export default class Pain_Note extends React.Component {
     render() {
         return(
             <div>
+                <Main_Page_Header/>
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-3">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
