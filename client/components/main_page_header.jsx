@@ -21,6 +21,14 @@ export default class Main_Page_Header extends React.Component {
           };
         this.handleToggle = this.handleToggle.bind(this)
         this.alert = this.alert.bind(this);
+        this.navbarIcon = this.navbarIcon.bind(this);
+    }
+
+    componentDidUpdate() {
+      this.navbarIcon()
+    }
+    componentDidMount() {
+      this.navbarIcon()
     }
 
     handleToggle() {
@@ -33,6 +41,18 @@ export default class Main_Page_Header extends React.Component {
         window.alert('Menu items are currently under construction, Coming Soon!');
     }
 
+    navbarIcon() {
+      let span = document.getElementById('navToggle').children;
+      let spanObj = span[0].classList;
+   
+      if (this.state.isOpen == true) {
+        span[0].innerText = 'X'
+        spanObj.replace('navbar-toggler-icon', 'btn-close')
+      } if (this.state.isOpen == false) {
+        span[0].innerText = null
+        spanObj.replace('btn-close', 'navbar-toggler-icon')
+      }
+    }
 
     render() {
             let offset = -86;
@@ -62,7 +82,7 @@ export default class Main_Page_Header extends React.Component {
                     className="pointer decoration-none">
                   <h1 className='header-logo img-fluid'> M H ♡</h1>
                   </NavbarBrand>
-                  <NavbarToggler onClick={this.handleToggle} navbar="true" className='border-0'/>
+                  <NavbarToggler onClick={this.handleToggle} navbar="true" className='border-0' id='navToggle'/>
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto " navbar>
                     <NavItem>
