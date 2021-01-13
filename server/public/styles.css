@@ -503,7 +503,12 @@ form {
 .painButton > button:hover {
     background-color: white;
     color: #F36B6B;
-    border: 1px solid #F36B6B
+    border: 1px solid #F36B6B;
+}
+
+#item:hover {
+    color: #F36B6B;
+    cursor: pointer;
 }
 
 #navbar {

@@ -70,9 +70,10 @@ export default class Main extends React.Component {
               </NavbarBrand>
               <NavbarToggler onClick={this.handleToggle} navbar="true" />
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
+              <Nav className="ml-auto " navbar>
                 <NavItem>
                   <Link activeClass="active"
+                    id='item'
                     to="about"
                     spy={true}
                     smooth={true}
@@ -85,6 +86,7 @@ export default class Main extends React.Component {
                 </NavItem>
                 <NavItem className="ml-md-5">
                   <Link activeClass="active"
+                    id='item'
                     to="skills"
                     spy={true}
                     smooth={true}
@@ -97,6 +99,7 @@ export default class Main extends React.Component {
                 </NavItem>
                 <NavItem className="ml-md-5">
                   <Link activeClass="active"
+                    id='item'
                     to="tools"
                     spy={true}
                     smooth={true}
@@ -104,11 +107,12 @@ export default class Main extends React.Component {
                     duration={1000}
                     className="pointer px-0 nav-link"
                     onClick={this.handleToggle}>
-                    Tools
+                    Activites
                   </Link>
                 </NavItem>
                 <NavItem className="ml-md-5">
                   <Link activeClass="active"
+                    id='item'
                     to="applications"
                     spy={true}
                     smooth={true}
@@ -116,21 +120,9 @@ export default class Main extends React.Component {
                     duration={1000}
                     className="pointer px-0 nav-link"
                     onClick={this.handleToggle}>
-                    Applications
+                    Health Reccomendations
                   </Link>
-                </NavItem>
-                <NavItem className="ml-md-5">
-                  <Link activeClass="active"
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    offset={offset}
-                    duration={1000}
-                    className="pointer px-0 nav-link"
-                    onClick={this.handleToggle}>
-                    Contact
-                  </Link>
-                </NavItem>  
+                </NavItem> 
               </Nav>
             </Collapse>
           </Navbar>
