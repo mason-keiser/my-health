@@ -20,6 +20,7 @@ export default class Main_Page_Header extends React.Component {
             isOpen: false
           };
         this.handleToggle = this.handleToggle.bind(this)
+        this.alert = this.alert.bind(this);
     }
 
     handleToggle() {
@@ -27,6 +28,10 @@ export default class Main_Page_Header extends React.Component {
           this.setState({ isOpen: !this.state.isOpen });
         }
       }
+
+    alert() {
+        window.alert('Menu items are currently under construction, Coming Soon!');
+    }
 
 
     render() {
@@ -69,7 +74,7 @@ export default class Main_Page_Header extends React.Component {
                         offset={offset}
                         duration={1000}
                         className="pointer px-0 nav-link"
-                        onClick={this.handleToggle}>
+                        onClick={this.handleToggle, this.alert}>
                           Medications
                       </Link>
                     </NavItem>
@@ -82,7 +87,7 @@ export default class Main_Page_Header extends React.Component {
                         offset={offset}
                         duration={1000}
                         className="pointer px-0 nav-link"
-                        onClick={this.handleToggle}>
+                        onClick={this.handleToggle, this.alert}>
                         Doctor Info
                       </Link>
                     </NavItem>
@@ -95,7 +100,7 @@ export default class Main_Page_Header extends React.Component {
                         offset={offset}
                         duration={1000}
                         className="pointer px-0 nav-link"
-                        onClick={this.handleToggle}>
+                        onClick={this.handleToggle, this.alert}>
                         Activites
                       </Link>
                     </NavItem>
@@ -108,7 +113,7 @@ export default class Main_Page_Header extends React.Component {
                         offset={offset}
                         duration={1000}
                         className="pointer px-0 nav-link"
-                        onClick={this.handleToggle}>
+                        onClick={this.handleToggle, this.alert}>
                         Health Reccomendations
                       </Link>
                     </NavItem> 
