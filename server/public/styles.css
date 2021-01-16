@@ -215,6 +215,21 @@ body {
     border: none;
 }
 
+.recs{
+    display: block;
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+}
+
+.recImg {
+    border: 2px solid black;
+    border-radius: 5px;
+    object-fit: cover;
+    padding: 0;
+    width: 80%;
+    height: 30vh;
+}
+
 .card-body {
     height: inherit;
 }
@@ -576,6 +591,10 @@ form {
 @media screen and (min-width: 430px) {
     .needacc {
         width: fit-content;
+    }
+
+    .recImg {
+        height: 60vh;
     }
 
     .title5 {
