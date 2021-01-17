@@ -134,7 +134,7 @@ export default class Main_Page_Header extends React.Component {
                         duration={1000}
                         className="pointer px-0 nav-link"
                         onClick={this.handleToggle, () => this.props.setView('health_recs', {})}>
-                        Health Recomendations
+                        Health Recommendations
                       </Link>
                     </NavItem> 
                   </Nav>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function NextArrow(props) {
   return (
-    <div className=" ar next-arrow mr-3"
+    <div className=" ar next-arrow"
       style={{ textDecoration: 'none', height: 'fit-content' }}
       onClick={() => {
         props.goToNextRec();
@@ -14,7 +14,7 @@ function NextArrow(props) {
 
 function BackArrow(props) {
   return (
-    <div className=" ar back-arrow ml-3"
+    <div className=" ar back-arrow"
       style={{ textDecoration: 'none', height: 'fit-content' }}
       onClick={() => {
         props.goToPrevRec();
