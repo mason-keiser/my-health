@@ -325,7 +325,7 @@ app.delete('/api/deleteTx', (req, res ,next) => {
 
 // GET FROM ACTIVITIES TABLE API
 
-app.get('/api/activites/:user_id', (req, res, next) => {
+app.get('/api/activities/:user_id', (req, res, next) => {
   const user_id = req.params.user_id;
   const sql = `
   SELECT * FROM "activities"
