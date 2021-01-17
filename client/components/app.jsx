@@ -14,6 +14,8 @@ import Treatment from './treatment';
 import Treatment_History from './treatment_history';
 import Treatment_Entry from './treatment_entry';
 import Health_Recs from './health_recs';
+import Activity_Entry from './activity_entry';
+import Activities from './activities';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -199,7 +201,11 @@ export default class App extends React.Component {
                                 ? <Treatment_Entry setView={this.setView} view={this.state.view}/>
                                 : (this.state.view.name === 'health_recs')
                                   ? <Health_Recs view = {this.state.view} setView={this.setView}/>
-                                  : null
+                                  : (this.state.view.name === 'activity_entry')
+                                    ? <Activity_Entry view = {this.state.view} setView={this.setView}/>
+                                    : (this.state.view.name === 'activites')
+                                      ? <Activities setView = {this.setView} user={this.state.user}/>
+                                      : null
     return (
       <div>
         {s}
