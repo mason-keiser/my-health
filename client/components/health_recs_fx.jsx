@@ -28,7 +28,7 @@ function Rec(props) {
   return (
     <div className={
       props.index === props.activeIndex
-        ? 'flashcards-review-flashcard d-flex justify-content-center align-items-center col-12'
+        ? 'd-flex justify-content-center align-items-center col-12'
         : 'd-none'
     }
     key={props.index}>
@@ -45,4 +45,4 @@ function Rec(props) {
   );
 }
 
-export { NextArrow, BackArrow, Rec};
+export { NextArrow, BackArrow, Rec };
