@@ -323,6 +323,66 @@ app.delete('/api/deleteTx', (req, res ,next) => {
     .catch(err => next(err));
 })
 
+// GET FROM ACTIVITIES TABLE API
+
+app.get('/api/activites/:user_id', (req, res, next) => {
+  const user_id = req.params.user_id;
+  const sql = `
+  SELECT * FROM "activities"
+  WHERE "user_id" = $1
+  `
+  const params = [user_id]
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        return res.status(400).json({ message: `No user activites are attached to acct # : ${user_id}` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
+// POST INTO ACTIVITIES TABLE API
+
+app.post('/api/postact', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const date_id = req.body.date_id;
+  const activity_name = req.body.activity_name;
+  const activity_description = req.body.activity_description;
+
+
+  if (!user_id) {
+    return res.status(400).json({ error: 'all activity entries must have user_id' });
+  }
+  if (!date_id) {
+    return res.status(400).json({ error: 'all activity entries must have date_id' });
+  }
+
+  const sql = `
+  INSERT INTO "activities" ("user_id", "date_id", "activity_name","activity_description")
+  VALUES ($1, $2, $3, $4)
+  RETURNING *
+  `
+  const params = [user_id, date_id, activity_name, activity_description];
+  db.query(sql, params)
+    .then(result => {
+      if (!result) {
+        return res.status(400).json({ message: `There has been an error trying to post the activity entry` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
