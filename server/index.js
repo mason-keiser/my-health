@@ -361,6 +361,9 @@ app.post('/api/postact', (req, res, next) => {
   if (!date_id) {
     return res.status(400).json({ error: 'all activity entries must have date_id' });
   }
+  if (!activity_name) {
+    return res.status(400).json({ error: 'all activity entries must have activity_name' });
+  }
 
   const sql = `
   INSERT INTO "activities" ("user_id", "date_id", "activity_name","activity_description")
