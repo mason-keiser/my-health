@@ -96,7 +96,7 @@ export default class Health_Recs extends React.Component {
     render() {
         return (
             <div>
-                <Main_Page_Header setView = {this.props.setView}/>
+                <Main_Page_Header view={this.props.view} setView = {this.props.setView}/>
                 <h1 className="title" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
         
                 <h2 className='title22 mt-4 mb-4'>Health Recommendations</h2>

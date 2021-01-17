@@ -31,11 +31,11 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Main_Page_Header setView={this.props.setView}/>
+                <Main_Page_Header view = {this.props.view} setView={this.props.setView}/>
                 <h1 className="maintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <h2 className="date m-5">{dateBuilder(new Date())}</h2>
                 <h2 className="welcomb">Welcome back, {this.props.user.firstname}</h2>
-                <div className="mainB">
+                <div className="mainB mb-5">
                     <button onClick={() => this.props.setView('pain',{})} type='submit' className='btn'>Pain Today</button>
                     <button onClick={() => this.props.setView('pain_history',{})} type='submit' className='btn'>Pain History</button>
                     <button onClick={() => this.props.setView('treatment',{})} type='submit' className='btn'>My Treatment</button>  

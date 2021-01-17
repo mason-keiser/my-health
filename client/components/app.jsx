@@ -178,7 +178,7 @@ export default class App extends React.Component {
           : (this.state.view.name === 'welcome')
             ? <Welcome setView = {this.setView}/>
             : (this.state.view.name === 'main')
-              ? <Main setView={this.setView} user={this.state.user} getPainNotes ={this.getPainNotes}/>
+              ? <Main view= {this.state.view} setView={this.setView} user={this.state.user} getPainNotes ={this.getPainNotes}/>
               : (this.state.view.name === 'pain')
                 ? <Pain setView={this.setView} user={this.state.user} postPain={this.postPain}/>
                 : (this.state.view.name === 'pain_history')
@@ -198,7 +198,7 @@ export default class App extends React.Component {
                               : (this.state.view.name === 'treatment_entry')
                                 ? <Treatment_Entry setView={this.setView} view={this.state.view}/>
                                 : (this.state.view.name === 'health_recs')
-                                  ? <Health_Recs setView={this.setView}/>
+                                  ? <Health_Recs view = {this.state.view} setView={this.setView}/>
                                   : null
     return (
       <div>

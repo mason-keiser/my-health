@@ -59,17 +59,22 @@ export default class Main_Page_Header extends React.Component {
             if (window.innerWidth < 768) {
               offset = -286;
             }
-            
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = function() {
-              var currentScrollPos = window.pageYOffset;
-              if (prevScrollpos > currentScrollPos) {
-                document.getElementById("navbar").style.top = "0";
-              } else {
-                document.getElementById("navbar").style.top = "-100px";
-              }
-            prevScrollpos = currentScrollPos;
+    
+            if (this.props.view.name === "health_recs") {
+                null
+            } else {
+                var prevScrollpos = window.pageYOffset;
+                window.onscroll = function() {
+                  var currentScrollPos = window.pageYOffset;
+                  if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar").style.top = "0";
+                  } else {
+                    document.getElementById("navbar").style.top = "-100px";
+                  }
+                prevScrollpos = currentScrollPos;
+                }
             }
+        
             return (
                 <Container fluid={true} className="py-3 shadow-md bg-white sticky-top" id="navbar">
                 <Navbar color="faded" light
