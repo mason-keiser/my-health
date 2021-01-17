@@ -100,10 +100,9 @@ export default class Health_Recs extends React.Component {
                 <h1 className="title" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-3">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
-                    <h4 style={{color: "white"}} onClick={() => this.props.setView('journal_history',{})}></h4>
                 </div>
                 <h2 className='title22 mt-4 mb-4'>Health Recommendations</h2>
-                <div className='recsRow'>
+                <div className='recsRow mb-5'>
                     <BackArrow className='col-1 ar' goToPrevRec={() => this.goToPrevRec()}/>
                     <div style={{ width: "100%", margin: "auto"}}>
                         {this.state.recs.map((rec, index) =>

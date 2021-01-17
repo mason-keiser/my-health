@@ -7,7 +7,7 @@ function NextArrow(props) {
       onClick={() => {
         props.goToNextRec();
       }}>
-      <h1 className="fa fa-angle-right fa-3x text-secondary" aria-hidden="true">►</h1>
+      <h1 className="fa fa-angle-right fa-3x" aria-hidden="true">►</h1>
     </div>
   );
 }
@@ -19,7 +19,7 @@ function BackArrow(props) {
       onClick={() => {
         props.goToPrevRec();
       }}>
-      <h1 className="fa fa-angle-left fa-3x text-secondary" aria-hidden="true">◄</h1>
+      <h1 className="fa fa-angle-left fa-3x" aria-hidden="true">◄</h1>
     </div>
   );
 }
