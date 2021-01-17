@@ -563,6 +563,20 @@ form {
     border: 1px solid #F36B6B
 }
 
+.recsRow {
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+}   
+
+.ar{
+    cursor: pointer;
+}
+
+.ar:hover{
+    color: #F36B6B;
+}
+
 .needacc{
     width: 70%;
     text-align: center;
