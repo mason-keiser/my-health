@@ -15,6 +15,10 @@ export default class Journal_History extends React.Component {
         this.getJournalEntries();
     }
 
+    componentDidUpdate() {
+        this.getJournalEntries();
+    }
+
     getJournalEntries(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {

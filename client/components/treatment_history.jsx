@@ -15,6 +15,10 @@ export default class Treatment_History extends React.Component {
         this.getTreatments();
     }
 
+    componentDidUpdate() {
+        this.getTreatments();
+    }
+
     getTreatments(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {

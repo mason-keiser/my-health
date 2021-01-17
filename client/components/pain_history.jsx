@@ -15,6 +15,10 @@ export default class Pain_History extends React.Component {
         this.getPainNotes();
     }
 
+    componentDidUpdate() {
+        this.getPainNotes();
+    }
+
     getPainNotes(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {
