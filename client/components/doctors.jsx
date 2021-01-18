@@ -1,6 +1,10 @@
 import React from 'react';
 import Doctor_Card from './doctor_card';
 import Main_Page_Header from './main_page_header';
+import {
+    Row,
+    Col
+  } from 'reactstrap';
 
 export default class Doctors extends React.Component{
     constructor(props) {
@@ -41,11 +45,13 @@ export default class Doctors extends React.Component{
         const items = (this.state.doctors !== null && this.state.doctors !== undefined) 
         ?  (this.state.doctors.map((dr, index) => {
                 return(
+                    <Col>
                     <Doctor_Card
                     dr={dr}
                     key={dr.doctor_id}
                     setView={this.props.setView}
                     />
+                    </Col>
                 );
             })
         )
@@ -63,9 +69,9 @@ export default class Doctors extends React.Component{
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn'>Add to Dr Info</button>
                 </div>
-                <div className='mb-2'>
+                <Row className='mb-2 row-cols-1 row-cols-md-2 row-cols-lg-3'>
                  {items}
-                </div>
+                </Row>
             </div>
         )
     }

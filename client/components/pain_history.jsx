@@ -1,6 +1,12 @@
 import React from 'react';
 import Pain_Card from './pain_card';
-import Main_Page_Header from './main_page_header'
+import Main_Page_Header from './main_page_header';
+import {
+    Row,
+    Col
+  } from 'reactstrap';
+
+
 
 export default class Pain_History extends React.Component {
     constructor(props) {
@@ -23,7 +29,7 @@ export default class Pain_History extends React.Component {
                 headers: { 'Content-Type': 'application/json'}
             })
             .then(response => {
-                if (response.status === 400 || response.status === 404 || response.status === 500) {
+                if (response.status === 400 || response.status === 404) {
                     return null
                 } else {
                     return response.json();                    }
@@ -40,11 +46,13 @@ export default class Pain_History extends React.Component {
        const list = (this.state.pain_notes !== undefined && this.state.pain_notes !== null) 
         ?  (this.state.pain_notes.map((note, index) => {
                 return(
+                <Col key ={index}>
                 <Pain_Card
                 deleteId ={this.deleteId}
                 notes ={note}
                 key={note.note_id}
                 setView={this.props.setView}/>
+                </Col>
                 );
             })
         )
@@ -61,9 +69,9 @@ export default class Pain_History extends React.Component {
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => this.props.setView('pain', {})}>Add to History</button>
                 </div>
-                <div className="mb-2">
+                <Row className="mb-2 row-cols-1 row-cols-md-2 row-cols-lg-3">
                     {list}
-                </div>
+                </Row>
             </div>
         )
     }
