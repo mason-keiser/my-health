@@ -16,7 +16,7 @@ export default class Pain_History extends React.Component {
     }
 
     componentDidUpdate() {
-        this.getPainNotes();
+        () => this.getPainNotes();
     }
 
     getPainNotes(){

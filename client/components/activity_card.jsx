@@ -5,10 +5,11 @@ export default function Activity_Card(props) {
         <div>
             <div className="card border-0" 
                 onClick={() => props.setView('activity_entry',{
-                journal_id: props.activity.activity_id,
+                activity_id: props.activity.activity_id,
                 user_id: props.activity.user_id,
-                journal: props.activity.activity_name,
-                date_id: props.activity.activity_description
+                date_id: props.activity.date_id,
+                activity_name: props.activity.activity_name,
+                activity_description: props.activity.activity_description
                 })}>
                 <div className="card-body">
                     <h1 className="card-title">{props.activity.activity_name}</h1>

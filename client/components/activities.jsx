@@ -16,7 +16,7 @@ export default class Activities extends React.Component{
     }
 
     componentDidUpdate() {
-        this.getActivities();
+        () => this.getActivities();
     }
 
     getActivities(){
@@ -64,7 +64,7 @@ export default class Activities extends React.Component{
                     <h4 style={{color: "white"}} >Write in Journal</h4>
                 </div>
                 <div className='journalButton mb-3'>
-                    <button type='submit' className='btn' onClick={() => this.props.setView('activity_entry', {})}>Add to Activities</button>
+                    <button type='submit' className='btn' onClick={() => this.props.setView('activity', {})}>Add to Activities</button>
                 </div>
                 <div className='mb-2'>
                    {items}

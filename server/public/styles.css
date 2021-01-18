@@ -374,6 +374,25 @@ body {
     resize: none;
 }
 
+.journalNote3 {
+    display: block;
+    text-align: center
+}
+
+.journalNote3 > textarea {
+    padding: 10px;
+    border-radius:5px;
+    width: 80%;
+    margin: 1rem;
+    height: 30vh;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: none;
+}
+
 
 .journalNote2 > textarea:hover {
     border: 1px solid #F36B6B;
@@ -416,6 +435,8 @@ form {
     font-family:'DM Serif Text', serif;
 }
 
+
+
 .form-group >input {
     padding:10px;
     border-radius:5px;
@@ -446,6 +467,9 @@ form {
     font-size: larger;
     font-family:'DM Serif Text', serif;
 }
+
+
+
 
 .loginButton > button {
     text-align: center;

@@ -16,6 +16,7 @@ import Treatment_Entry from './treatment_entry';
 import Health_Recs from './health_recs';
 import Activity_Entry from './activity_entry';
 import Activities from './activities';
+import Activity from './activity';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ export default class App extends React.Component {
   this.postJournal = this.postJournal.bind(this);
   this.loginAsGuest = this.loginAsGuest.bind(this);
   this.postTx = this.postTx.bind(this);
+  this.postActivity = this.postActivity.bind(this);
 }
 
   componentDidMount() {
@@ -145,6 +147,23 @@ export default class App extends React.Component {
    this.setView('journal_history')
   }
 
+
+  postActivity(activityInfo) {
+    fetch('/api/postact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(activityInfo)
+    })
+    .then(response => {
+      if (response.status === 400 || response.status === 404) {
+        console.log('failed post');
+      } else {
+        return response.json();
+      }
+    })
+   this.setView('activities')
+  }
+
   loginAsGuest() {
     this.setState({
       user: {
@@ -203,9 +222,11 @@ export default class App extends React.Component {
                                   ? <Health_Recs view = {this.state.view} setView={this.setView}/>
                                   : (this.state.view.name === 'activity_entry')
                                     ? <Activity_Entry view = {this.state.view} setView={this.setView}/>
-                                    : (this.state.view.name === 'activites')
+                                    : (this.state.view.name === 'activities')
                                       ? <Activities setView = {this.setView} user={this.state.user}/>
-                                      : null
+                                      : (this.state.view.name === 'activity')
+                                        ? <Activity setView={this.setView} postActivity={this.postActivity} user={this.state.user} />
+                                        : null
     return (
       <div>
         {s}

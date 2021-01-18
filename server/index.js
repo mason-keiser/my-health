@@ -323,6 +323,28 @@ app.delete('/api/deleteTx', (req, res ,next) => {
     .catch(err => next(err));
 })
 
+// DELETE FROM ACTIVITIES TABLE API
+
+app.delete('/api/deleteAct', (req, res ,next) => {
+  const activity_id = req.body.activity_id;
+  const sqlQuery = `
+          DELETE FROM activities
+                WHERE activity_id = $1
+                RETURNING *
+        `;
+  const params = [activity_id];
+
+  db.query(sqlQuery, params)
+    .then(result => {
+      res.status(202).json({
+        message: 'Activity entry deleted successfully',
+        activity_id: result.rows[0].activity_id 
+      })
+      return result
+    })
+    .catch(err => next(err));
+})
+
 // GET FROM ACTIVITIES TABLE API
 
 app.get('/api/activities/:user_id', (req, res, next) => {
