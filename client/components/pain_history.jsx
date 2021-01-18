@@ -15,12 +15,6 @@ export default class Pain_History extends React.Component {
         this.getPainNotes();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.pain_notes !== []) {
-            this.getPainNotes()
-        }
-    }
-
     getPainNotes(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {
@@ -29,8 +23,8 @@ export default class Pain_History extends React.Component {
                 headers: { 'Content-Type': 'application/json'}
             })
             .then(response => {
-                if (response.status === 400 || response.status === 404) {
-                    null
+                if (response.status === 400 || response.status === 404 || response.status === 500) {
+                    return null
                 } else {
                     return response.json();                    }
             })
@@ -43,7 +37,7 @@ export default class Pain_History extends React.Component {
     }
 
     render() {
-       const list = (this.state.pain_notes !== undefined) 
+       const list = (this.state.pain_notes !== undefined && this.state.pain_notes !== null) 
         ?  (this.state.pain_notes.map((note, index) => {
                 return(
                 <Pain_Card

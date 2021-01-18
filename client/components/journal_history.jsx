@@ -15,12 +15,6 @@ export default class Journal_History extends React.Component {
         this.getJournalEntries();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.journal_entries !== []) {
-            this.getJournalEntries()
-        }
-    }
-
     getJournalEntries(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {
@@ -29,8 +23,8 @@ export default class Journal_History extends React.Component {
                 headers: { 'Content-Type': 'application/json'}
             })
             .then(response => {
-                if (response.status === 400 || response.status === 404) {
-                    null
+                if (response.status === 400 || response.status === 404 || response.status === 500) {
+                    return null
                 } else {
                     return response.json();                    }
             })
@@ -43,7 +37,7 @@ export default class Journal_History extends React.Component {
     }
 
     render() {
-        const list = (this.state.journal_entries !== undefined) 
+        const list = (this.state.journal_entries !== undefined && this.state.journal_entries !== null) 
         ?  (this.state.journal_entries.map((journal, index) => {
                 return(
                 <Journal_Card

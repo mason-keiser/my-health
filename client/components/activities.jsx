@@ -15,12 +15,6 @@ export default class Activities extends React.Component{
         this.getActivities();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.activities !== []) {
-            this.getActivities()
-        }
-    }
-
     getActivities(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {
@@ -29,8 +23,8 @@ export default class Activities extends React.Component{
                 headers: { 'Content-Type': 'application/json'}
             })
             .then(response => {
-                if (response.status === 400 || response.status === 404) {
-                    null
+                if (response.status === 400 || response.status === 404 || response.status === 500) {
+                    return null
                 } else {
                     return response.json();                    }
             })
@@ -43,7 +37,7 @@ export default class Activities extends React.Component{
     }
 
     render() {
-        const items = (this.state.activities !== undefined) 
+        const items = (this.state.activities !== null && this.state.activities !== undefined) 
         ?  (this.state.activities.map((act, index) => {
                 return(
                     <Activity_Card

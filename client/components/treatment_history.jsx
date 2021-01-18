@@ -15,12 +15,6 @@ export default class Treatment_History extends React.Component {
         this.getTreatments();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.tx_history !== []) {
-            this.getTreatments()
-        }
-    }
-
     getTreatments(){
         const id = Number(this.props.user.user_id)
         if (this.props.user.user_id !== null) {
@@ -29,8 +23,8 @@ export default class Treatment_History extends React.Component {
                 headers: { 'Content-Type': 'application/json'}
             })
             .then(response => {
-                if (response.status === 400 || response.status === 404) {
-                    null
+                if (response.status === 400 || response.status === 404 || response.status === 500) {
+                    return null
                 } else {
                     return response.json();                    }
             })
