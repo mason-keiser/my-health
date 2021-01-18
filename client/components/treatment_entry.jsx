@@ -49,7 +49,7 @@ export default class Treatment_Entry extends React.Component {
                     <h5 className='mb-0'>Cold/Heat Therapy: </h5>
                     <input type="text" readOnly value={this.props.view.params.ch_therapy} name='ch_therapy' className="" id='ch_therapy' onChange={this.handleChange}/>
                 </div>
-                <div className='guest2' onClick={() => this.deleteId(this.props.view.params.tx_id)}>Click here to delete treatment note</div>
+                <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.tx_id)}>Click here to delete treatment note</div>
             </form>
         </div>
         )

@@ -81,7 +81,7 @@ export default class Treatment extends React.Component {
                         <h5 className='mb-0'>Cold/Heat Therapy: </h5>
                         <input type="text" placeholder='Type Here' name='ch_therapy' className="" id='ch_therapy' onChange={this.handleChange}/>
                     </div>
-                    <div className='signupButton'>
+                    <div className='signupButton mb-5'>
                          <button type='submit' className='btn mt-5'>Submit</button>
                     </div>
                 </form>

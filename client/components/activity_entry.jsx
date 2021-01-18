@@ -45,7 +45,7 @@ export default class Activity_Entry extends React.Component {
                     <h5 className='title5'>Description:</h5>
                     <textarea value={this.state.activity_description} readOnly id='actnote'type="text"/>
                 </div>
-                <div className='guest2' onClick={() => this.deleteId(this.props.view.params.activity_id)}>Click here to delete Activity</div>
+                <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.activity_id)}>Click here to delete Activity</div>
             </div>
         )
     }

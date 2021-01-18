@@ -117,7 +117,7 @@ export default class Pain extends React.Component {
                 <div className='painNote'>
                     <h4 className='title5'>Add Note:</h4>
                     <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleNote}/>
-                    <div className='painButton'>
+                    <div className='painButton mb-5'>
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postPain)}>Submit</button>
                     </div>
                 </div>
