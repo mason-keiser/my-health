@@ -16,8 +16,9 @@ export default class Activities extends React.Component{
     }
 
     componentDidUpdate(prevProps, prevState) {
-       () => this.getActivities();
-       console.log(prevProps, prevState)
+        if (this.state.activities !== []) {
+            this.getActivities()
+        }
     }
 
     getActivities(){

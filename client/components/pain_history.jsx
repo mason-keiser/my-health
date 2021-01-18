@@ -16,7 +16,9 @@ export default class Pain_History extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-       () => this.getPainNotes();
+        if (this.state.pain_notes !== []) {
+            this.getPainNotes()
+        }
     }
 
     getPainNotes(){
@@ -28,8 +30,7 @@ export default class Pain_History extends React.Component {
             })
             .then(response => {
                 if (response.status === 400 || response.status === 404) {
-                    console.log("couldn't fetch notes");
-                    return
+                    null
                 } else {
                     return response.json();                    }
             })

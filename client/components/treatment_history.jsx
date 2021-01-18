@@ -16,7 +16,9 @@ export default class Treatment_History extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-       () => this.getTreatments();
+        if (this.state.tx_history !== []) {
+            this.getTreatments()
+        }
     }
 
     getTreatments(){
@@ -28,8 +30,7 @@ export default class Treatment_History extends React.Component {
             })
             .then(response => {
                 if (response.status === 400 || response.status === 404) {
-                    console.log("couldn't fetch notes");
-                    return
+                    null
                 } else {
                     return response.json();                    }
             })
@@ -42,7 +43,7 @@ export default class Treatment_History extends React.Component {
     }
 
     render() {
-        const items = (this.state.tx_history !== undefined) 
+        const items = (this.state.tx_history !== null && this.state.tx_history !== undefined) 
         ?  (this.state.tx_history.map((note, index) => {
                 return(
                     <Treatment_Card

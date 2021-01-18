@@ -16,7 +16,9 @@ export default class Journal_History extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-       () => this.getJournalEntries();
+        if (this.state.journal_entries !== []) {
+            this.getJournalEntries()
+        }
     }
 
     getJournalEntries(){
@@ -28,8 +30,7 @@ export default class Journal_History extends React.Component {
             })
             .then(response => {
                 if (response.status === 400 || response.status === 404) {
-                    console.log("couldn't fetch journal entries");
-                    return
+                    null
                 } else {
                     return response.json();                    }
             })
