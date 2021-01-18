@@ -15,8 +15,9 @@ export default class Activities extends React.Component{
         this.getActivities();
     }
 
-    componentDidUpdate() {
-        this.getActivities();
+    componentDidUpdate(prevProps, prevState) {
+       () => this.getActivities();
+       console.log(prevProps, prevState)
     }
 
     getActivities(){
@@ -28,8 +29,7 @@ export default class Activities extends React.Component{
             })
             .then(response => {
                 if (response.status === 400 || response.status === 404) {
-                    console.log("couldn't fetch activites");
-                    return
+                    null
                 } else {
                     return response.json();                    }
             })

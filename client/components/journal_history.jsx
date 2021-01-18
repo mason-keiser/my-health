@@ -15,8 +15,8 @@ export default class Journal_History extends React.Component {
         this.getJournalEntries();
     }
 
-    componentDidUpdate() {
-       this.getJournalEntries();
+    componentDidUpdate(prevProps, prevState) {
+       () => this.getJournalEntries();
     }
 
     getJournalEntries(){
