@@ -60,7 +60,7 @@ export default class Activity extends React.Component {
                         <input type="text" onChange={this.handleActivity} placeholder="type here" name='meds' id = 'activity_name'/>
                     </div>
                     <h5 className='title5'>Description:</h5>
-                    <textarea placeholder='type here' onChange={this.handleActivity} id ='activity_description'  id='actnote'type="text"/>
+                    <textarea placeholder='type here' onChange={this.handleActivity} id ='activity_description' type="text"/>
                     <div className='painButton'>
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postActivity)}>Submit</button>
                     </div>
