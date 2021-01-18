@@ -54,7 +54,7 @@ app.get('/api/login/:email/:password', (req, res, next) => {
   WHERE "email" = $1 
   AND "password" = $2;
   `;
-  const params = [req.params.email, req.params.password];
+  const params = [email, password];
   db.query(sql, params)
     .then(result => {
       if (!result.rows[0]) {
@@ -77,7 +77,7 @@ app.get('/api/painnotes/:user_id', (req, res, next) => {
   SELECT * FROM "pain_notes"
   WHERE "user_id" = $1
   `
-  const params = [req.params.user_id]
+  const params = [user_id]
   db.query(sql, params)
     .then(result => {
       if (!result.rows[0]) {
@@ -140,12 +140,12 @@ app.post('/api/postpain', (req, res, next) => {
 // GET ALL JOURNAL ENTRIES BY USER_ID
 
 app.get('/api/journal/:user_id', (req, res, next) => {
-  const user_id = req.body.user_id;
+  const user_id = req.params.user_id;
   const sql = `
   SELECT * FROM "journals"
   WHERE "user_id" = $1
   `
-  const params = [req.params.user_id]
+  const params = [user_id]
   db.query(sql, params)
     .then(result => {
       if (!result.rows[0]) {
@@ -237,12 +237,12 @@ app.post('/api/posttx', (req, res, next) => {
 // SEARCH DB FOR ALL TX
 
 app.get('/api/tx/:user_id', (req, res, next) => {
-  const user_id = req.body.user_id;
+  const user_id = req.params.user_id;
   const sql = `
   SELECT * FROM "treatments"
   WHERE "user_id" = $1
   `
-  const params = [req.params.user_id]
+  const params = [user_id]
   db.query(sql, params)
     .then(result => {
       if (!result.rows[0]) {
@@ -407,6 +407,28 @@ app.post('/api/postact', (req, res, next) => {
     });
 })
 
+// GET ALL DOCTORS BY ID API
+
+app.get('/api/doctors/:user_id', (req, res, next) => {
+  const user_id = req.params.user_id;
+  const sql = `
+  SELECT * FROM "doctors"
+  WHERE "user_id" = $1
+  `
+  const params = [user_id]
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        return res.status(400).json({ message: `No Doctors are attached to acct # : ${user_id}` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
