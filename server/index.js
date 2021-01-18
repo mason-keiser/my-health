@@ -440,7 +440,7 @@ app.post('/api/postdoctor', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       if (!result) {
-        return res.status(400).json({ message: `There has been an error trying to post the activity entry` });
+        return res.status(400).json({ message: `There has been an error trying to post the doctor entry` });
       } else {
         return res.status(200).json(result.rows);
       }
