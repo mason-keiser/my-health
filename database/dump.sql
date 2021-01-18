@@ -18,11 +18,13 @@ SET row_security = off;
 
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_username_key;
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_pkey;
+ALTER TABLE IF EXISTS ONLY public.doctors DROP CONSTRAINT IF EXISTS doctors_pkey;
 ALTER TABLE IF EXISTS ONLY public.activities DROP CONSTRAINT IF EXISTS activities_pkey;
 ALTER TABLE IF EXISTS public.users ALTER COLUMN user_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.treatments ALTER COLUMN tx_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.pain_notes ALTER COLUMN note_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.journals ALTER COLUMN journal_id DROP DEFAULT;
+ALTER TABLE IF EXISTS public.doctors ALTER COLUMN doctor_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.activities ALTER COLUMN activity_id DROP DEFAULT;
 DROP SEQUENCE IF EXISTS public.users_user_id_seq;
 DROP TABLE IF EXISTS public.users;
@@ -32,6 +34,8 @@ DROP SEQUENCE IF EXISTS public.pain_notes_note_id_seq;
 DROP TABLE IF EXISTS public.pain_notes;
 DROP SEQUENCE IF EXISTS public.journals_journal_id_seq;
 DROP TABLE IF EXISTS public.journals;
+DROP SEQUENCE IF EXISTS public.doctors_doctor_id_seq;
+DROP TABLE IF EXISTS public.doctors;
 DROP SEQUENCE IF EXISTS public.activities_activity_id_seq;
 DROP TABLE IF EXISTS public.activities;
 DROP EXTENSION IF EXISTS plpgsql;
@@ -99,6 +103,43 @@ CREATE SEQUENCE public.activities_activity_id_seq
 --
 
 ALTER SEQUENCE public.activities_activity_id_seq OWNED BY public.activities.activity_id;
+
+
+--
+-- Name: doctors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.doctors (
+    user_id integer NOT NULL,
+    doctor_id integer NOT NULL,
+    doctor_name character varying(500) NOT NULL,
+    street_address character varying(500) NOT NULL,
+    state character varying(500) NOT NULL,
+    city character varying(500) NOT NULL,
+    zip_code character varying(500) NOT NULL,
+    phone_number character varying(500) NOT NULL,
+    note character varying(1000) NOT NULL
+);
+
+
+--
+-- Name: doctors_doctor_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.doctors_doctor_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: doctors_doctor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.doctors_doctor_id_seq OWNED BY public.doctors.doctor_id;
 
 
 --
@@ -242,6 +283,13 @@ ALTER TABLE ONLY public.activities ALTER COLUMN activity_id SET DEFAULT nextval(
 
 
 --
+-- Name: doctors doctor_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.doctors ALTER COLUMN doctor_id SET DEFAULT nextval('public.doctors_doctor_id_seq'::regclass);
+
+
+--
 -- Name: journals journal_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -274,7 +322,16 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 --
 
 COPY public.activities (activity_id, user_id, date_id, activity_name, activity_description) FROM stdin;
-1	1	January 12, 2020	hiking	went on a hike in the coto park for about 40 min
+13	5	January 18, 2021	Read a book	Today mel came over and i read my book with her outside on my hammock
+\.
+
+
+--
+-- Data for Name: doctors; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.doctors (user_id, doctor_id, doctor_name, street_address, state, city, zip_code, phone_number, note) FROM stdin;
+1	1	Dr Melissa Kim	9 sunningdale	CA	Coto de Caza	92679	714-504-8070	she is the best doctor ive ever been too hands down
 \.
 
 
@@ -284,7 +341,6 @@ COPY public.activities (activity_id, user_id, date_id, activity_name, activity_d
 
 COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 1	1	January 7, 2021	Today was an alright day overall for me i felt like i saw some improvement in my qol today.
-5	5	January 17, 2021	new journal entry
 \.
 
 
@@ -293,8 +349,8 @@ COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 --
 
 COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_note) FROM stdin;
-13	5	January 13, 2021	2	16	terrible mood today
-15	5	January 17, 2021	2	12	light pain in my neck today and an okay mood
+22	1	January 18, 2021	8	9	dsfgasdf
+23	1	January 18, 2021	6	14	asdfsadf
 \.
 
 
@@ -325,7 +381,14 @@ COPY public.users (user_id, username, email, password) FROM stdin;
 -- Name: activities_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.activities_activity_id_seq', 1, true);
+SELECT pg_catalog.setval('public.activities_activity_id_seq', 15, true);
+
+
+--
+-- Name: doctors_doctor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.doctors_doctor_id_seq', 1, true);
 
 
 --
@@ -339,14 +402,14 @@ SELECT pg_catalog.setval('public.journals_journal_id_seq', 6, true);
 -- Name: pain_notes_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 17, true);
+SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 23, true);
 
 
 --
 -- Name: treatments_tx_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.treatments_tx_id_seq', 7, true);
+SELECT pg_catalog.setval('public.treatments_tx_id_seq', 8, true);
 
 
 --
@@ -362,6 +425,14 @@ SELECT pg_catalog.setval('public.users_user_id_seq', 5, true);
 
 ALTER TABLE ONLY public.activities
     ADD CONSTRAINT activities_pkey PRIMARY KEY (activity_id);
+
+
+--
+-- Name: doctors doctors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.doctors
+    ADD CONSTRAINT doctors_pkey PRIMARY KEY (doctor_id);
 
 
 --
