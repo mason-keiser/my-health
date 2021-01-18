@@ -54,5 +54,3 @@ pgweb --db=myHealth
 ```
 npm run dev
 ```
-# Preview
-![](server/public/images/preview.png)
