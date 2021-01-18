@@ -22,21 +22,18 @@ app.get('/api/health-check', (req, res, next) => {
 //  SIGN UP API POST REQUEST THAT ADDS USER INFO TO DB
 
 app.post('/api/signUp/', (req, res, next) => {
-  if (!req.body.username) {
-    return next(new ClientError('Missing required username field', 400));
-  }
-  if (!req.body.email) {
-    return next(new ClientError('Missing required email field', 400));
-  }
-  if (!req.body.password) {
-    return next(new ClientError('Missing required password field', 400));
-  }
   const sql = `
   INSERT INTO "users" ("username", "email", "password")
   VALUES                  ($1, $2, $3)
   RETURNING *;
   `;
   const params = [req.body.username, req.body.email, req.body.password];
+  
+  for (let i = 0; i < params.length; i ++) {
+    if (!params[i]) {
+      return res.status(400).json({ error: 'all signup input forms must be filled' });
+    }
+  }
   db.query(sql, params)
     .then(result => {
       const row = result.rows[0];
@@ -100,29 +97,19 @@ app.post('/api/postpain', (req, res, next) => {
   const pain_level = req.body.pain_level;
   const mood_level = req.body.mood_level;
   const pain_note = req.body.pain_note
-
-  if (!user_id) {
-    return res.status(400).json({ error: 'all notes must have user_id' });
-  }
-  if (!date_id) {
-    return res.status(400).json({ error: 'all notes must have date_id' });
-  }
-  if (!pain_level) {
-    return res.status(400).json({ error: 'all notes must have pain_level' });
-  }
-  if (!mood_level) {
-    return res.status(400).json({ error: 'all notes must have mood_level' });
-  }
-  if (!pain_note) {
-    return res.status(400).json({ error: 'all notes must have pain_note' });
-  }
-
   const sql = `
   INSERT INTO "pain_notes" ("user_id", "date_id", "pain_level", "mood_level", "pain_note")
   VALUES ($1, $2, $3, $4, $5)
   RETURNING *
   `
   const params = [user_id, date_id, pain_level, mood_level, pain_note];
+
+  for (let i = 0; i < params.length; i ++) {
+    if (!params[i]) {
+      return res.status(400).json({ error: 'all pain input forms must be filled' });
+    }
+  }
+
   db.query(sql, params)
     .then(result => {
       if (!result) {
@@ -376,23 +363,19 @@ app.post('/api/postact', (req, res, next) => {
   const activity_name = req.body.activity_name;
   const activity_description = req.body.activity_description;
 
-
-  if (!user_id) {
-    return res.status(400).json({ error: 'all activity entries must have user_id' });
-  }
-  if (!date_id) {
-    return res.status(400).json({ error: 'all activity entries must have date_id' });
-  }
-  if (!activity_name) {
-    return res.status(400).json({ error: 'all activity entries must have activity_name' });
-  }
-
   const sql = `
   INSERT INTO "activities" ("user_id", "date_id", "activity_name","activity_description")
   VALUES ($1, $2, $3, $4)
   RETURNING *
   `
   const params = [user_id, date_id, activity_name, activity_description];
+
+  for (let i = 0; i < params.length; i ++) {
+    if (!params[i]) {
+      return res.status(400).json({ error: 'all activity input forms must be filled' });
+    }
+  }
+
   db.query(sql, params)
     .then(result => {
       if (!result) {
@@ -420,6 +403,44 @@ app.get('/api/doctors/:user_id', (req, res, next) => {
     .then(result => {
       if (!result.rows[0]) {
         return res.status(400).json({ message: `No Doctors are attached to acct # : ${user_id}` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+})
+
+//
+
+app.post('/api/postdoctor', (req, res, next) => {
+  const user_id = req.body.user_id;
+  const doctor_name = req.body.doctor_name;
+  const street_address = req.body.street_address;
+  const state = req.body.state;
+  const city = req.body.city;
+  const zip_code = req.body.zip_code;
+  const phone_number = req.body.phone_number;
+  const note = req.body.note;
+
+  const sql = `
+  INSERT INTO "doctors"("user_id", "doctor_name", "street_address", "state", "city", "zip_code", "phone_number", "note" )
+  VALUES ($1, $2, $3, $4, $5, $6 ,$7 , $8)  
+  `
+  const params = [user_id, doctor_name, street_address, state, city, zip_code, phone_number, note];
+  
+  for (let i = 0; i < params.length; i ++) {
+    if (!params[i]) {
+      return res.status(400).json({ error: 'all doctor input forms must be filled' });
+    }
+  }
+
+  db.query(sql, params)
+    .then(result => {
+      if (!result) {
+        return res.status(400).json({ message: `There has been an error trying to post the activity entry` });
       } else {
         return res.status(200).json(result.rows);
       }
