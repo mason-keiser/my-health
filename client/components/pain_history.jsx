@@ -56,7 +56,7 @@ export default class Pain_History extends React.Component {
                 );
             })
         )
-        : <h2 className="empty mt-5">No Pain History available, please add new pain note to view history</h2>
+        : <h2 className="empty mt-5" style={{margin: 'auto'}}>No Pain History available, please add new pain note to view history</h2>
 
         return(
             <div>
@@ -69,7 +69,7 @@ export default class Pain_History extends React.Component {
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => this.props.setView('pain', {})}>Add to History</button>
                 </div>
-                <Row className="mb-2 row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <Row className=" align-content-center mb-2 row-cols-1 row-cols-md-2 row-cols-lg-3">
                     {list}
                 </Row>
             </div>
