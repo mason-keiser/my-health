@@ -38,7 +38,7 @@ export default class Main_Page_Header extends React.Component {
       }
 
     alert() {
-        window.alert('Menu items are currently under construction, Coming Soon!');
+        window.alert('Medications is currently under construction, Coming Soon!');
     }
 
     navbarIcon() {
@@ -109,7 +109,7 @@ export default class Main_Page_Header extends React.Component {
                         offset={offset}
                         duration={1000}
                         className="pointer px-0 nav-link"
-                        onClick={this.handleToggle, this.alert}>
+                        onClick={this.handleToggle, () => this.props.setView('doctors', {})}>
                         Doctor Info
                       </Link>
                     </NavItem>
