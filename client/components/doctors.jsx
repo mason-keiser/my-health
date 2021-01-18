@@ -1,4 +1,5 @@
 import React from 'react';
+import Doctor_Card from './doctor_card';
 import Main_Page_Header from './main_page_header';
 
 export default class Doctors extends React.Component{
@@ -25,7 +26,8 @@ export default class Doctors extends React.Component{
                 if (response.status === 400 || response.status === 404 || response.status === 500) {
                     return null
                 } else {
-                    return response.json();                    }
+                    return response.json();                    
+                }
             })
             .then(result => {
                 this.setState({
@@ -39,7 +41,11 @@ export default class Doctors extends React.Component{
         const items = (this.state.doctors !== null && this.state.doctors !== undefined) 
         ?  (this.state.doctors.map((dr, index) => {
                 return(
-                  null
+                    <Doctor_Card
+                    dr={dr}
+                    key={dr.doctor_id}
+                    setView={this.props.setView}
+                    />
                 );
             })
         )
