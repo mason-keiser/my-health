@@ -16,7 +16,7 @@ export default class Treatment_History extends React.Component {
     }
 
     componentDidUpdate() {
-       () => this.getTreatments();
+        this.getTreatments();
     }
 
     getTreatments(){

@@ -16,7 +16,7 @@ export default class Activities extends React.Component{
     }
 
     componentDidUpdate() {
-        () => this.getActivities();
+        this.getActivities();
     }
 
     getActivities(){
