@@ -322,7 +322,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 --
 
 COPY public.activities (activity_id, user_id, date_id, activity_name, activity_description) FROM stdin;
-13	5	January 18, 2021	Read a book	Today mel came over and i read my book with her outside on my hammock
 \.
 
 
@@ -332,6 +331,8 @@ COPY public.activities (activity_id, user_id, date_id, activity_name, activity_d
 
 COPY public.doctors (user_id, doctor_id, doctor_name, street_address, state, city, zip_code, phone_number, note) FROM stdin;
 1	1	Dr Melissa Kim	9 sunningdale	CA	Coto de Caza	92679	714-504-8070	she is the best doctor ive ever been too hands down
+1	2	DrMason Keiser	54 birmingham	CA	Irvine	92691	949-572-1976	chillest doctor in the world
+1	4	Dr Mason Keiser	54 birmingham	CA	Irvine	92691	949-572-1976	chillest doctor in the world
 \.
 
 
@@ -349,8 +350,8 @@ COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 --
 
 COPY public.pain_notes (note_id, user_id, date_id, pain_level, mood_level, pain_note) FROM stdin;
-22	1	January 18, 2021	8	9	dsfgasdf
-23	1	January 18, 2021	6	14	asdfsadf
+26	1	January 18, 2021	2	11	Had a good last 5 days with melissa, so doing pretty good
+27	1	January 18, 2021	8	13	neck starting to hurt towards the end of the day
 \.
 
 
@@ -388,7 +389,7 @@ SELECT pg_catalog.setval('public.activities_activity_id_seq', 15, true);
 -- Name: doctors_doctor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.doctors_doctor_id_seq', 1, true);
+SELECT pg_catalog.setval('public.doctors_doctor_id_seq', 4, true);
 
 
 --
@@ -402,7 +403,7 @@ SELECT pg_catalog.setval('public.journals_journal_id_seq', 6, true);
 -- Name: pain_notes_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 23, true);
+SELECT pg_catalog.setval('public.pain_notes_note_id_seq', 27, true);
 
 
 --
