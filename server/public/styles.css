@@ -448,6 +448,8 @@ form {
     font-family:'DM Serif Text', serif;
 }
 
+
+
 .form-group2 > input:hover {
     width: 85%;
     transition: ease;
@@ -776,6 +778,10 @@ form {
 @media screen and (max-width: 340px) {
     .initContainer> h1 {
         font-size: 35px;
+    }
+
+    .cole {
+        width: 100%
     }
 }
 

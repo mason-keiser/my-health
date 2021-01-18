@@ -46,13 +46,13 @@ export default class Pain_History extends React.Component {
        const list = (this.state.pain_notes !== undefined && this.state.pain_notes !== null) 
         ?  (this.state.pain_notes.map((note, index) => {
                 return(
-                <Col key ={index}>
+                <div className='m-auto'>
                 <Pain_Card
                 deleteId ={this.deleteId}
                 notes ={note}
                 key={note.note_id}
                 setView={this.props.setView}/>
-                </Col>
+                </div>
                 );
             })
         )
@@ -69,7 +69,7 @@ export default class Pain_History extends React.Component {
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => this.props.setView('pain', {})}>Add to History</button>
                 </div>
-                <Row className=" align-content-center mb-2 row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <Row className="row-cols-md-2">
                     {list}
                 </Row>
             </div>

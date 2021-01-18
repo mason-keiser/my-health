@@ -45,13 +45,13 @@ export default class Doctors extends React.Component{
         const items = (this.state.doctors !== null && this.state.doctors !== undefined) 
         ?  (this.state.doctors.map((dr, index) => {
                 return(
-                    <Col>
+                <div className='m-auto'>
                     <Doctor_Card
                     dr={dr}
                     key={dr.doctor_id}
                     setView={this.props.setView}
                     />
-                    </Col>
+                </div>
                 );
             })
         )
@@ -69,7 +69,7 @@ export default class Doctors extends React.Component{
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => alert('doctor info page is under construction, more features will be coming soon')}>Add to Dr Info</button>
                 </div>
-                <Row className='mb-2 row-cols-1 row-cols-md-2 row-cols-lg-3'>
+                <Row className='row-cols-lg-2'>
                  {items}
                 </Row>
             </div>
