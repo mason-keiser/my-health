@@ -397,6 +397,7 @@ COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 
 COPY public.medications (user_id, med_id, med_name, med_instructions, med_image) FROM stdin;
 1	1	Oxycodon	Take one every 2 hours	"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUQEhMVFRUVFhUVFRcVFRUWFRgVFhUXFxUXFxUYHSggGBolHRYVIjEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0lHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAADBAABAgUGBwj/xABAEAABAwIEAwYEAwYFAwUAAAABAAIRAyEEEjFBBRNRBiJhcYGRMqGxwSNC8AcUUmLR4RVjgpLxFkPSRFNyo+L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAmEQACAgICAgEEAwEAAAAAAAAAAQIREiEDMUFREwQUImEygaFx/9oADAMBAAIRAxEAPwDrBivlo4YtB..."
+1	3	Aderall	take all the time	data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUQEhMVFRUVFhUVFRcVFRUWFRgVFhUXFxUXFxUYHSggGBolHRYVIjEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0lHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAADBAABAgUGBwj/xABAEAABAwIEAwYEAwYFAwUAAAABAAIRAyEEEjFBBRNRBiJhcYGRMqGxwSNC8AcUUmLR4RVjgpLxFkPSRFNyo+L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAmEQACAgICAgEEAwEAAAAAAAAAAQIREiEDMUFREwQUImEygaFx/9oADAMBAAIRAxEAPwDrBivlo4YtB...
 \.
 
 
@@ -458,7 +459,7 @@ SELECT pg_catalog.setval('public.journals_journal_id_seq', 6, true);
 -- Name: medications_med_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.medications_med_id_seq', 1, true);
+SELECT pg_catalog.setval('public.medications_med_id_seq', 3, true);
 
 
 --
