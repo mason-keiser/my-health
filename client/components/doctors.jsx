@@ -67,7 +67,7 @@ export default class Doctors extends React.Component{
                     <h4 style={{color: "white"}} >Write in Journal</h4>
                 </div>
                 <div className='journalButton mb-3'>
-                    <button type='submit' className='btn' onClick={() => alert('doctor info page is under construction, more features will be coming soon')}>Add to Dr Info</button>
+                    <button type='submit' className='btn' onClick={() => this.props.setView('doctor', {})}>Add New Doctor</button>
                 </div>
                 <Row className='row-cols-lg-2'>
                  {items}

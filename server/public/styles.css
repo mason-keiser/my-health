@@ -381,6 +381,7 @@ body {
 
 .journalNote3 > textarea {
     padding: 10px;
+    border: 2px solid black;
     border-radius:5px;
     width: 80%;
     margin: 1rem;
@@ -391,6 +392,12 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     resize: none;
+}
+
+.journalNote3 > textarea:hover {
+    padding: 10px;
+    border: 2px solid #F36B6B;
+   
 }
 
 
@@ -470,6 +477,24 @@ form {
     font-family:'DM Serif Text', serif;
 }
 
+.form-group3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family:'DM Serif Text', serif;
+}
+
+.form-group3 >input {
+    padding:10px;
+    border-radius:5px;
+    margin: 1rem;
+    padding: 10px;
+    height: 6vh;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+}
 
 
 
@@ -637,6 +662,14 @@ form {
 }
 
 @media screen and (min-width: 430px) {
+
+    .form-group3 {
+        flex-direction: row;
+    }
+
+    .form-group3 >input {
+        margin: 0;
+    }
     .needacc {
         width: fit-content;
     }
