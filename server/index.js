@@ -473,6 +473,35 @@ app.delete('/api/deleteDoctor', (req, res ,next) => {
     .catch(err => next(err));
 })
 
+// POST TO MEDICATIONS TABLE API
+
+app.post('/api/med', (req, res, next) => {
+  const sql = `
+  INSERT INTO "medications" ("user_id", "med_name", "med_instructions", "med_image")
+  VALUES                  ($1, $2, $3, $4)
+  RETURNING *;
+  `;
+  const params = [req.body.user_id, req.body.med_name, req.body.med_instructions, req.body.med_image];
+  
+  for (let i = 0; i < params.length; i ++) {
+    if (!params[i]) {
+      return res.status(400).json({ error: 'all medication input forms must be filled' });
+    }
+  }
+  db.query(sql, params)
+    .then(result => {
+      if (!result) {
+        return res.status(400).json({ message: `There has been an error trying to post the med entry` });
+      } else {
+        return res.status(200).json(result.rows);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    });
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
