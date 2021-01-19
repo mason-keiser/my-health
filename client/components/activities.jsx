@@ -1,6 +1,11 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header';
 import Activity_Card from './activity_card'
+import {
+    Row,
+    Col
+  } from 'reactstrap';
+
 
 export default class Activities extends React.Component{
     constructor(props) {
@@ -40,10 +45,12 @@ export default class Activities extends React.Component{
         const items = (this.state.activities !== null && this.state.activities !== undefined) 
         ?  (this.state.activities.map((act, index) => {
                 return(
-                    <Activity_Card
-                    activity={act}
-                    key={act.activity_id}
-                    setView={this.props.setView}/>
+                    <div className='m-auto' key={index}>
+                        <Activity_Card
+                        activity={act}
+                        key={act.activity_id}
+                        setView={this.props.setView}/>
+                    </div>
                 );
             })
         )
@@ -61,9 +68,9 @@ export default class Activities extends React.Component{
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => this.props.setView('activity', {})}>Add to Activities</button>
                 </div>
-                <div className='mb-2'>
+                <Row className='row-cols-lg-2'>
                    {items}
-                </div>
+                </Row>
             </div>
         )
     }

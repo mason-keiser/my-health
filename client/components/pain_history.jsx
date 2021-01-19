@@ -46,7 +46,7 @@ export default class Pain_History extends React.Component {
        const list = (this.state.pain_notes !== undefined && this.state.pain_notes !== null) 
         ?  (this.state.pain_notes.map((note, index) => {
                 return(
-                <div className='m-auto'>
+                <div className='m-auto' key={index}>
                 <Pain_Card
                 deleteId ={this.deleteId}
                 notes ={note}

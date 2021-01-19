@@ -78,7 +78,7 @@ export default class Pain_Note extends React.Component {
                 </div>
                 <div className='painNote'>
                     <h4 className='title5'>My Note:</h4>
-                    <textarea value= {this.props.view.params.pain_note} readOnly id='note'type="text"/>
+                    <textarea style={{color: '#F36B6B'}} value= {this.props.view.params.pain_note} readOnly id='note'type="text"/>
                 </div>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.note_id)}>Click here to delete pain note</div>
             </div>

@@ -45,7 +45,7 @@ export default class Doctors extends React.Component{
         const items = (this.state.doctors !== null && this.state.doctors !== undefined) 
         ?  (this.state.doctors.map((dr, index) => {
                 return(
-                <div className='m-auto'>
+                <div className='m-auto' key={index}>
                     <Doctor_Card
                     user={this.props.user}
                     dr={dr}

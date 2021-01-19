@@ -40,10 +40,10 @@ export default class Activity_Entry extends React.Component {
                 <div className='journalNote3 mt-5'>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Activity Name: </h5>
-                        <input type="text" readOnly value={this.props.view.params.activity_name} name='meds' c/>
+                        <input style={{color: '#F36B6B'}} type="text" readOnly value={this.props.view.params.activity_name} name='meds' c/>
                     </div>
                     <h5 className='title5'>Description:</h5>
-                    <textarea value={this.state.activity_description} readOnly id='actnote'type="text"/>
+                    <textarea style={{color: '#F36B6B'}} value={this.state.activity_description} readOnly id='actnote'type="text"/>
                 </div>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.activity_id)}>Click here to delete Activity</div>
             </div>

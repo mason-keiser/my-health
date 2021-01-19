@@ -13,7 +13,8 @@ export default function Activity_Card(props) {
                 })}>
                 <div className="card-body">
                     <h1 className="card-title">{props.activity.activity_name}</h1>
-                    <h3 className=''>{props.activity.activity_description}</h3>
+                    <h4 className='mb-2' style={{textAlign: 'center'}}>{props.activity.date_id}</h4>
+                    <h5 className=''>{props.activity.activity_description}</h5>
                 </div>
             </div>
         </div>

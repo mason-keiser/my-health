@@ -38,7 +38,7 @@ export default class Journal_Entry extends React.Component {
                 <h2 className="date2 m-4">{this.state.date_id}</h2>
                 <div className='journalNote2 mt-5'>
                     <h4 className='title5'>Add Journal:</h4>
-                    <textarea value={this.state.journal} readOnly id='note'type="text"/>
+                    <textarea style={{color: '#F36B6B'}} value={this.state.journal} readOnly id='note'type="text"/>
                 </div>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.journal_id)}>Click here to delete journal note</div>
             </div>

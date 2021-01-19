@@ -48,32 +48,32 @@ export default class Doctor_Entry extends React.Component {
                 <form >
                     <div className='form-group2'>
                         <h5 className='mb-0'>Doctor Name: </h5>
-                        <input type="text" value={this.props.view.params.doctor_name} name='doctor_name' className="" id='doctor_name' onChange={this.handleChange}/>
+                        <input style={{color: '#F36B6B'}}type="text" readOnly value={this.props.view.params.doctor_name} name='doctor_name' className="" id='doctor_name' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Street Address: </h5>
-                        <input type="text" value={this.props.view.params.street_address} name='street_address' className="" id='street_address' onChange={this.handleChange}/>
+                        <input style={{color: '#F36B6B'}} type="text" readOnly value={this.props.view.params.street_address} name='street_address' className="" id='street_address' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group3'>
                         <h5 className=''>State: </h5>
-                        <select id='state'>
-                            <option value={this.props.view.params.state}>{obj[this.props.view.params.state]}</option>
+                        <select style={{color: '#F36B6B'}} id='state'>
+                            <option style={{color: '#F36B6B'}} readOnly value={this.props.view.params.state}>{obj[this.props.view.params.state]}</option>
                         </select>	
                         <h5 className='cit'>City: </h5>
-                        <input type="text" value={this.props.view.params.city} name='ch_therapy' className="" id='city' onChange={this.handleChange}/>
+                        <input style={{color: '#F36B6B'}} type="text" readOnly value={this.props.view.params.city} name='ch_therapy' className="" id='city' onChange={this.handleChange}/>
                     </div>
                     
                     <div className='form-group2'>
                         <h5 className='mb-0'>Zip Code: </h5>
-                        <input type="text" value={this.props.view.params.zip_code} name='zip_code' className="" id='zip_code' onChange={this.handleChange}/>
+                        <input style={{color: '#F36B6B'}} type="text" readOnly value={this.props.view.params.zip_code} name='zip_code' className="" id='zip_code' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Phone Number: </h5>
-                        <input type="text" value={this.props.view.params.phone_number} name='phone_number' className="" id='phone_number' onChange={this.handleChange}/>
+                        <input style={{color: '#F36B6B'}} type="text" readOnly value={this.props.view.params.phone_number} name='phone_number' className="" id='phone_number' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group2 journalNote3'>
                         <h5 className='mb-0'>Note: </h5>
-                        <textarea placeholder='type here' value={this.props.view.params.note} id ='note' type="text"/>
+                        <textarea style={{color: '#F36B6B'}} readOnly placeholder='type here' value={this.props.view.params.note} id ='note' type="text"/>
                     </div>
                 </form>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.doctor_id)}>Click here to delete Doctor</div>
