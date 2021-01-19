@@ -54,7 +54,7 @@ export default class Activities extends React.Component{
                 );
             })
         )
-        : <h2 className="empty mt-5">No Activity History available, please add new activity to view history</h2>
+        : <h2 className="empty mt-5 m-auto">No Activity History available, please add new activity to view history</h2>
 
 
         return (

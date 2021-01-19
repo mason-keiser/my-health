@@ -56,7 +56,7 @@ export default class Doctors extends React.Component{
                 );
             })
         )
-        : <h2 className="empty mt-5"  style={{margin: 'auto'}}>No Doctor Info available, please add new Doctor to view doctor info</h2>
+        : <h2 className="empty mt-5 m-auto"  style={{margin: 'auto'}}>No Doctor Info available, please add new Doctor to view doctor info</h2>
 
 
         return (
