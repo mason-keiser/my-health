@@ -322,6 +322,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 --
 
 COPY public.activities (activity_id, user_id, date_id, activity_name, activity_description) FROM stdin;
+16	1	January 18, 2021	yoga	30 minutes of hot yoga this afternoon
+17	1	January 18, 2021	push ups	200 reps of pushups\n
 \.
 
 
@@ -331,8 +333,8 @@ COPY public.activities (activity_id, user_id, date_id, activity_name, activity_d
 
 COPY public.doctors (user_id, doctor_id, doctor_name, street_address, state, city, zip_code, phone_number, note) FROM stdin;
 1	1	Dr Melissa Kim	9 sunningdale	CA	Coto de Caza	92679	714-504-8070	she is the best doctor ive ever been too hands down
-1	2	DrMason Keiser	54 birmingham	CA	Irvine	92691	949-572-1976	chillest doctor in the world
 1	4	Dr Mason Keiser	54 birmingham	CA	Irvine	92691	949-572-1976	chillest doctor in the world
+1	7	Dr. James Yee	893 lightway	HI	Honolulu	92679	7145048070	best doctor in hawaii
 \.
 
 
@@ -382,14 +384,14 @@ COPY public.users (user_id, username, email, password) FROM stdin;
 -- Name: activities_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.activities_activity_id_seq', 15, true);
+SELECT pg_catalog.setval('public.activities_activity_id_seq', 17, true);
 
 
 --
 -- Name: doctors_doctor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.doctors_doctor_id_seq', 4, true);
+SELECT pg_catalog.setval('public.doctors_doctor_id_seq', 8, true);
 
 
 --
