@@ -37,7 +37,7 @@ export default class Doctor extends React.Component {
     
     handleChange(event) {
         if (event.target.id === 'doctor_name') {
-          this.setState({ doctor_name: event.target.value });
+          this.setState({ doctor_name: 'Dr. ' + event.target.value });
         }
         if (event.target.id === 'street_address') {
           this.setState({ street_address: event.target.value });
