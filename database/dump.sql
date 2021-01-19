@@ -18,11 +18,13 @@ SET row_security = off;
 
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_username_key;
 ALTER TABLE IF EXISTS ONLY public.users DROP CONSTRAINT IF EXISTS users_pkey;
+ALTER TABLE IF EXISTS ONLY public.medications DROP CONSTRAINT IF EXISTS medications_pkey;
 ALTER TABLE IF EXISTS ONLY public.doctors DROP CONSTRAINT IF EXISTS doctors_pkey;
 ALTER TABLE IF EXISTS ONLY public.activities DROP CONSTRAINT IF EXISTS activities_pkey;
 ALTER TABLE IF EXISTS public.users ALTER COLUMN user_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.treatments ALTER COLUMN tx_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.pain_notes ALTER COLUMN note_id DROP DEFAULT;
+ALTER TABLE IF EXISTS public.medications ALTER COLUMN med_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.journals ALTER COLUMN journal_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.doctors ALTER COLUMN doctor_id DROP DEFAULT;
 ALTER TABLE IF EXISTS public.activities ALTER COLUMN activity_id DROP DEFAULT;
@@ -32,6 +34,8 @@ DROP SEQUENCE IF EXISTS public.treatments_tx_id_seq;
 DROP TABLE IF EXISTS public.treatments;
 DROP SEQUENCE IF EXISTS public.pain_notes_note_id_seq;
 DROP TABLE IF EXISTS public.pain_notes;
+DROP SEQUENCE IF EXISTS public.medications_med_id_seq;
+DROP TABLE IF EXISTS public.medications;
 DROP SEQUENCE IF EXISTS public.journals_journal_id_seq;
 DROP TABLE IF EXISTS public.journals;
 DROP SEQUENCE IF EXISTS public.doctors_doctor_id_seq;
@@ -175,6 +179,39 @@ ALTER SEQUENCE public.journals_journal_id_seq OWNED BY public.journals.journal_i
 
 
 --
+-- Name: medications; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.medications (
+    user_id integer NOT NULL,
+    med_id integer NOT NULL,
+    med_name character varying(500) NOT NULL,
+    med_instructions character varying(500) NOT NULL,
+    med_image character varying
+);
+
+
+--
+-- Name: medications_med_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.medications_med_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: medications_med_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.medications_med_id_seq OWNED BY public.medications.med_id;
+
+
+--
 -- Name: pain_notes; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -297,6 +334,13 @@ ALTER TABLE ONLY public.journals ALTER COLUMN journal_id SET DEFAULT nextval('pu
 
 
 --
+-- Name: medications med_id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.medications ALTER COLUMN med_id SET DEFAULT nextval('public.medications_med_id_seq'::regclass);
+
+
+--
 -- Name: pain_notes note_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -344,6 +388,15 @@ COPY public.doctors (user_id, doctor_id, doctor_name, street_address, state, cit
 
 COPY public.journals (journal_id, user_id, date_id, journal) FROM stdin;
 1	1	January 7, 2021	Today was an alright day overall for me i felt like i saw some improvement in my qol today.
+\.
+
+
+--
+-- Data for Name: medications; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.medications (user_id, med_id, med_name, med_instructions, med_image) FROM stdin;
+1	1	Oxycodon	Take one every 2 hours	"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUQEhMVFRUVFhUVFRcVFRUWFRgVFhUXFxUXFxUYHSggGBolHRYVIjEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0lHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAADBAABAgUGBwj/xABAEAABAwIEAwYEAwYFAwUAAAABAAIRAyEEEjFBBRNRBiJhcYGRMqGxwSNC8AcUUmLR4RVjgpLxFkPSRFNyo+L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAmEQACAgICAgEEAwEAAAAAAAAAAQIREiEDMUFREwQUImEygaFx/9oADAMBAAIRAxEAPwDrBivlo4YtB..."
 \.
 
 
@@ -402,6 +455,13 @@ SELECT pg_catalog.setval('public.journals_journal_id_seq', 6, true);
 
 
 --
+-- Name: medications_med_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.medications_med_id_seq', 1, true);
+
+
+--
 -- Name: pain_notes_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
@@ -436,6 +496,14 @@ ALTER TABLE ONLY public.activities
 
 ALTER TABLE ONLY public.doctors
     ADD CONSTRAINT doctors_pkey PRIMARY KEY (doctor_id);
+
+
+--
+-- Name: medications medications_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.medications
+    ADD CONSTRAINT medications_pkey PRIMARY KEY (med_id);
 
 
 --
