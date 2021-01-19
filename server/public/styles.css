@@ -496,7 +496,20 @@ form {
     font-family:'DM Serif Text', serif;
 }
 
-
+.previewImg{
+    width: 80%;
+    max-width: 80%;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 30vh;
+    max-height: 30vh;
+}
+.previewImg > img {
+    display: block;
+    margin: auto;
+    height: 30vh;
+    width: -webkit-fill-available;
+}
 
 .loginButton > button {
     text-align: center;
@@ -649,6 +662,10 @@ form {
     font-family: 'DM Serif Text', serif;
 }
 
+.form-group2 > input[type = 'file']{
+    display: none;
+}
+
 .card-title:hover {
     color: #F36B6B;
 }
@@ -673,6 +690,28 @@ form {
     border: 2px solid #F36B6B;
 }
 
+.label {
+    text-align: center;
+    height: 4vh;
+    width: 40%;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: larger;
+    font-family:'DM Serif Text', serif;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.label > label {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.label:hover {
+    border: 1px solid #F36B6B;
+    color: #F36B6B;
+}
+
 .cit{
     margin: 1rem;
 }
@@ -685,6 +724,14 @@ form {
     .cit{
         margin: 0;
     }
+
+    .label{
+        width: 20%;
+    }
+
+.previewImg{
+    width: 45%;
+}
 
     .form-group3 > input {
         margin-bottom: 0;
@@ -800,6 +847,10 @@ form {
     .signupButton > button {
         height: 15vh
     }
+
+    .previewImg{
+    height: 50vh;
+}
 
     .form-group > input {
         height: 10vh;

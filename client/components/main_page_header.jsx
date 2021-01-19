@@ -20,7 +20,6 @@ export default class Main_Page_Header extends React.Component {
             isOpen: false
           };
         this.handleToggle = this.handleToggle.bind(this)
-        this.alert = this.alert.bind(this);
         this.navbarIcon = this.navbarIcon.bind(this);
     }
 
@@ -36,10 +35,6 @@ export default class Main_Page_Header extends React.Component {
           this.setState({ isOpen: !this.state.isOpen });
         }
       }
-
-    alert() {
-        window.alert('Medications is currently under construction, Coming Soon!');
-    }
 
     navbarIcon() {
       let span = document.getElementById('navToggle').children;
@@ -96,7 +91,7 @@ export default class Main_Page_Header extends React.Component {
                         offset={offset}
                         duration={1000}
                         className="pointer px-0 nav-link"
-                        onClick={this.handleToggle, this.alert}>
+                        onClick={this.handleToggle, () => this.props.setView('medication',{})}>
                           Medications
                       </Link>
                     </NavItem>
