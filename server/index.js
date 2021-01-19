@@ -525,6 +525,27 @@ app.get('/api/meds/:user_id', (req, res, next) => {
     });
 })
 
+// DELETE MED BY MED_ID API
+
+app.delete('/api/deleteMed', (req, res ,next) => {
+  const med_id = req.body.med_id;
+  const sqlQuery = `
+          DELETE FROM medications
+                WHERE med_id = $1
+                RETURNING *
+        `;
+  const params = [med_id];
+
+  db.query(sqlQuery, params)
+    .then(result => {
+      res.status(202).json({
+        message: 'Medication deleted successfully',
+        doctor_id: result.rows[0].med_id 
+      })
+      return result
+    })
+    .catch(err => next(err));
+})
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
