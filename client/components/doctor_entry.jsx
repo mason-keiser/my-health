@@ -18,11 +18,25 @@ const obj = {
 export default class Doctor_Entry extends React.Component {
     constructor(props) {
         super(props);
-    
+        this.deleteId = this.deleteId.bind(this);
     }
 
+    
+    deleteId(id){
+        fetch('/api/deleteDoctor', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            doctor_id: id
+          })
+        })
+        .then(response => {
+          return response.json();
+        }).then(result => {
+            this.props.setView('doctors',{})
+        })
+    }
     render(){
-        console.log(obj[this.props.view.params.state])
         return(
             <div>
                 <Main_Page_Header setView={this.props.setView}/>
@@ -62,6 +76,7 @@ export default class Doctor_Entry extends React.Component {
                         <textarea placeholder='type here' value={this.props.view.params.note} id ='note' type="text"/>
                     </div>
                 </form>
+                <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.doctor_id)}>Click here to delete Doctor</div>
             </div>
         )
     }

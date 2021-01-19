@@ -5,6 +5,7 @@ export default function Doctor_Card(props) {
         <div>
             <div className="card border-0" onClick={
                 () => props.setView('doctor_entry', {
+                    doctor_id: props.dr.doctor_id,
                     user_id: props.user.user_id,
                     doctor_name: props.dr.doctor_name,
                     street_address: props.dr.street_address,
