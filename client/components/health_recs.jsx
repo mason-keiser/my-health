@@ -42,6 +42,34 @@ export default class Health_Recs extends React.Component {
                     name: 'Painting',
                     description: 'Taking up a hobby like painting isn’t just for the creative types. The more analytical left-brainers can stimulate and nurture their creative growth by painting as well. Practice and focus, two skills inherent in left-brain individuals, allow these people to learn creative skills at their own pace.'
                 },
+                {
+                  id: 6,
+                  image: '/images/gardening.jpg',
+                  alt: 'Gardening image',
+                  name: 'Gardening',
+                  description: 'Gardening may not initially seem like exercise, but studies have reported that a wealth of unexpected health benefits are associated with keeping your garden in order.'
+                },
+                {
+                  id: 7,
+                  image: '/images/writing.jpg',
+                  alt: 'Writing image',
+                  name: 'Writing',
+                  description: 'Writing has been linked to a number of mental and physical health benefits, including improvements in memory, stress levels, and sleep, among other things.'
+                },
+                {
+                  id: 7,
+                  image: '/images/music.jpg',
+                  alt: 'Music image',
+                  name: 'Music',
+                  description: 'Studies have shown that music can boost the body’s immune system, lower levels of stress and anxiety, and ease depression.'
+                },
+                {
+                  id: 8,
+                  image: '/images/pets.jpg',
+                  alt: 'Pets image',
+                  name: 'Pets',
+                  description: 'Owning a pet may not only provide opportunities for exercise, outdoor activities and socialization, it can also help decrease your: blood pressure, cholesterol levels, triglyceride levels, and feelings of loneliness.'
+                }
             ],
             activeIndex: 0
         }
