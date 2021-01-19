@@ -19,6 +19,7 @@ import Activities from './activities';
 import Activity from './activity';
 import Doctors from './doctors';
 import Doctor from './doctor'
+import Doctor_Entry from './doctor_entry';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -249,7 +250,9 @@ export default class App extends React.Component {
                                           ? <Doctors  setView = {this.setView} user={this.state.user}/>
                                           : (this.state.view.name === 'doctor')
                                             ? <Doctor postDoctor={this.postDoctor} setView={this.setView} user={this.state.user}/>
-                                            : null
+                                            : (this.state.view.name === 'doctor_entry')
+                                              ? <Doctor_Entry view = {this.state.view} setView={this.setView}/>
+                                              : null
     return (
       <div>
         {s}

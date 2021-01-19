@@ -47,6 +47,7 @@ export default class Doctors extends React.Component{
                 return(
                 <div className='m-auto'>
                     <Doctor_Card
+                    user={this.props.user}
                     dr={dr}
                     key={dr.doctor_id}
                     setView={this.props.setView}
