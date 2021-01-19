@@ -75,7 +75,7 @@ export default class Doctor extends React.Component {
                     <h4 onClick={() => this.props.setView('doctors',{})}>Saved Doctors</h4>
                 </div>
 
-                <form onSubmit={() => this.handleSubmit(this.props.postTx)}>
+                <form onSubmit={() => this.handleSubmit(this.props.postDoctor)}>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Doctor Name: </h5>
                         <input type="text" placeholder='Type Here' name='doctor_name' className="" id='doctor_name' onChange={this.handleChange}/>
@@ -85,27 +85,27 @@ export default class Doctor extends React.Component {
                         <input type="text" placeholder='Type Here' name='street_address' className="" id='street_address' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group3'>
-                        <h5 className='mb-0'>State: </h5>
+                        <h5 className=''>State: </h5>
                         <select id='state' onChange={this.handleState}>
-	                        <option onChange={this.handleState}value="AL">Alabama</option>
-	                        <option onChange={this.handleState}value="AK">Alaska</option>
-	                        <option onChange={this.handleState} value="AZ">Arizona</option>
-	                        <option onChange={this.handleState}value="AR">Arkansas</option>
-	                        <option onChange={this.handleState}value="CA">California</option>
-	                        <option onChange={this.handleState}value="CO">Colorado</option>
-	                        <option onChange={this.handleState}value="CT">Connecticut</option>
-	                        <option onChange={this.handleState}value="DE">Delaware</option>
-	                        <option onChange={this.handleState} value="DC">District Of Columbia</option>
-	                        <option onChange={this.handleState} value="FL">Florida</option>
-	                        <option onChange={this.handleState} value="GA">Georgia</option>
-	                        <option onChange={this.handleState} value="HI">Hawaii</option>
-	                        <option onChange={this.handleState} value="ID">Idaho</option>
-	                        <option onChange={this.handleState} value="IL">Illinois</option>
-	                        <option onChange={this.handleState}value="IN">Indiana</option>
-	                        <option onChange={this.handleState} value="IA">Iowa</option>
-	                        <option onChange={this.handleState} value="KS">Kansas</option>
-	                        <option onChange={this.handleState} value="KY">Kentucky</option>
-	                        <option onChange={this.handleState} value="LA">Louisiana</option>
+	                        <option value="AL">Alabama</option>
+	                        <option value="AK">Alaska</option>
+	                        <option value="AZ">Arizona</option>
+	                        <option value="AR">Arkansas</option>
+	                        <option value="CA">California</option>
+	                        <option value="CO">Colorado</option>
+	                        <option value="CT">Connecticut</option>
+	                        <option value="DE">Delaware</option>
+	                        <option value="DC">District Of Columbia</option>
+	                        <option value="FL">Florida</option>
+	                        <option value="GA">Georgia</option>
+	                        <option value="HI">Hawaii</option>
+	                        <option value="ID">Idaho</option>
+	                        <option value="IL">Illinois</option>
+	                        <option value="IN">Indiana</option>
+	                        <option value="IA">Iowa</option>
+	                        <option value="KS">Kansas</option>
+	                        <option value="KY">Kentucky</option>
+	                        <option value="LA">Louisiana</option>
 	                        <option value="ME">Maine</option>
 	                        <option value="MD">Maryland</option>
 	                        <option value="MA">Massachusetts</option>
@@ -139,8 +139,8 @@ export default class Doctor extends React.Component {
 	                        <option value="WI">Wisconsin</option>
 	                        <option value="WY">Wyoming</option>
                         </select>	
-                        <h5 className='mb-0'>City: </h5>
-                        <input type="text" placeholder='Type Here' name='ch_therapy' className="" id='ch_therapy' onChange={this.handleChange}/>
+                        <h5 className='cit'>City: </h5>
+                        <input type="text" placeholder='Type Here' name='ch_therapy' className="" id='city' onChange={this.handleChange}/>
                     </div>
                     
                     <div className='form-group2'>
@@ -149,7 +149,7 @@ export default class Doctor extends React.Component {
                     </div>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Phone Number: </h5>
-                        <input type="text" placeholder='Type Here' name='phone_number' className="" id='phone_number' onChange={this.handleChange}/>
+                        <input type="text" placeholder='(###)-###-####' name='phone_number' className="" id='phone_number' onChange={this.handleChange}/>
                     </div>
                     <div className='form-group2 journalNote3'>
                         <h5 className='mb-0'>Note: </h5>

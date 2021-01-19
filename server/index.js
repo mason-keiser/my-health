@@ -451,6 +451,28 @@ app.post('/api/postdoctor', (req, res, next) => {
     });
 })
 
+// DELETE FROM DOCTORS TABLE API
+
+app.delete('/api/deleteDoctor', (req, res ,next) => {
+  const doctor_id = req.body.doctor_id;
+  const sqlQuery = `
+          DELETE FROM doctors
+                WHERE doctor_id = $1
+                RETURNING *
+        `;
+  const params = [doctor_id];
+
+  db.query(sqlQuery, params)
+    .then(result => {
+      res.status(202).json({
+        message: 'Doctor deleted successfully',
+        doctor_id: result.rows[0].doctor_id 
+      })
+      return result
+    })
+    .catch(err => next(err));
+})
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });

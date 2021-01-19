@@ -489,7 +489,7 @@ form {
 .form-group3 >input {
     padding:10px;
     border-radius:5px;
-    margin: 1rem;
+    margin-bottom: 1rem;
     padding: 10px;
     height: 6vh;
     font-size: larger;
@@ -661,10 +661,51 @@ form {
     margin-right: 10px
 }
 
+.form-group3 > select {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.form-group3 > select:hover {
+    cursor: pointer;
+    border: 2px solid #F36B6B;
+}
+
+.cit{
+    margin: 1rem;
+}
+
+#city:hover{
+    border: 2px solid #F36B6B;
+}
+
 @media screen and (min-width: 430px) {
+    .cit{
+        margin: 0;
+    }
+
+    .form-group3 > input {
+        margin-bottom: 0;
+    }
+
+    .form-group3 > select {
+        padding: 10px;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid black;
+    }
+
+    .form-group3 > select:hover {
+      
+        border: 2px solid #F36B6B;;
+    }
 
     .form-group3 {
         flex-direction: row;
+        width: 80%;
+        margin: auto;
     }
 
     .form-group3 >input {
@@ -816,6 +857,15 @@ form {
     .cole {
         width: 100%
     }
+
+    .form-group3 > h5 {
+        margin: 1rem;
+    }
+
+    .cit{
+        margin: 1rem;
+    }
+    
 }
 
 .btn1, .btn9{
