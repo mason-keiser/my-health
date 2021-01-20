@@ -4,7 +4,7 @@ export default function Medication_Card(props) {
     return (
         <div>
             <div className="card card2 border-0" 
-                onClick={() => props.setView('main',{
+                onClick={() => props.setView('medication_entry',{
                 med_id: props.med.med_id,
                 user_id: props.med.user_id,
                 med_name: props.med.med_name,
