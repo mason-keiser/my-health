@@ -746,6 +746,7 @@ form {
 }
 .top{
     border: 3px solid black;
+    background: white;
     border-radius: 50%;
     position: fixed;
     bottom: 5%;
