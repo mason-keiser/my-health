@@ -905,6 +905,11 @@ form {
         margin-left: 10rem;
        
     }
+    .lefT {
+       
+        max-height: 35px;
+        
+    }
     .form-group >input{
         height: 9vh;
     }
