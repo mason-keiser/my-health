@@ -1,6 +1,11 @@
 import React from 'react';
 import Journal_Card from './journal_card';
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 export default class Journal_History extends React.Component {
     constructor(props) {
@@ -63,6 +68,8 @@ export default class Journal_History extends React.Component {
                 <div className='mb-2'>
                     {list}
                 </div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>
             )
     }

@@ -1,5 +1,10 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 export default class Activity_Entry extends React.Component {
     constructor(props) {
@@ -46,6 +51,7 @@ export default class Activity_Entry extends React.Component {
                     <textarea style={{color: '#F36B6B'}} value={this.state.activity_description} readOnly id='actnote'type="text"/>
                 </div>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.activity_id)}>Click here to delete Activity</div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }
