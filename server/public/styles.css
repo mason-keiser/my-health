@@ -651,6 +651,13 @@ form {
     font-family: 'DM Serif Text', serif;
 }
 
+.label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
 .needacc:hover {
     border-bottom: 1px solid black;
 }
