@@ -690,6 +690,10 @@ form {
     border: 2px solid #F36B6B;
 }
 
+.medImg{
+    float: right;
+}
+
 .label {
     text-align: center;
     height: 4vh;

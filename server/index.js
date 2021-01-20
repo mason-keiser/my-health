@@ -6,7 +6,11 @@ const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const sessionMiddleware = require('./session-middleware');
 
+
 const app = express();
+
+app.use(express.json({limit: '50mb'}));
+
 
 app.use(staticMiddleware);
 app.use(sessionMiddleware);

@@ -48,7 +48,7 @@ export default class Medication extends React.Component {
                 <h1 className="paintitle" onClick={() => this.props.setView('main',{})}>My Health ♡</h1>
                 <div className="backbuttons m-4">
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
-                    <h4 >Saved Meds</h4>
+                    <h4 onClick={() => this.props.setView('medications',{})}>Saved Meds</h4>
                 </div>
                 <form onSubmit={() => this.handleSubmit(this.props.postMed)}>
                     <div className='form-group2'>
