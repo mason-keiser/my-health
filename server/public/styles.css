@@ -905,6 +905,10 @@ form {
         margin-left: 10rem;
        
     }
+    
+    .card2 {
+        height: fit-content;
+    }
     .lefT {
        
         max-height: 35px;
