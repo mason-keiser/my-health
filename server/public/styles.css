@@ -744,6 +744,13 @@ form {
     margin-left: 1rem;
 }
 
+@media screen and (max-width: 450px) {
+.label {
+  
+    height: 9vh;
+}
+}
+
 @media screen and (min-width: 430px) {
     .cit{
         margin: 0;
@@ -770,6 +777,7 @@ form {
 
     .label{
         width: 20%;
+        height: 6vh;
     }
 
     .medImg{
@@ -895,6 +903,39 @@ form {
     .title5 {
         margin-left: 10rem;
        
+    }
+    .form-group >input{
+        height: 9vh;
+    }
+    .loginButton >button {
+        height: 9vh;
+    }
+    .signupButton >button {
+        height: 9vh;
+    }
+    .mainB > button {
+        height: 9vh;
+    }
+   
+    .startButton > button {
+        height: 9vh;
+    }
+  
+    .painButton > button {
+        height: 9vh;
+    }
+    .journalButton > button {
+        height: 9vh
+    }
+
+    .form-group2 > input {
+        height: 9vh;
+    }
+    .label {
+        vertical-align: middle;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
