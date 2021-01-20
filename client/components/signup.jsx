@@ -30,7 +30,7 @@ handleSubmit(callback) {
         document.getElementById('email').style.borderColor = 'red'
         req.textContent = '* red fields are required for checkout'
         req.style.color = 'red'
-    } if (obj.passsword === '') {
+    } if (obj.password === '') {
         document.getElementById('password').style.borderColor = 'red'
         req.textContent = '* red fields are required for checkout'
         req.style.color = 'red'

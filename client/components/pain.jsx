@@ -36,6 +36,7 @@ export default class Pain extends React.Component {
     } 
 
     handleSubmit(callback) {
+        event.preventDefault();
         const obj = {
             user_id: this.state.userid,
             date_id: this.state.date,
@@ -43,7 +44,30 @@ export default class Pain extends React.Component {
             mood_level: this.state.moodLevel,
             pain_note: this.state.painNote
         }
-        callback(obj)
+        const req = document.getElementById('required')
+        if (obj.pain_level === null) {
+            const painBtns = document.getElementById('painButtons').getElementsByTagName('button')
+            for (let i = 0; i < painBtns.length; i++) {
+                painBtns[i].style.border = '2px solid red'
+                painBtns[i].style.borderColor = 'red'
+            }
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.mood_level === null) {
+            const moodBtns = document.getElementById('painButtons2').getElementsByTagName('button')
+            for (let i = 0; i < moodBtns.length; i++) {
+                moodBtns[i].style.border = '2px solid red'
+                moodBtns[i].style.borderColor = 'red'
+            }
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.pain_note === '') {
+            document.getElementById('note').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        }else {
+          callback(obj);
+        }
     }
 
     handleChange(event) {
@@ -121,6 +145,7 @@ export default class Pain extends React.Component {
                 <div className='painNote'>
                     <h4 className='title5'>Add Note:</h4>
                     <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleNote}/>
+                    <div id="required" className="required"></div>
                     <div className='painButton mb-5'>
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postPain)}>Submit</button>
                     </div>

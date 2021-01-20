@@ -39,8 +39,26 @@ export default class Treatment extends React.Component {
             p_therapy: this.state.p_therapy,
             ch_therapy: this.state.ch_therapy
         };
-        callback(obj);
-        
+        const req = document.getElementById('required')
+        if (obj.meds === '') {
+            document.getElementById('meds').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.mb_therapy === '') {
+            document.getElementById('mb_therapy').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.p_therapy === '') {
+            document.getElementById('p_therapy').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.ch_therapy === '') {
+            document.getElementById('ch_therapy').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        }else {
+          callback(obj);
+        }
     }
     
     handleChange(event) {
@@ -85,6 +103,7 @@ export default class Treatment extends React.Component {
                         <h5 className='mb-0'>Cold/Heat Therapy: </h5>
                         <input type="text" placeholder='Type Here' name='ch_therapy' className="" id='ch_therapy' onChange={this.handleChange}/>
                     </div>
+                    <div id="required" className="required"></div>
                     <div className='signupButton mb-5'>
                          <button type='submit' className='btn mt-5'>Submit</button>
                     </div>

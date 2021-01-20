@@ -31,13 +31,25 @@ export default class Activity extends React.Component {
     }
 
     handleSubmit(callback) {
+        event.preventDefault();
         const obj = {
             user_id: this.state.user_id,
             date_id: this.state.date_id,
             activity_name: this.state.activity_name,
             activity_description: this.state.activity_description
         }
-        callback(obj)
+        const req = document.getElementById('required')
+        if (obj.activity_name === '') {
+            document.getElementById('activity_name').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.activity_description=== '') {
+            document.getElementById('activity_description').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } else {
+          callback(obj);
+        }
     }
 
     handleActivity(event) {
@@ -66,6 +78,7 @@ export default class Activity extends React.Component {
                     </div>
                     <h5 className='title5'>Description:</h5>
                     <textarea placeholder='type here' onChange={this.handleActivity} id ='activity_description' type="text"/>
+                    <div id="required" className="required"></div>
                     <div className='painButton mb-5'>
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postActivity)}>Submit</button>
 
@@ -74,7 +87,7 @@ export default class Activity extends React.Component {
                 </div>
                     
                 <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
-
+            
             </div>
         )
     }

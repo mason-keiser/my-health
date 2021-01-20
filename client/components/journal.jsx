@@ -34,7 +34,14 @@ export default class Journal extends React.Component {
             date_id: this.state.date_id,
             journal: this.state.journal
         }
-        callback(obj)
+        const req = document.getElementById('required')
+        if (obj.journal === '') {
+            document.getElementById('note').style.borderColor = 'red'
+            req.textContent = '* journal entry must not be empty to be submitted'
+            req.style.color = 'red'
+        }else {
+          callback(obj);
+        }
     }
 
     handleJournal(event) {
@@ -56,6 +63,7 @@ export default class Journal extends React.Component {
                 <div className='journalNote mt-5'>
                     <h4 className='title5'>Add Journal:</h4>
                     <textarea placeholder='Type Here' id='note'type="text" onChange={this.handleJournal}/>
+                    <div id="required" className="required"></div>
                     <div className='painButton mb-5'>
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postJournal)}>Submit</button>
                     </div>

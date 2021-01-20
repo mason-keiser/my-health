@@ -328,6 +328,7 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     resize: none;
+    hyphens: auto;
 }
 
 .journalNote {
@@ -349,6 +350,7 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     resize: none;
+    hyphens: auto;
 }
 
 .journalNote > textarea:hover {
@@ -372,6 +374,7 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     resize: none;
+    hyphens: auto;
 }
 
 .journalNote3 {
@@ -392,6 +395,7 @@ body {
     word-wrap: break-word;
     word-break: break-all;
     resize: none;
+    hyphens: auto;
 }
 
 .journalNote3 > textarea:hover {

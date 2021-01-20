@@ -19,13 +19,32 @@ export default class Medication extends React.Component {
     }
 
     handleSubmit(callback) {
+        event.preventDefault()
         const obj = {
             user_id: this.props.user.user_id,
             med_name: this.state.med_name,
             med_instructions: this.state.med_instructions,
             med_image: this.state.previewSource
         }
-        callback(obj)
+        const req = document.getElementById('required')
+        if (obj.id === null) {
+            req.textContent = 'server side error'
+            req.style.color = 'red'
+        } if (obj.med_name === '') {
+            document.getElementById('med_name').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.med_instructions === '') {
+            document.getElementById('med_instructions').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.med_image === null) {
+            document.getElementById('label').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        }else {
+          callback(obj);
+        }
     }
 
     handleChange(event) {
@@ -67,16 +86,17 @@ export default class Medication extends React.Component {
                     <div className='form-group2'>
                         <h5 className='mb-0'>Medication Image: </h5>
                         <input type="file" placeholder='Type Here' name='img' accept='images/*;capture=camera' className="" id='med_img' onChange={this.handleFile}/>
-                        <div className="label mb-3">
+                        <div className="label mb-3" >
                             <label htmlFor="med_img" className="image_upload">Add Image</label>
                         </div>
-                        <div className="previewImg">
+                        <div className="previewImg" id='label'>
                             {this.state.previewSource !== null ? (
-                                <img src={this.state.previewSource} alt="chosen"/>
+                                <img src={this.state.previewSource} id='label' alt="chosen"/>
                                 ) : null
                             }
                         </div>
                     </div>
+                    <div id="required" className="required"></div>
                     <div className='signupButton mb-5'>
                          <button type='submit' className='btn mt-5'>Submit</button>
                     </div>

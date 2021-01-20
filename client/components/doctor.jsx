@@ -36,8 +36,37 @@ export default class Doctor extends React.Component {
             phone_number: this.state.phone_number,
             note: this.state.note
         };
-        callback(obj);
-        
+        const req = document.getElementById('required')
+        if (obj.doctor_name === '') {
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.street_address === '') {
+            document.getElementById('street_address').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.state === '') {
+            document.getElementById('state').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.city === '') {
+            document.getElementById('city').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.zip_code === '') {
+            document.getElementById('zip_code').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.phone_number === '') {
+            document.getElementById('phone_number').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } if (obj.note === '') {
+            document.getElementById('note').style.borderColor = 'red'
+            req.textContent = '* red fields are required for submission'
+            req.style.color = 'red'
+        } else {
+          callback(obj);
+        }
     }
     
     handleChange(event) {
@@ -146,6 +175,7 @@ export default class Doctor extends React.Component {
                         <h5 className='mb-0'>Note: </h5>
                         <textarea placeholder='type here' onChange={this.handleChange} id ='note' type="text"/>
                     </div>
+                    <div id="required" className="required"></div>
                     <div className='signupButton mb-5'>
                          <button type='submit' className='btn mt-5'>Submit</button>
                     </div>

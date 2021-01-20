@@ -131,7 +131,7 @@ export default class App extends React.Component {
     })
     .then(response => {
       if (response.status === 400 || response.status === 404) {
-        console.log('failed post');
+        return null
       } else {
         return response.json();
       }
@@ -147,7 +147,7 @@ export default class App extends React.Component {
     })
     .then(response => {
       if (response.status === 400 || response.status === 404) {
-        console.log('failed post');
+        return null
       } else {
         return response.json();
       }
@@ -164,7 +164,7 @@ export default class App extends React.Component {
     })
     .then(response => {
       if (response.status === 400 || response.status === 404) {
-        console.log('failed post');
+        return null
       } else {
         return response.json();
       }
@@ -180,7 +180,7 @@ export default class App extends React.Component {
     })
     .then(response => {
       if (response.status === 400 || response.status === 404) {
-        console.log('failed post');
+        return null
       } else {
         return response.json();
       }
@@ -221,12 +221,16 @@ export default class App extends React.Component {
     })
     .then(response => {
       if (response.status === 400 || response.status === 404) {
-        console.log('failed post');
+        return null
       } else {
         return response.json();
       }
-    })
-   this.setView('main')
+    }).then(result => {
+      if (!result) {
+        this.setView('medication', {})
+      } else {
+        this.setView('medications', {})
+    }})
   }
 
   render() {
