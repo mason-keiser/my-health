@@ -946,7 +946,7 @@ form {
 
     .lefT {
         overflow-y: hidden;
-        max-height: 55px;
+        max-height: 45px;
     }
 
     .medImg{
@@ -970,6 +970,7 @@ form {
     .lefT {
         text-align: left;
         margin-left: 1rem;
+        max-height: 40px;
     }
 
     .signupButton > button {
@@ -1011,6 +1012,8 @@ form {
 
     .card2 {
         height: 55vh;
+        width: 70%;
+        margin: auto;
     }
 
     .card-body >h3 {
@@ -1030,7 +1033,12 @@ form {
     .title5 {
         margin-left: 2rem;
     }
+
+    .initContainer> h1 {
+        font-size: 40px; 
+    }
 }
+
 
 @media screen and (max-width: 340px) {
     .initContainer> h1 {
@@ -1049,7 +1057,7 @@ form {
         margin: 1rem;
     }
     .journalButton > button{
-        height: 10vh;
+        height: 12vh;
     }
     .loginButton > button {
         height: 10vh
