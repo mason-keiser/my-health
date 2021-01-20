@@ -12,7 +12,7 @@ export default function Medication_Card(props) {
                 med_image: props.med.med_image
                 })}>
                 <div className="card-body">
-                    <h1 className="lefT card-title">{props.med.med_name}</h1>
+                    <h2 className="lefT card-title">{props.med.med_name}</h2>
                     <div className="medImg  ">
                         <img src={props.med.med_image} alt=""/> 
                     </div>
