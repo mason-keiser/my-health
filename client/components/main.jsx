@@ -41,6 +41,8 @@ export default class Main extends React.Component {
                     <button onClick={() => this.props.setView('treatment',{})} type='submit' className='btn'>My Treatment</button>  
                     <button onClick={() => this.props.setView('journal_history',{})} type='submit' className='btn'>Journal</button>  
                 </div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>
         )
     }

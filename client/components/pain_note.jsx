@@ -1,5 +1,10 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 const colorObj = {
     1: '#08DB37', 2: '#98F877', 3: '#DBFF00', 4: '#F8FD00',
@@ -81,6 +86,7 @@ export default class Pain_Note extends React.Component {
                     <textarea style={{color: '#F36B6B'}} value= {this.props.view.params.pain_note} readOnly id='note'type="text"/>
                 </div>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.note_id)}>Click here to delete pain note</div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

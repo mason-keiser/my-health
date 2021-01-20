@@ -1,5 +1,10 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 function dateBuilder(d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -55,6 +60,8 @@ export default class Journal extends React.Component {
                         <button type='submit' className='btn' onClick={() => this.handleSubmit(this.props.postJournal)}>Submit</button>
                     </div>
                 </div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>
         )
     }

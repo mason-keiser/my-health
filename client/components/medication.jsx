@@ -1,5 +1,10 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 export default class Medication extends React.Component {
     constructor(props) {
@@ -76,7 +81,7 @@ export default class Medication extends React.Component {
                          <button type='submit' className='btn mt-5'>Submit</button>
                     </div>
                 </form>
-               
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

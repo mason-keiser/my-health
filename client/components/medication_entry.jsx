@@ -1,5 +1,10 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 export default class Medication_Entry extends React.Component {
     constructor(props) {
@@ -52,7 +57,7 @@ export default class Medication_Entry extends React.Component {
                     </div>
                     <div className='guest2 mb-5 mt-4' onClick={() => this.deleteId(this.props.view.params.med_id)}>Click here to delete Medication</div>       
                 </form>
-               
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

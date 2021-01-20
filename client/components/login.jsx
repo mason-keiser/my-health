@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 export default class Login extends React.Component {
     constructor (props) {
@@ -60,6 +65,8 @@ export default class Login extends React.Component {
                 <h4 className='needacc' onClick={() => this.props.setView('signup', {})}>Need an account? Click here..</h4>
                 <h5 className='or mt-3'>or</h5>
                 <h4 className='guest mt-4' onClick={() => this.props.setView('main', {}, this.props.loginAsGuest())}>Enter as Guest</h4>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>
         )
     }

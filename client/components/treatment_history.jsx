@@ -1,6 +1,11 @@
 import React from 'react';
 import Treatment_Card from './treatment_card';
 import Main_Page_Header from './main_page_header';
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 export default class Treatment_History extends React.Component {
     constructor(props) {
@@ -61,6 +66,8 @@ export default class Treatment_History extends React.Component {
                     <button type='submit' className='btn' onClick={() => this.props.setView('treatment', {})}>Add to History</button>
                 </div>
                 <div className='mb-2'>{items}</div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>    
         )
     }

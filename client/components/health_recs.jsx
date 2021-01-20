@@ -1,6 +1,11 @@
 import React from 'react';
 import Main_Page_Header from './main_page_header';
 import { NextArrow, BackArrow, Rec } from './health_recs_fx';
+import {
+  Link,
+  animateScroll as scroll
+} from 'react-scroll';
+
 
 export default class Health_Recs extends React.Component {
     constructor(props) {
@@ -143,6 +148,8 @@ export default class Health_Recs extends React.Component {
                     </div>
                     <NextArrow className='col-1 ar' goToNextRec={() => this.goToNextRec()}/>
                 </div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>
         )
     }

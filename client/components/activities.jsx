@@ -5,6 +5,11 @@ import {
     Row,
     Col
   } from 'reactstrap';
+  import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 
 export default class Activities extends React.Component{
@@ -71,6 +76,7 @@ export default class Activities extends React.Component{
                 <Row className='row-cols-lg-2'>
                    {items}
                 </Row>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

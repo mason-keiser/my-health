@@ -5,6 +5,10 @@ import {
     Row,
     Col
   } from 'reactstrap';
+  import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
 
 
 
@@ -72,6 +76,7 @@ export default class Pain_History extends React.Component {
                 <Row className="row-cols-md-2">
                     {list}
                 </Row>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

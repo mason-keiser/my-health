@@ -5,6 +5,10 @@ import {
     Row,
     Col
   } from 'reactstrap';
+  import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
 
 export default class Doctors extends React.Component{
     constructor(props) {
@@ -73,6 +77,7 @@ export default class Doctors extends React.Component{
                 <Row className='row-cols-lg-4'>
                  {items}
                 </Row>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

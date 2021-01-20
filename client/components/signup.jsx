@@ -87,6 +87,7 @@ handleChange(event) {
                     </div>
                     <h4 className="statement">My Health™ is a web application designed to help its users track and maintain a detailed log of their medical history. As well as keep track of any symptoms or pain they are experiencing day to day.</h4>
                 </form>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
             </div>
         )
     }

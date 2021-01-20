@@ -1,5 +1,10 @@
 import React from 'react'
 import Main_Page_Header from './main_page_header'
+import {
+    Link,
+    animateScroll as scroll
+  } from 'react-scroll';
+
 
 const obj = {
     'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', "AR": 'Arkansas', 'CA': 'California',
@@ -77,6 +82,8 @@ export default class Doctor_Entry extends React.Component {
                     </div>
                 </form>
                 <div className='guest2 mb-5' onClick={() => this.deleteId(this.props.view.params.doctor_id)}>Click here to delete Doctor</div>
+                <div className='top' onClick = {() => scroll.scrollToTop()}>▲</div>
+
             </div>
         )
     }
