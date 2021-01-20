@@ -50,7 +50,7 @@ export default class Medication_Entry extends React.Component {
                             }
                         </div>
                     </div>
-                    <div className='guest2 mb-5 mt-4' onClick={() => this.deleteId(this.props.view.params.med_id)}>Click here to delete Activity</div>       
+                    <div className='guest2 mb-5 mt-4' onClick={() => this.deleteId(this.props.view.params.med_id)}>Click here to delete Medication</div>       
                 </form>
                
             </div>
