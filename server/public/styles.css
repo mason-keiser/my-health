@@ -1006,7 +1006,24 @@ form {
     .cit{
         margin: 1rem;
     }
-    
+    .journalButton > button{
+        height: 10vh;
+    }
+    .loginButton > button {
+        height: 10vh
+    }
+    .startButton > button {
+        height: 10vh;
+    }
+    .mainB > button {
+        height: 10vh;
+    }
+    .painButton > button {
+        height: 10vh;
+    }
+    .signupButton > button {
+        height: 10vh
+    }
 }
 
 .btn1, .btn9{
