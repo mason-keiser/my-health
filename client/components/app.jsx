@@ -47,6 +47,7 @@ export default class App extends React.Component {
   this.postTx = this.postTx.bind(this);
   this.postActivity = this.postActivity.bind(this);
   this.postDoctor = this.postDoctor.bind(this);
+  this.postMed = this.postMed.bind(this); 
 }
 
   componentDidMount() {
@@ -210,6 +211,22 @@ export default class App extends React.Component {
    this.setView('treatment_history')
   }
 
+  postMed(medInfo) {
+    fetch('/api/med', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(medInfo)
+    })
+    .then(response => {
+      if (response.status === 400 || response.status === 404) {
+        console.log('failed post');
+      } else {
+        return response.json();
+      }
+    })
+   this.setView('main')
+  }
+
   render() {
     const s = (this.state.view.name === 'init')
       ? <Initial setView={this.setView}/>
@@ -254,7 +271,7 @@ export default class App extends React.Component {
                                             : (this.state.view.name === 'doctor_entry')
                                               ? <Doctor_Entry view = {this.state.view} setView={this.setView}/>
                                               : (this.state.view.name === 'medication')
-                                                ? <Medication setView={this.setView} user={this.state.user}/>
+                                                ? <Medication setView={this.setView} postMed={this.postMed} user={this.state.user}/>
                                                 : null
     return (
       <div>

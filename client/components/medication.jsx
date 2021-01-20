@@ -13,6 +13,16 @@ export default class Medication extends React.Component {
         this.handleFile = this.handleFile.bind(this);
     }
 
+    handleSubmit(callback) {
+        const obj = {
+            user_id: this.props.user.user_id,
+            med_name: this.state.med_name,
+            med_instructions: this.state.med_instructions,
+            med_image: this.state.previewSource
+        }
+        callback(obj)
+    }
+
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value
@@ -40,7 +50,7 @@ export default class Medication extends React.Component {
                     <h4 onClick={() => this.props.setView('main',{})}>Go Home</h4>
                     <h4 >Saved Meds</h4>
                 </div>
-                <form>
+                <form onSubmit={() => this.handleSubmit(this.props.postMed)}>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Medication Name: </h5>
                         <input type="text" placeholder='Type Here' name='medication_name' className="" id='med_name' onChange={this.handleChange}/>
