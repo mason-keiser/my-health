@@ -4,6 +4,22 @@ import Main_Page_Header from './main_page_header'
 export default class Medication_Entry extends React.Component {
     constructor(props) {
         super(props);
+        this.deleteId = this.deleteId.bind(this);
+    }
+
+    deleteId(id) {
+        fetch('/api/deleteMed', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            med_id: id
+          })
+        })
+        .then(response => {
+          return response.json();
+        }).then(result => {
+            this.props.setView('medications',{})
+        })
     }
 
     render() {
@@ -34,7 +50,7 @@ export default class Medication_Entry extends React.Component {
                             }
                         </div>
                     </div>
-                
+                    <div className='guest2 mb-5 mt-4' onClick={() => this.deleteId(this.props.view.params.med_id)}>Click here to delete Activity</div>       
                 </form>
                
             </div>

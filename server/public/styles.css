@@ -507,8 +507,9 @@ form {
 .previewImg > img {
     display: block;
     margin: auto;
-    height: 30vh;
+    height: -webkit-fill-available;
     width: -webkit-fill-available;
+    object-fit: cover;
 }
 
 .loginButton > button {
