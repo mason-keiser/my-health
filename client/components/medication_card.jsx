@@ -3,7 +3,7 @@ import React from 'react';
 export default function Medication_Card(props) {
     return (
         <div>
-            <div className="card border-0" 
+            <div className="card card2 border-0" 
                 onClick={() => props.setView('main',{
                 med_id: props.med.med_id,
                 user_id: props.med.user_id,
@@ -12,11 +12,11 @@ export default function Medication_Card(props) {
                 med_image: props.med.med_image
                 })}>
                 <div className="card-body">
-                    <h1 className="card-title">{props.med.med_name}</h1>
+                    <h1 className="lefT card-title">{props.med.med_name}</h1>
                     <div className="medImg  ">
                         <img src={props.med.med_image} alt=""/> 
                     </div>
-                    <h3 className='ml-3 pl-3'>{props.med.med_instructions}</h3>
+                    <h6 className='lef ml-3 pl-3'>{props.med.med_instructions}</h6>
                 </div>
             </div>
         </div>

@@ -692,6 +692,16 @@ form {
 
 .medImg{
     float: right;
+    display: inline;
+    width: 30%;
+}
+.medImg > img {
+    float: right;
+    object-fit: cover;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 7vh;
 }
 
 .label {
@@ -724,18 +734,57 @@ form {
     border: 2px solid #F36B6B;
 }
 
+.lef{
+    text-align: left;
+}
+
+.lefT {
+    text-align: left;
+    margin-left: 1rem;
+}
+
 @media screen and (min-width: 430px) {
     .cit{
         margin: 0;
+    }
+    .lef {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .lefT {
+        margin: auto;
+        text-align: center;
+    }
+
+    .card2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        width: 40vw;
+        height: 50vh;
     }
 
     .label{
         width: 20%;
     }
 
-.previewImg{
-    width: 45%;
-}
+    .medImg{
+        float: none;
+    
+        width: 100%;
+    }
+    .medImg > img {
+        float: none;
+        height: 20vh;
+        width: 50%;
+    }
+
+    .previewImg{
+        width: 45%;
+    }
 
     .form-group3 > input {
         margin-bottom: 0;
@@ -834,6 +883,11 @@ form {
     .painhisButtons {
         display: inline;
     }
+
+    .lefT {
+        overflow-y: hidden;
+        max-height: 55px;
+    }
 }
 
 @media screen and (min-width: 1300px){
@@ -846,6 +900,34 @@ form {
 @media screen and (orientation: landscape) and (max-height: 450px) {
     .loginButton > button {
         height: 15vh
+    }
+
+    .lefT {
+        overflow-y: hidden;
+        max-height: 55px;
+    }
+
+    .medImg{
+        float: right;
+        display: inline;
+        width: 30%;
+    }
+    .medImg > img {
+        float: right;
+        object-fit: cover;
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 5px;
+        height: 7vh;
+    }
+
+    .lef{
+        text-align: left;
+    }
+    
+    .lefT {
+        text-align: left;
+        margin-left: 1rem;
     }
 
     .signupButton > button {
@@ -883,6 +965,10 @@ form {
 
     .card{
         height: 40vh;
+    }
+
+    .card2 {
+        height: 55vh;
     }
 
     .card-body >h3 {
