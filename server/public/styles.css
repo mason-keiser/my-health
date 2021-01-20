@@ -695,6 +695,7 @@ form {
     float: right;
     display: inline;
     width: 30%;
+    padding-right: 20px;
 }
 .medImg > img {
     float: right;
@@ -947,6 +948,7 @@ form {
     .lefT {
         overflow-y: hidden;
         max-height: 45px;
+        width: 85%;
     }
 
     .medImg{
@@ -971,6 +973,8 @@ form {
         text-align: left;
         margin-left: 1rem;
         max-height: 40px;
+        width: 100%;
+        margin: auto;
     }
 
     .signupButton > button {
@@ -1051,6 +1055,10 @@ form {
 
     .form-group3 > h5 {
         margin: 1rem;
+    }
+
+    .lefT {
+        width: 85%;
     }
 
     .cit{
