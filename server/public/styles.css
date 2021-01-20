@@ -1034,11 +1034,11 @@ form {
 }
 
     .form-group > input {
-        height: 10vh;
+        height: 12vh;
     }
 
     .form-group2 > input {
-        height: 10vh;
+        height: 12vh;
     }
     .painNote > input {
         height: 30vh;
@@ -1074,6 +1074,9 @@ form {
 
     .journalNote > textarea {
         height: 40vh;
+    }
+    .label{
+        height: 12vh;
     }
 
     .journalButton > button{
