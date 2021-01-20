@@ -61,7 +61,7 @@ export default class Medication extends React.Component {
                     </div>
                     <div className='form-group2'>
                         <h5 className='mb-0'>Medication Image: </h5>
-                        <input type="file" placeholder='Type Here' name='img' accept='images/*' className="" id='med_img' onChange={this.handleFile}/>
+                        <input type="file" placeholder='Type Here' name='img' accept='images/*;capture=camera' className="" id='med_img' onChange={this.handleFile}/>
                         <div className="label mb-3">
                             <label htmlFor="med_img" className="image_upload">Add Image</label>
                         </div>
