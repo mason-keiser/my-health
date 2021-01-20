@@ -70,7 +70,7 @@ export default class Doctors extends React.Component{
                 <div className='journalButton mb-3'>
                     <button type='submit' className='btn' onClick={() => this.props.setView('doctor', {})}>Add New Doctor</button>
                 </div>
-                <Row className='row-cols-lg-2'>
+                <Row className='row-cols-lg-4'>
                  {items}
                 </Row>
             </div>
