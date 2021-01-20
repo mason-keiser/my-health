@@ -945,11 +945,7 @@ form {
         height: 15vh
     }
 
-    .card2{
-      
-        width: 60vw;
-        
-    }
+    
 
     .lefT {
         overflow-y: hidden;
@@ -1022,7 +1018,7 @@ form {
 
     .card2 {
         height: 55vh;
-        width: 70%;
+
         margin: auto;
     }
 
